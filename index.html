@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real-World Cough Monitoring Accuracy for Clinical Trials | Hyfe AI</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Hyfe delivers clinically validated cough monitoring accuracy in real-world conditions. Continuous AI-powered cough detection for clinical trials and respiratory research." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hyfe AI" />
+  <link rel="canonical" href="https://www.hyfe.com/validation" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Real-World Cough Monitoring Accuracy for Clinical Trials | Hyfe AI" />
+  <meta property="og:description" content="Hyfe delivers clinically validated cough monitoring accuracy in real-world conditions. Continuous AI-powered cough detection for clinical trials and respiratory research." />
+  <meta property="og:site_name" content="Hyfe AI" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Real-World Cough Monitoring Accuracy for Clinical Trials | Hyfe AI" />
+  <meta name="twitter:description" content="Hyfe delivers clinically validated cough monitoring accuracy in real-world conditions. Continuous AI-powered cough detection for clinical trials and respiratory research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://www.hyfe.com/validation#webpage",
+        "url": "https://www.hyfe.com/validation",
+        "name": "Real-World Cough Monitoring Accuracy for Clinical Trials | Hyfe AI",
+        "description": "Hyfe delivers clinically validated cough monitoring accuracy in real-world conditions. Continuous AI-powered cough detection for clinical trials and respiratory research.",
+        "inLanguage": "en-US",
+        "isPartOf": { "@id": "https://www.hyfe.com/#website" },
+        "breadcrumb": { "@id": "https://www.hyfe.com/validation#breadcrumb" },
+        "about": { "@id": "https://www.hyfe.com/publication/validation-and-accuracy-of-the-hyfe-cough-monitoring-system-a-multicenter-clinical-study#article" },
+        "publisher": { "@id": "https://www.hyfe.com/#organization" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.hyfe.com/validation#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Hyfe", "item": "https://www.hyfe.com" },
+          { "@type": "ListItem", "position": 2, "name": "Validation", "item": "https://www.hyfe.com/validation" }
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://www.hyfe.com/#organization",
+        "name": "Hyfe AI",
+        "url": "https://www.hyfe.com",
+        "description": "AI-powered continuous cough monitoring for clinical trials and respiratory health research.",
+        "sameAs": ["https://www.hyfe.com"]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://www.hyfe.com/publication/validation-and-accuracy-of-the-hyfe-cough-monitoring-system-a-multicenter-clinical-study#article",
+        "name": "Validation and Accuracy of the Hyfe Cough Monitoring System: A Multicenter Clinical Study",
+        "url": "https://www.hyfe.com/publication/validation-and-accuracy-of-the-hyfe-cough-monitoring-system-a-multicenter-clinical-study",
+        "publisher": { "@id": "https://www.hyfe.com/#organization" }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #09090f;
+      --bg-card:     #0f0f1a;
+      --bg-raised:   #131326;
+      --border:      rgba(255,255,255,0.07);
+      --border-med:  rgba(255,255,255,0.13);
+      --accent:      #00d9a6;
+      --accent-dim:  rgba(0,217,166,0.15);
+      --accent-glow: rgba(0,217,166,0.3);
+      --text-primary:   #f0eff8;
+      --text-secondary: #8f8fa8;
+      --text-muted:     #55556a;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-mono:  'DM Mono', 'Courier New', monospace;
+      --font-sans:  'Syne', sans-serif;
+      --max-w: 1100px;
+      --section-gap: 120px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── Scrollbar ────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 2px; }
+
+    /* ─── Utilities ────────────────────────────────────── */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.82em;
+      letter-spacing: 0.04em;
+    }
+
+    .accent { color: var(--accent); }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(0,217,166,0.25);
+      padding: 4px 12px;
+      border-radius: 2px;
+    }
+
+    /* ─── Navigation ───────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(9,9,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo-mark {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-mark img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .nav-logo-text {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ─── Hero ─────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      padding: 180px 0 120px;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,217,166,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(0,100,200,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* Grid lines decoration */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 60% 30%, black 30%, transparent 80%);
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 780px;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.1s forwards;
+    }
+
+    .hero-eyebrow-line {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.2s forwards;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-subhead {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.35s forwards;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.5s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: #09090f;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 3px;
+      border: none;
+      cursor: pointer;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 0 28px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s;
+    }
+
+    .btn-primary:hover svg { transform: translateX(3px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 14px 0;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--accent); }
+
+    .btn-ghost svg {
+      width: 12px;
+      height: 12px;
+      opacity: 0.6;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn-ghost:hover svg { transform: translate(2px, -2px); opacity: 1; }
+
+    .hero-stat-row {
+      display: flex;
+      gap: 40px;
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.65s forwards;
+    }
+
+    .hero-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .hero-stat-value {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ─── Section Anatomy ──────────────────────────────── */
+    section {
+      padding: var(--section-gap) 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+      margin-bottom: 60px;
+    }
+
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding-top: 6px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-number::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    .section-body p + p { margin-top: 16px; }
+
+    /* ─── Placeholder Container ────────────────────────── */
+    .viz-placeholder {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .viz-placeholder-inner {
+      padding: 80px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      min-height: 320px;
+      text-align: center;
+    }
+
+    .viz-placeholder-icon {
+      width: 52px;
+      height: 52px;
+      border: 1px solid var(--border-med);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .viz-placeholder-title {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+    }
+
+    .viz-placeholder-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .viz-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    /* Animated pulse border for placeholders */
+    .viz-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      animation: pulseBorder 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseBorder {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 0.15; }
+    }
+
+    /* ─── Toggle Mockup ────────────────────────────────── */
+    .toggle-mockup {
+      display: inline-flex;
+      background: var(--bg-raised);
+      border: 1px solid var(--border-med);
+      border-radius: 4px;
+      padding: 4px;
+      gap: 2px;
+      margin-bottom: 8px;
+    }
+
+    .toggle-btn {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.06em;
+      padding: 8px 16px;
+      border-radius: 2px;
+      border: none;
+      cursor: default;
+      transition: all 0.2s;
+    }
+
+    .toggle-btn.active {
+      background: var(--accent);
+      color: #09090f;
+    }
+
+    .toggle-btn:not(.active) {
+      background: transparent;
+      color: var(--text-muted);
+    }
+
+    /* ─── Metric Cards ─────────────────────────────────── */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .metric-card {
+      background: var(--bg-raised);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 20px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent);
+      opacity: 0.4;
+    }
+
+    .metric-card-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .metric-card-value {
+      font-family: var(--font-serif);
+      font-size: 1.9rem;
+      color: var(--text-primary);
+      line-height: 1;
+    }
+
+    .metric-card-sub {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* ─── Info Block ───────────────────────────────────── */
+    .info-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 24px 28px;
+      margin-top: 32px;
+    }
+
+    .info-block p {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .info-block p + p { margin-top: 10px; }
+
+    /* ─── Section 1 ────────────────────────────────────── */
+    .s1-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* ─── Section 2 ────────────────────────────────────── */
+    .principle-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .principle-callout {
+      background: var(--bg-card);
+      border: 1px solid var(--border-med);
+      border-radius: 8px;
+      padding: 36px 32px;
+    }
+
+    .principle-question {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .principle-compare {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .compare-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .compare-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      width: 80px;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    .compare-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    .compare-chip {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .chip-warning { background: rgba(255,180,0,0.1); color: #f5c842; border: 1px solid rgba(255,180,0,0.2); }
+    .chip-good    { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,217,166,0.2); }
+
+    /* ─── Section 5 – Event Table ──────────────────────── */
+    .event-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 32px;
+    }
+
+    .event-table th {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: left;
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border-med);
+      background: var(--bg-raised);
+    }
+
+    .event-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .event-table tr:last-child td { border-bottom: none; }
+
+    .event-table .metric-name {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .event-table .metric-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ─── Section 6 – Methodology ──────────────────────── */
+    .method-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .method-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px 22px;
+      position: relative;
+    }
+
+    .method-step-num {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .method-step-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .method-step-body {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* Details/Summary */
+    details {
+      margin-top: 32px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 18px 24px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-raised);
+      transition: background 0.2s;
+    }
+
+    summary:hover { background: var(--bg-card); }
+
+    summary::after {
+      content: '↓';
+      margin-left: auto;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after { transform: rotate(180deg); }
+
+    details .details-body {
+      padding: 28px 24px;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+    }
+
+    .details-body p {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .details-body ul {
+      margin-top: 16px;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .details-body li {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ─── Section 7 ────────────────────────────────────── */
+    .implications-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .implication-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .implication-card:hover {
+      border-color: rgba(0,217,166,0.3);
+      transform: translateY(-2px);
+    }
+
+    .implication-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .implication-card:hover::after { opacity: 1; }
+
+    .implication-icon {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    .implication-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .implication-body {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ─── Footer ───────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 48px 0;
+      margin-top: var(--section-gap);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+    }
+
+    .footer-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: right;
+      max-width: 400px;
+    }
+
+    /* ─── Animations ───────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Intersection observer reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── Responsive ───────────────────────────────────── */
+    @media (max-width: 768px) {
+      .section-header { grid-template-columns: 1fr; gap: 16px; }
+      .s1-layout, .principle-layout { grid-template-columns: 1fr; }
+      .hero-stat-row { flex-wrap: wrap; gap: 24px; }
+      .nav-links { display: none; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-note { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────── -->
+  <nav>
+    <div class="nav-inner">
+      <a class="nav-logo" href="#">
+        <div class="nav-logo-mark">
+          <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAQUBIADASIAAhEBAxEB/8QAHQABAAICAwEBAAAAAAAAAAAAAAgJBgcDBAUCAf/EAEQQAQABAwMCAwUEBQsDBQEBAQABAgMEBQYRByExUWEIEhNBcRQiYnIVMjWBsiMkNEJSY3N0kZKxNoKhM0N1orNTJdH/xAAcAQEAAgIDAQAAAAAAAAAAAAAABgcEBQECAwj/xABDEQEAAQIDAwkFBwQBAgUFAAAAAQIDBAURIUFxBhIiMVFhgaHBBxMyUtEjQpGxwuHwM0NEgqIUFRYXNHKSJFNi0uL/2gAMAwEAAhEDEQA/AIZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD1dsbc13c+oxp+gaVlajkz3mmzRzFEedVXhTHrMxDfGyPZfz8ii3k7w1yjCpmImrEwYi5cj0m5V92J+kVR6tRmee4DLI/+puRE9nXP4Rt9GTh8HexH9OnX8kchOvbnRHppolNM0bbs592PG5n1zfmr601fc/0phm2n6FomnUxTp+jadiRHaIsY1FHH+kIZifaVhKJ0s2aquMxH1bW3kNyfjriPP6K3hZhVRTVR7lVNM0+Ux2eTqm1ts6pRNGpbe0nMiY4n4+Hbr7fvhjW/abRM9PDTEd1Wv6Yek8n53XPL91com/uboF011qiqbWk3tJv1f8Au4F+aP8A6Ve9R/pS0zvz2aNzaXRdytr6hY1zHp5qixXEWciI8o5n3au3rEz8oSPL+XOU4yYpqqm3P/5bI/GNY/GYYN/KMTajWI1juaGHZ1PAztLzruDqWHkYeVani5Zv25orpn1ie8Osl9NUVRrE6w1kxpskAcuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG1+lfQzdm9PhZ+ZROiaNX3+05FH8pdj+7t9pn6zxHlM+DDx2YYbAWpu4muKae/0jrme6HrZsXL1XNtxrLV2Fi5Obl2sTDx7uRkXqoot2rVE1V11T4RER3mUgOlfs26jqHwtS31fr07Gn70afYqib9fl79XeKI9I5n8rfnTnpttPYeJ8PQ9Pj7VVTEXc2/Pv37n1q/qx6UxEejMFUZ57Qb9/W1l8cyn5p+KeG6POeCR4PJKKOle2z2bv3eXtnb2ibZ0ujTNB0zG0/FoiPuWaOJqnzqnxqn1nmXqAri5cruVTXXOsz1zPW3tNMUxpAA6OQAAAGN772Ntje2n/Y9xaZayfdji1fp+7etflrjvH08J+cSix1U9n7c214vajt+bmv6VRzVV8OjjIs0/ioj9bjzp+vEJliRZLynx+UTpaq1o+Werw7PDx1YWLy+ziY1qjSe2FZ0xMTMTExMdpiX4nP1T6MbS31F3Mmx+itYq5q+3YtMRNyr+8p8K/r2q7eKKXU3pXu3YWRNWqYX2nT5n+Tz8aJrsz5RVPHNFXpP7uVxZHyuwGbRFETzLnyz6Tv/PuRfF5Zew22dtPbHqwUBKWuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAeltvQdZ3HqdGmaFpuTqGXX3i3Zo54jzmfCmPWeIdK7lNuma650iN8uYiap0h5rLunXTnde/Mz4WhadVOPTPF3Mv8ANGPb+tfHefSOZ9G++lns2YGDNrUt95FOfkRxVTp2PXMWaf8AEr7TXPpHEdvGqJSCwMPE0/DtYWDi2cXGs0+7as2aIooojyiI7RCuc89oNjD62sBHPq+afhjhvnyji3uDySuvpXtkdm/9mrOlnQnamzvhZ+o0U65rFHFUX8iiPhWqv7u34fvnmfLhtoFUY7McTmF33uJrmqrv9I6o8Ejs2Ldmnm240gAYT1AAAAAAAAAAHHkWbORYrsZFq3es3KZprt10xVTVE+MTE+MOQcxOm2BoPqp7OOi6x8bUtmXbej51XNc4dfM41yfHin52+/lzT8oiEYt3bX1/aeq1aZuHTL+Bkx3iK4iaa486ao5iqPWJlYy8vc239F3NpVzS9e02xn4dzvNu7T4T50zHemfWJiU7yLl5jMDpaxX2lH/KOE7+E/jDT4zJ7V7pW+jPkrhEheqns3alp/xNS2Nfq1HF71VYF+qIv0fkq8K49J4n8zQGbi5WDl3MTNxr2NkWqvduWr1E0V0T5TE94lbuV5zg80t+8w1evbG+OMfyOxGcRhbuHq5tyNHCA2jHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH3YtXb96izYt13btyqKaKKKZmqqZ8IiI8ZbI6W9GN3b5qtZcWJ0rR6piZzsqiY9+n+7o7TX9e0eqVnTLpVtLYNii5pmFGTqXu8XNQyYiq9V5+78qI9KePXlEc85ZYDKtbdM+8ufLG7jO7htnubPB5XexHSnZT2z6NBdLPZy1vWfhalvK5c0XBmYqjEpiJybtPr8rf7+Z9ISd2ftTb+0dLp03b2l2MGxH600RzXcnzrqnvVP1l7Yp7OeUePzer7erSndTGyI+vGdUnwuBs4aOhG3t3gDQswAAAAAAAAAAAAAAAAAAYb1G6abS35izTrWn005cRxbzseIoyKPL73H3o9KomGZD3w2JvYW5F2zVNNUb42Oty3Tcp5tcawhD1U6Hbs2TF3PxqP01o1ETVOVjUT79qn+8t95p+scx5zDVazJqHqr0G2tu/wCNqGlU06FrFczVN6zRzZvT+O3zxHP9qnifPlaORe0OJ0tZlH+8R+cesfgj2MyT71ifCfSfqhWMr6h9Pd1bEzvs+v6bXRZqnizl2vv2Lv0r+U9v1Z4n0Yos/D4i1ibcXbNUVUz1TG2Eeroqt1c2qNJAHs6gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA7uiaTqWt6nZ03SMG/nZl6eLdmzRNVU/6fL1+SR/Sv2a6KYtanv8AyPeq4iqnTMa52j0uXI8fpT/uafNs9wWU0c7E16TuiNszwj1nZ3srDYO7iZ0tx47midhbE3RvjUPsm3tMuZFNNURdyK/u2LP5657R58RzM/KJSl6V+z9tna8WtQ3B8PX9ViIni7R/NrVX4aJ/WmPOr68Q25pOm6fpOBa0/S8LHwsS1HFuzYtxRRT9Ih21QZ5y4xuY627H2dvsjrnjPpHmk2Dyi1Y6VfSq8n5ERERERERHaIh+ghLbAAAAAAAAAAAAAAAAAAAAAAAAAAOvqODhalg3cHUMSxl4t6n3btm9biuiuPKYntKPPVT2bMbKm9qewsinFvTzXVpuTX/Jz6W6/Gn6Vcx6xCRw2uVZ1jcquc/DV6dsbp4x/JY+IwlrE06XI+qt3cGi6tt/VLmma1p+RgZlv9a1fommrj5THnE/KY7S89YpvTaG3N46XOnbi0uzm2v6lcxxctT50Vx3pn6T3+fMIvdVPZ21/b/xNR2nXc13To5qqse7EZNmPpH/AKketPf0+a38i5dYLMNLWJ+zud/wzwndwn8ZRjGZPds9K30o82jB9XKK7dyq3coqorpmaaqao4mJjxiYfKctQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAz/ph0k3dv25TewcT7FpfP38/Kpmm3Mc9/cjxrnx8O3nMMbF4yxg7U3b9cU0xvl6W7Vd2rm0RrLAaKaq64oopmqqqeIiI5mZbs6V+z1uPcnwtR3NVc0HS6oiqKKqYnKvU+lM/qfWrv4fdlIDpd0e2jsOm3k42N+kdWpjvn5VMTXTP4KfCiPp385lsVVmee0OuvW1l0aR809fhG7jP4QkWDySI6V+de76sd2NsrbWytM+wbd0y1i0z/wCrdn7127PnXXPefp4R8ohkQKzvXrl+ubl2qaqp65nbLfUUU0RzaY0gAeTsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA191P6RbR37RcyM3F+w6rMfd1DFiKbkzEcR78eFcdojv348JhFHqf0g3fsOuvIy8X9IaXHeM/Epqqt0x8viRxzRP17eUyne+blFFy3VbuUU10VRNNVNUcxMT4xMJXkfK/H5TpRrz7fyzu4Tu/Lua7F5ZZxO3qq7Y9VZ4mF1V9njb24fi6jtWq3oWpzzVNmKf5rdny92P/AE59ae34fmi5vfZ249mapOnbi027iXJ5m3X+tbux50VR2mP/ADHziFxZLylwGb06WatK99M7J/fw8UXxeAvYaelGzt3PAASBhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOxpuDm6lnWsHT8S/l5V6r3bVmzbmuuufKIjvLiqqKY1nqIjXZDrve2Xs/ce8dTjT9vaXfzLkTHxK4ji3aifnXXPamPr+7lvHpX7NeTkfC1Pf2RONa/WjTMevm5VH95cjtT9KeZ9YlJPb+i6Tt/TLWmaLp+PgYdqPu2rNHux9Z859Z7yr/POX2FwmtrBfaV9v3Y+vhs727weTXLvSu9GPP9mnOlfs67f0D4Wo7trt67qVP3ox+J+yWp/LPe5P5u3f9X5t42rdFq1TatUU0W6IimmmmOIpiPCIj5Q+hUmZZri8yu+9xVc1T5RwjqhJbGGtYenm240AGuewAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA6GvaPpevaZd0zWcCxnYd2Pv2r1HvRPrHlPrHeHfHaiuqiqKqZ0mCYiY0lF7qp7Nd+x8bU9g5E37fM1TpmTX9+mPK3cn9b6VcT+KZR31PAztLzruDqWHkYeVani5Zv25orpn1ie8LKWK9Qen21d9YM4+v6bRcvRHFrLtRFGRa/LXx4ek8x6LFyL2gYjDaWsfHPp+b70ce38++WjxmS0XOlZ2T2bv2V7jcHVToJuraXxM/R6ate0mnmZuWKP5ezH47fzj1p5jtPPDT62MBmWFzC173DVxVHdu4x1x4o1esXLFXNuRpIAznkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyHp5tHVd77qxdA0mj+Vuz7129VEzRYtx+tXVx8o/8zMR83levW7Fuq7cnSmI1meyHaiia6oppjbLsdNdia9v7X6dL0XHn3KeJycquJ+Fj0T86p8+08R4z/rxNPpX0z2309034WmWIyNQuUxGTn3aY+Ld9I/s0/hj9/M93qdPdn6PsjbGPoWj2Yi3bj3rt6qI9+/c+ddc/OZ/8RxEdoZEonlPytv5tXNm1PNsxu31d8/TdxTDL8tow0c6rbV+XAAQ1tAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABpvrR0L0TeNu/q2gUWNJ1+ea5qiPdsZVU+PxIiO1Xj9+I55nvz8tyDOy/MsTl16L2Gr5tUfhPdMb4eV+xbv0cy5GsK3NwaPqWgazk6Rq+JcxM3Gr9y7arjvE+cecTHeJjtMTzDoJ19celundRdD963FrF13Fon7HlzHj8/h1+dEz/tnvHziYPavp2bpOp5OmajjXMbMxrk2r1quOJpqieJhfXJrlHZzuxrGy5T8VPrHdPl1cYbj8DVhK9OumeqXVASVgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP2ImZiIiZme0RCcXs69OqNibMou5tmI1vUqab2ZVNPFVqOPu2v+3nv6zPojp7LezaN1dSrOZl2vf0/RojMvRMc01XOf5Kif+6Pe4+cUTCbSp/aJndXOpy61Ozrq9I9fwSTI8JGk36uEeoAqpIgAAAAAAAAAAAAAAAAAAAAAAcOblY2FiXcvMyLWPj2aZruXbtcU0UUx4zMz2iEf+qntI6bp/xdN2NYo1HJj7s6hepmLFE/gp7TXPrPEfmhtMrybGZpc93hqNe2d0cZ/k9jHxGKtYennXJ0SGECNH6u9QtM3NXr9G5MvJyLtUTetZFXv2LsRP6s2/CI+X3eJjntMJJ9K+v+191fC0/XZt6Bq1Xbi9cj7Pdn8NyfCZ/s1ceUTLe5vyIzHLrfvaY95Tv5vXHh16d8eOjDw2bWL882ejPe3IPyJiYiYmJie8TD9Q5tAAAAAAAAAAAAAAAAAAAAAABHz2uenFOp6RO+9Js/z7BoinUKKY/9WxHhc+tHz/D+VINx5VizlY13GybVF6xeom3ct1xzTXTMcTEx84mGzyfNLuV4yjE2t3XHbG+P5v2vDFYenEWpt1K0RlnVvadzZXUDVNAmJ+z2rvxMSqZ596xV96iefnMRPE+sSxN9KYfEUYm1TetzrTVETHCUDrom3VNNXXAA9nQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMz2QtvU6T0sjVq6IjI1jJrvzVx3+HRM26I+nNNU/9zczwenmmRo2wtB0uKYpnF06xbq4+dUW496f3zzL3nzLnOMnG4+9fn71U/hu8tE/wtr3VmmjsgAax7gAAAAAAAAAAAAAAAAAAMR6i9RdqbDw/ja9qERkVRzaw7PFeRd9Yo57R2/WniPV74fDXcTci1Zpmqqd0bXWu5Tbp51U6Qy5qnqp1z2nsv4uBh1xres0dvs2PX/J25/vLneI+kcz5xHij91U677r3j8XA06urQ9Hq5p+Dj1z8W7T/AHlzx8P6scR58tSLPyP2edV3Mp/0j1n0j8Uexmd/dsR4/SPqzHqP1J3Zv3K9/XNQmMSmr3rWFY5osW/+3n70+tUzPqw4FoYbDWcLbi1ZpimmN0bEfuXKrlXOrnWQB7ujZ/SzrZu3Y9VrDuXp1jR6ZiJw8q5Mzbp8rVfeaPp3p9Pmlb006obT39jU/ojN+DnxTzdwMj7l6jz4jwqj1pmfXjwQDcmPevY9+i/j3blm9bqiqi5RVNNVMx4TEx4SiGecjMDmmtyiPd3O2OqeMb+Oye9s8Hmt7D9GdtPZ9Flwib0s9pDV9Lqs6dvazXq2H2pjNtREZFuPOqO0XI/0n58zKTe1NzaDurS6dT2/qePn41XjNur71E+VVM96Z9JiJU9nHJ3HZRVpiKOjuqjbTPju4TpKUYXHWcTHQnb2b3rgNEywAAAAAAAAAAAAAAAAAAAEbvba27TXp+h7rtURFdq5VgZExHeaaomu3z6RNNz/AHIvJ2+0jpdOq9F9wW/d5rx7NOVRPHPuzbrpqmf9sVR+9BJevs/xk4jKfd1ddFUx4dcfmiGdWuZiedG+NfQAThqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAG0unnQrfO7aLWXdxKdF065xMZGdE01VU+dFv8AWn054ifNh43MMNgbfvMTXFMd/p2+D1tWbl6rm241lq0TI2j7N2xdKopr1q5m69kR+t8WubNrn0oonn/WqWzNF2ZtLRaYjSdtaRhzH9a1iURVP1q45n98oRjPaPgLU6WLdVff8Mees+TbWsivVba5iPNXnjYWZkxE4+JkXonw+Hbmr/h+ZGFmY8TORiX7MR2ma7c0/wDKyuIiI4jtD8mImJiYiYntMS1X/mdVr/6bZ/7/AP8Alk/+H4/+55furOFiWubJ2hrdNUattnSMuao49+5iUe/H0q496P3S1ju72a9kapbuXNCv5uh5M8zTFNc37PPrTXPvf6VQ22C9o2X3Z0v0VUd/xR5bfJjXciv07aJifJDsbN6h9EN87PovZc4NOrabb5mcvB5r92nzro/Wp7eM8TEebWSb4PH4bG2/eYeuKqe6fz7PFqLtm5aq5tcaSAMt5gAAAAAAAAAAADmwrUX8yxZqniLlymmZ+s8OF2tJ/auJ/j0fxQ61zpTMuY61k8REREREREdoiH6D5UWKAAAAAAAAAAAAAAAAA+L921Ys13r9yi1at0zVXXXVEU0xHjMzPhDmI1H283cevaNtzS7mp65qWPp+JR43L1fETPlEeMz6RzLTHVT2jND0X4um7Nt29az4iaZy6pmMW1Pp87n7uKfDvKMO8N17g3dqlWpbh1S/nX5/ViueKLceVFMdqY+kJ1kfITGY/S7ivs6O/wCKeEbuM/hLT4zOLVno2+lPk3f1U9pPOzfi6bsSxVg48801ajkURN6qPO3R4UR6zzPfwplHzPzMvUMy7m52Veysm9V7129ermuuufOZnvMuAW9leS4LKrfMw1GnbO+eM/yEZxGKu4irW5Ov5ADaMcAAAAAAettbcmu7X1SnUtA1PJwMmnjmq1XxFcf2aqfCqPSeYeSOly3RdpmiuNYnridsOaappnWJ2pYdK/aQ0vVPhabvizb0vMn7tOdZpn7PX+aO80T696fo37iZGPl4trKxL9rIx71EV27tquKqK6ZjmJiY7TE+atJmvTXqduzYWVT+h8+bmDNfvXcC/wDes3O/ft/VmfOnifqrfPfZ9Zva3cvnmVfLPwzwnd5xwb3B53VR0b+2O3en6NXdK+tu097/AAsG7djRtZr7fY8mv7tyf7u5xEVfTtV6NoqpxuAxOBuzZxNE01d/p2x3wklq9bvU86idYAGG9AAAAAAAAAAAAAAAAGP9SceMrp3uTGmIn4uk5VHE+tqpXasa3v8A9F65/wDHZH/51K5VvezOZ9xiI76fylGc/jp0cJAFno+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9bau29d3TqtGmaBpmRqGVV3mm1T2oj+1VVPamPWZiHS5cotUzXXOkR1zOyHNNM1TpEbXks06bdMd279yaY0bAm3gxV7tzPyOaLFHHjHvcfen0piZ8+G/Olfs36VpnwtS3xeo1TLjiqnBszMY9ufxVdpuT6do8f1ob9xMfHxMa3jYti1YsW6fdt27VEU00R5REdohW+e+0KzZ1tZfHPq+afhjhG/wAo4t7g8kqr6V/ZHZvax6V9ENp7J+FnZFqNZ1mmIn7Xk0RNFqrztUeFP1nmr1htMFU47H4nH3Zu4muaqu/07I7oSS1Zt2aebRGkADDegAAAA1N1T6E7T3jTdztOt06FrFXNUX8a3HwrtX95bjiJ5844n5zz4NsjNwOY4nL7sXcNXNNXd6x1T4vK9Yt3qebcjWFfnUbpxuvYeZNvXdPq+y1V+7ZzbPNdi79KvlPj92qInt4MQWV5+Ji5+Hdw83GtZONepmi5au0RVRXHlMT2lH3qp7NuBm/F1PYl+nAv8TVOnX6pm1XP4K5nmj6TzHrELXyL2g2MRpazCOZV80fDPHfHnHBHMZktdHSs7Y7N/wC6Kw9PcugaztvVbml67p2RgZlvxt3aeOY84nwqj1iZiXmLGt3KblMV0TrE9Ux1NFNM0zpIA7uAAAAAAAAB2tJ/auJ/j0fxQ6r6orqt1010VTTVTPMTHjEutUaxMOYnSVmAir0q9pLPwfg6ZvqxVn4/MUxqNmmIvUR+OiI4r+scT+aUl9ta/o25dKt6poWo2M/DueFy1VzxPlMT3pn0mIl835xyfx2UV6Yijo7qo20z4+k6SneFxtnExrRO3s3vTAaRlAAAAAAAAAAAAAxrfu+tr7I0+cvcOp28eqqmZtY9P3r970oojvPftz2iPnMItdU/aC3Puebun7d+JoGlTMxzar/nN2PxVx+rHpT9OZSLJeTGPzedbVOlHzT1eHb4eOjCxeYWcNGlU6z2QkB1T6z7S2LRcxJvxqusUxPu4OLXE+5P95X3ij6d59EUupvVXdu/r9dvU82cbTfe5t6fjTNNmny9751z61c+nDBZmZmZmZmZ7zMvxcWR8kcBlOlcRz7nzT6Ru/PvRfF5nexOzqp7I9QBKWuAAAAAAAAAAAAAAG4ulXXzdG0/hafrVVeu6RTxT7t6uZyLNPh9yufGPw1c+HETDTowcfluFzC17rE0RVH5cJ648HtZv3LFXOtzpKwnp9v/AGtvrT/tW39Sou3KaebuLc4pv2fzUc/+Y5iflLKVa2mZ+dpedaztNzMjDyrU8271i5NFdM+kx3hInpX7Sl+1Va03f9j41ueKY1PGt8VU+ty3THE/Wnj8sqmz32f4jDa3cBPPp+X70cO3ynulJMHnVFzo3tk9u79koB0dB1jS9e0u1qej59jOw70c0XrNfvUz6ek+k94d5XddFVFU01RpMN5ExMawAOoAAAAAAAAAAAA8fe//AEXrn/x2R/8AnUrlWNb3/wCi9c/+OyP/AM6lcq3fZn/RxHGn8pRrP/io8QBaCPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADlxMfIy8m3jYti7kX7tXu27Vqiaqq58oiO8y2b0s6Ibt3tNrNv2p0bR6uKvteTRPvXKZ+dujtNX1nin1Ss6bdMdpbCxqY0bAi5nTT7tzPyOK79fPjHvcfdj0piI8+UPzzlngcr1t0T7y52R1Rxndw2y2mDyq9iOlPRp7fo0F0r9m/VdU+FqW971el4k8VRg2pici5HlVPhbj/Wfok3tXbehbW0qjS9v6Zj6fi095ptU965/tVVT3qn1mZl6wp7OOUWOzerXEV9HdTGymPDfxnWUnwuBs4aOhG3t3gDRssAAAAAAAAAAAB4u7trbf3bpk6buHS7Gfj95pi5HFVuZ+dNUcVUz6xMIw9U/Zy1vRabupbNvXNawaYmqcSuI+1UR6cRxc/dxPlEpcDfZNyjx2UVfYVa076Z2xP04xow8VgbOJjpxt7d6tHIs3se/XYyLVyzet1TTXbrpmmqmY8YmJ8JcafHUzpVtHftiqrU8KMbUOPuZ+LEUXo8oqnjiuPSf3cIpdU+jG7dizdzJsfpXR6eavt2LTMxbp/vKfGj696e/iuHI+WWBzXS3VPMudk7+E7+Gye5GMZld7D9KNtPb9WtAEuawAAAAAAAAeztHdO4Np6pGpbe1S/gZHb3ponmmuPKqmeaao9JiXjDzu2qLtE0XIiYnridsS5pqmmdaZ0lLfpX7R2i6zNrTd52rejZ1UxTTl0czi3J86ue9v8AfzHzmYb3x71nIsUX8e7bvWrlMVUXKKoqpqifCYmPGFaLOumfVXd2wr8U6Xm/adPmfv4GVM12Z85pjnmifWOPXlW2eez21d1u5dPNn5Z6vCd3jrHBvsHndVPRv7Y7d6fA1n0s60bR3zFvDi/+idXq4icLKriPiVf3VXhX9O1Xo2YqrG4HEYG7NnEUTTVG6f5t4wkdq9Rep51E6wAMR6AAAAAAPm7XRat1XK592iiJqqnyiEZuqntKVVTd0zYOP7tPemdTybfefW3bnw+tX+1JHVv2Vl/4Ff8ADKtdYfILJMHmNd27iaedzObpE9W3Xrjf1cO5pM5xd2xFNNudNdXb1fU9R1jULuoarnZGbl3Z5rvX7k111fvl1AXRTTFMRTTGkQiszMzrIA7OAAAAAAAAAAAAAAAAAAAAGQbI3luTZmp/b9u6ndw66uPi2/1rd6I+VdE9p/5jntMJS9J/aD0Dc9yxpW5bVGiatcqiiivnnGvVT2jiqe9EzPyq7finwQ6entP/AKq0j/PWf44RzPuTmBzS3VXep0riNlUbJ8e2OPgzsHjr2HqiKZ2dix8B86pwAAAAAAAAAAAA8fe//Reuf/HZH/51K5VjW9/+i9c/+OyP/wA6lcq3fZn/AEcRxp/KUaz/AOKjxAFoI8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD0NvaJq24NUtaZomn5GfmXZ4ptWaOZ+s/KI85niISU6WezXi48WtS37kRlXf1o03GrmLdPpcuR3q+lPEesw02b5/gcpo52Ir27qY21T4es6QysNgr2JnSiNnbuaG6e9Pt077zvs+gadVcs0VRTey7n3LFn81Xn6RzPolR0r6CbW2j8LP1emjXtXp7/ABL9uPgWp/BbnnmY/tVcz5cNr6dg4Wm4NrB0/EsYmLZp921Zs24ooojyiI7Q7Cn885bY7Mtbdr7O32R1zxn0jSOKT4PKbNjpVdKr+biIiI4jtACFtqAAAAAAAAAAAAAAAAAAPyYiYmJiJie0xL9Aaa6qez/tjdU3tR0H3NA1Wv70/Co/m12fxW4/VmfOnjzmJlFjfuxdz7H1CMTcWmV48VzMWr9M+/ZvetNcdv3TxMfOIWGOpq2m4Gr6de07VMOxmYl+n3blm9RFVNUesSm2RcuMbl2lu/8AaW+yeuOE+k+GjVYzKLV/pUdGryVsCTvVT2aqK/i6lsDIiirn3p0zJufdn0t3Jnt9Kv8Acjfrek6nompXdN1fAyMHMtTxXZv25oqj17+MeUx2lb+U59gc2o52Gr1nfE7JjjHrGzvRjE4O9hp0uR47nSAbhigAAAAAAAP2JmJiYmYmO8TDcnSv2gNz7Vizp2ve/r+lUfdj4tf85tR+G5P60R5Vc+UTENNDBzDLMLmNr3WJoiqPOOE9ceD2sYi5Yq51udJWGbB33tffGn/a9vanRkVU0xN3Hrj3L1n0qonv6cxzE/KZZMrX0nUc/SdQs6jpmZfw8uxVFVq9ZrmmqmfSYSL6V+0pct/C03f9iblPhGqY1v70f4lumO/1p/2yqXPPZ/iMNrdwM+8p+X70fXynulJMHnVFzo3tk9u79knR0dD1fTNc021qWj5+PnYd2OaL1iuKqZ9O3hPp4w7yvK6KqKppqjSYbyJiY1gAdQAB1dW/ZWX/AIFf8Mq11lGrfsrL/wACv+GVa62fZj8GJ/0/UjfKDrt+PoALUR0AAAAAAAAAAAAAAAAAAAAAAentP/qrSP8APWf44eY9Paf/AFVpH+es/wAcPLEf0quEu1HxQsfAfK6xAAAAAAAAAAAAHkb2iZ2ZrcREzM6dkRER/h1K5Fj+7P8ApbVv8je/glXAt32ZT9jiI76fylGs/wDio8fQAWgjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADY3S7o7u7fdVvJx8f8ARuk1d5z8qmYoqj+7p8a5+nb1hi4zG4fBWpu4iuKaY3z/ADbwelq1Xdq5tEay15Zt3L12i1at1XLldUU0UUxzNUz2iIj5y3l0r9nXXteizqW7rlzRNOq+9GPEfzq5HrE9rf8A3cz6N/dMOku0dhW6b2n4n2zU+PvahlRFV3w7xR8qI8fDv5zLP1V557QrlzW1l0c2Pmnr8I3cZ290JHg8kpp6V+de54Wy9o7d2dpcadt3TLOFanj4lVMc3Lsx866p71T9f3PdBWl29cvVzcuVTNU9cztlvqaYpjSmNIAHm5AAAAAAAAAAAAAAAAAAAAAAAAGPb42Xtremm/YdxaXZy6aYn4V3j3btmZ+dFcd6fl6Tx35ZCPWzeuWK4uWqppqjqmNkuKqKa45tUawh31U9nnce3Pi6jteq7r2mU9/hU085duPWmI4rj1p7/hhpOuiq3XVRXTVTXTPFVMxxMT5Sswa66o9Hto77ouZORjfo3Vqon3c/FpiKpq+U3KfC5H178domFmZH7Q66NLWYxrHzR1+Mb+MfhLQYzJInpWJ07vogkNgdUOkm7thXK7+difbdKieKdQxomq338Pfjxon69vKZa/WnhMZYxlqLtiuKqZ3x/PJHblqu1Vza40kAZLzAAAAAAAAZDsfem5dl6l9u27ql7EqqmPi2ufetXojwiuie1XjPrHM8TCUfSv2htubj+Fp26KbWg6nV2+LVVxiXJ9K5nmifSrt+KUOxH865M4DN6db1OlfzRsnx7fHwZuEx97DT0Z2dm5ZhbrouW6bluumuiqIqpqpnmJifCYl9IJdL+sO79iV28fGyv0jpNMx72BlVTVRTT8/h1eNufp284lK3pf1c2jv23RYwcr7DqsxPvaflTFNyePGaJ8K48fDvx4xCnc85IY/Kda9Ofb+aN3GN35d6UYPM7OJ2dVXZPo2AAijYuHOpivCv01RzE26on/RWmsty/wCi3vyVf8K0lsezHqxP+n6kc5Qddvx9ABaqOAAAAAAAAAAAAAAAAAAAAAAD09p/9VaR/nrP8cPMentP/qrSP89Z/jh5Yj+lVwl2o+KFj4D5XWIAAAAAAAAAAAA8zdn/AEtq3+RvfwSrgWP7s/6W1b/I3v4JVwLc9mX9LEcafVGs/wDio8fQAWijwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADt6Rpmo6xqFrT9KwcjNy7s8UWbFua66v3Q61VRTE1VTpEOYiZnSHUZFsbZO5t66j9i27pd3KmmY+Len7tqzE/Ouue0fTxn5RLevSv2a6pmzqe/sjiO1UaXjV+PpcuR/xT/uSO0XStN0XTbOm6Rg4+Dh2Y4t2bFEU0x+6Pn5z4yr3POX+GwutrAx7yvt+7H18Nne3eDyW5c6V7ox2b/2ag6V+z1tvbU2tR3LVb17VKZiqmiqnjGtT6UT+v8AWrt+GG66KaaKIoopimmmOIiI4iIfoqbMc0xeZXfe4muap8o4R1QkljD27FPNtxoANe9gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHzcoouW6rdyimuiqJpqpqjmJifGJho7qp7O239f8AiajtOu3oeozzVVY92Zxr0/T/ANv/ALe3p828xsctzXF5bd97ha5pnynjHVLxv4a1iKebcjVXXvXZ+49m6pOnbi0u9hXZ7265+9bux50Vx2qj6T2+fDwVkev6NpWv6Zc0zWtPx8/Du/rWr1EVRz5x5T5THeEbOqfs15Fib2p7ByJyLXM1TpmTc+/THjxbuT+t6RVxP4plbWR8vsLi9LWNj3dfb92fp47O9GsZk1y10rXSjz/dG8dnU8DO0vOu4OpYeRh5VqeLlm/bmiumfWJ7w6ywaaoqjWJ1hpZjTZIA5cAAAAAAD6t1127lNy3XVRXTMVU1UzxMTHhMS+QG8ulftE7g2/8AD07ddFzXdOjimL81RGTZj83/ALkelXf8XySi2VvDbm8tM/SG3dUs5tqO1yiOablqfKuie9M/Xx+XKut39B1nVdB1O1qejZ+Rg5lr9W7Zr92fpPnHpPaUGzzkLgsw1u4b7O53fDPGN3GPwlt8HnF2z0a+lHmsey/6Le/JV/wrSSd6a+0nZyMaNL37jfBuzb9ynUsa3zRVPHHNy3H6v1p5j8MIxMfkNk2Mym5ibWKp015uk7p+Lqn+TG93zfFWsTTbqtz2+gAsFpQAAAAAAAAAAAAAAAAAAAAAB6G2q5t7j0yuOOacy1Mc/nh57v7e/b+nf5q1/HDzvf06uEu1HxQsjAfKyxAAAAAAAAAAAAHmbs/6W1b/ACN7+CVcCx/dn/S2rf5G9/BKuBbnsy/pYjjT6o1n/wAVHj6AC0UeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH7ETMxERMzPaIhnXTHpTu3f16m5pmH9m033uLmoZPNNqOPGKfnXPpT++YSt6W9GNo7Fpt5dOPGq6vERznZVETNE/3dHhR9e8+qLZ5yuwGU60TPPufLHrO78+5scJll7E7dNKe2fRH/AKV+z7ubc82tQ3F8TQNKnv7tyj+c3Y/DRP6setX+kpS7D2LtjZGnxibe0y1j1TTFN3Iqj3r971rr8Z8+O0R8ohkop3OuU+PzedLtWlHyx1ePb4+GiUYTL7OGjoxrPbIAjrNAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYv1A2DtbfOB9l3DptF65TTNNnKt/dv2ef7Ffj49+J5ifnEosdVOgO6NqfF1DRIr17SaZmebNEzkWqfx0R4xH9qnn1iEzxI8k5UY/KJim1VzqPlnq8Ozw8dWDi8vs4nbVGk9sKzpiYmYmJiY7TEvxOPqn0T2jviLmZRZjR9YqiZjMxaIiLlXnco8K/r2q9fkin1M6Xbt2DkVTq2D8fT/e4t6hjc12K+fDmfGiflxVEd/DmO64sj5W4DNoiimeZc+WfSd/59yL4vLb2G2zGtPbDCAEoa8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAd/b37f07/NWv44dB39vft/Tv81a/jh53v6dXCXaj4oWRgPlZYgAAAAAAAAAAADzN2f8AS2rf5G9/BKuBY/uz/pbVv8je/glXAtz2Zf0sRxp9Uaz/AOKjx9ABaKPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA58DDy9QzLWFg4t7Kyb1Xu2rNmia6658oiO8ykH0r9mzOzfhalvu/Vg488VU6dj1xN6r0uV+FEekcz38aZavNM6wWVW+fia9OyN88I/kMjD4W7iKtLca/k0hs7am4d36rTpu3tMv51+e9U0xxRbjzrqntTH1lJ/pZ7OWhaJ8LUd43LetZ8cVRiUxMYtufWJ73P38R+GW5tuaFo+3NLt6XoenY+Bh2+8WrNHETPnM+Mz6zzL0lQ55y7xmP1tYX7Oju+KeM7uEfjKTYPJ7VnpXOlPk+LNq3ZtUWbNui3boiKaKKKeIpiPCIiPCH2CCzOrcADgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHkWbORYrsZFq3es3KZprt10xVTVE+MTE+MOQcxOm2BoLqp7OOjatF7Utl3aNIzZiapwq+Zx7s+VM+Nv93NPpCMW7dsa9tPVatM3Dpl/AyY7xFyOaa486ao7VR6xMrGnl7n29om5tKr0vX9Mx9QxK55+Hdp592fOmY70z6xMSneR8vMZgdLWK+0o/wCUeO/x/GGnxmT2r3St9GfJXCJC9VPZu1LTvialsa/XqWL3qqwL9URfo/JV4Vx6TxP5mgM3FysHLuYmbjXsbItVe7ctXqJoronymJ7xK3crznB5pb95hq9e2N8cY/kIziMLdw9WlyNHCA2jHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHf29+39O/zVr+OHQd/b37f07/ADVr+OHne/p1cJdqPihZGA+VliAAAAAAAAAAAAOhuKInb+oxMRMTiXYmJ/JKtxZJuH9gaj/lbv8ABKttbfsy/p4njT+pG8/+K34+gAtJHQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGY9OOmu7N+5UUaJp804dNXu3c6/zRYt+f3v60+lPM+jwxOJs4W3N29VFNMb52O9u3Vcq5tEayw5tvpX0I3XvD4WfqVFWh6RVxV8bIon4t2n+7t+P76uI8uUgelfQ3aey/hZ2ZbjW9Zo7/asij+Ttz/d2+8R9Z5nymPBtZV+ee0PrtZbH+8+kes/gkODyT71+fD6yxHp1062psPC+DoOnUxkVU8Xcy9xXkXfrVx2jw+7HEejLgVhiMTdxNybt6qaqp3ztlIKLdNunm0xpAA8HYAAAAAAAAAAAAAAAAAAAAAABhfUnqbtLYWNM6znxczZp5t4OPxXfr8vu8/dj1qmI+r3w2FvYq5FqxTNVU7o2uly5Tbp51c6QzQQg6qdb92b2+Ng492dG0aqZj7JjVz792nyu1+NX0jin0lz9K+u269nTZwdSrq13R6e3wMi5PxbVP93cnmY4/szzHEcRx4pvPs8zKML73Wnn/J+/Vr3dXe1P/e7HvObpOnb+ybAxHpz1G2pvzD+LoWoROTRT717CvR7l+19afnHrTzHqy5CMRhr2GuTavUzTVG6dktvRcpuU86mdYAHg7AAAAAAAAAAAAAAAAAAAAAADDuo/TXae/MWaNb0+KcuKeLedjxFGRR5R73E8x6VcwzEe+GxN7C3Iu2appqjfGx1uW6blPNrjWEI+qfQzdmzPjZ+HbnW9Ho5q+041EzctU+dy34xxHjMcx6w1Ssyak6qdCNqbx+Ln6bRToWsVd/j49uPg3Z/vLccRzP8Aap4n5zz4LQyP2h9VrMo/3iPzj1j8EexmSfesT4T6T9UKBl3UXp1urYebFnXtPmnHrqmLOZZn37F36VfKfSeJ9GIrQw+JtYm3F2zVFVM9UxthH67dVurm1RpIA9nQAAAAAAAAAAAAAAAAAAAAAAAAAAd/b37f07/NWv44dB3dCrijW8CueeKcm3M8fmh53f6dXB2p+KFkoD5WWIAAAAAAAAAAAA6O4f2BqP8Albv8Eq21km4f2BqP+Vu/wSrbW37Mv6eJ40/qRvP/AIrfj6AC0kdAAAAAAAAAAAAAAAAAAAAAAAAAAAAHJjWL2TkW8fGs3L167VFFu3bpmqquqZ4iIiO8zPkY9m9k5FvHx7Vd29drii3bop5qqqmeIiIjxmZTJ9nro3j7JxLeva9at39x3qPu09qqcKmY700z865jxq/dHbmZ0PKDP8PkuH95c21T8NO+Z9IjfLMwWCrxdfNp6t8sR6M+zrZt27Ot9QKPiXZ4rtaVTV92nt2+LVHjP4Y7ecz3hI3CxcbCxLWJh49rHx7NMUW7VqiKaKKY8IiI7RDmFDZtnWMza77zE1a9kbo4R/JTLDYS1hqebbj6gDUsgAAAAAAAAAAAAAAAAAAAAAABxZeRj4mNcycq/asWLdPvXLl2uKaaI85me0Q5iJmdIHK8ndO49D2vpVeqa/qePgYtH9e7V3qnyppjvVPpETLSvVP2kNJ0r4um7Js0armRzTObdiYx7c+dMeNyf9I9ZRk3XuXXd1arVqe4NTyNQypjiKrk9qI8qaY7Ux6REQnmR8g8XjtLuL+zo7PvT4bvH8Gmxmc2rPRt9KfJuvqn7SOq6lN3Ttj2a9LxO9NWdeiJv3I/DT3i3Hr3nw/VaCy8jIy8m5k5V+7kX7tXvXLt2uaqq585me8y4hbuWZPg8rt+7wtER2zvnjPX/NiNYjFXcRVzrk6gDZsdz4GXlYGZazMHJu42TZqiu3dtVzTXRPnEx3hILpX7SWfhfC0zfdirPscxTGo2KYi7RH46Ijiv6xxPpMo7DV5pk2DzW37vE0a9k744T/I7WRh8Vdw9WtudPyWQbb17RtyaVb1TQtSx8/DuR925Zq54nymPGmfOJ4mHpK59obq3BtHVI1LbuqX8DI7RX7k80XIj5V0z2qj0mJSf6We0bomt1WdN3jat6Ln1cUxl0TP2WufWZnm3+/mPWFQ55yExmA1u4X7Sj/lHGN/GPwhJsHnFq90bnRnyb5HHj3rORYov4923etXKYqouUVRVTVE+ExMeMORBZjTZLcADgAAAAAAAAAAAAAAAAAAAAAAcGfiYufh3cPNxrWTjXqZouWrtEVUVx5TE9pR86qezbg5nxdS2Hfpwb/jVp1+uZtVz+CueZpn0nmPWmEihtcrzrG5Vc95hq9O2N08Y/k9jHxGFtYinS5Gv5q39x6DrO3NUuaXrmm5Gn5lueKrd6jjn1ifCqPKY5iflLzVi+8Nqbe3dpc6duHS7GdY7+5NdPFduZ+dFUd6Z9YlGDqp7Oet6JF7UtnXbmtYFPecSqP53RHpERxc/dxPpK3cj5d4PH6WsV9nX/wAZ4Tu4T+MozjMnu2elb6UebQ4+79m7j3q7F+1Xau0VTTXRXTNNVMx8pifCXwncTrthpwAAAAAAAAAAAAAAAAAAAAAAAB2tJ/auJ/j0fxQ6rtaT+1cT/Ho/ih0ufDLmnrhZQA+VVigAAAAAAAAAAAOjuH9gaj/lbv8ABKttZJuH9gaj/lbv8Eq21t+zL+nieNP6kbz/AOK34+gAtJHQAAAAAAAAAAAAAAAAAAAAAAAAAAGUdLNpZG9t9abt6z71Nu/c97JuU/8At2ae9dX147R6zEfN44i/bw9qq7cnSmmJmeEO1FE11RTT1y3p7I3TOiLFPUDW8eKq6pmnSbVcRMREcxVemPPnmKfpM/OJSWcGBiY2Bg2MLDs0WMbHt027VuiOKaKYjiIj9znfN2d5tdzbGVYm5v6o7I3R9e9O8JhqcNai3T48QBqWSAAAAAAAAAAAAAAAAAAAAAADFeoXUHauxcH7RuDUqLV6umarOLb+/fvcf2aY+Xy5niPVFfqp173Tu74un6PNeg6RV2m3Yufy92Px3I4mIn+zTxHynlJMk5LY/N5iq3TzaPmnq8O3w8Zhg4vMbOG2VTrPZCQHVPrftLZPxcKxdjWtYo5p+x4tyPdt1R8rlzvFP0jmr0RU6k9T9279yav0xnzawYnm3gY/NFijjwmaefvT61TM+XHgwqZmZ5nvIuLI+SeAymIrpjnXPmnr8I3fn3ovi8yvYnZM6U9kACTteAAAAAAAAzvpl1W3dsK/TRpubOVp3P39PyqprszHPeaY55on1p/fEpWdLOs+0t9Raw4v/orWKuKfsOVVETcq/u6vCv6dqu3ggw/YmYmJiZiY7xMItnnJHAZtrXMcy580esb/AM+9scJmd7DbOunsn0WYiGfSz2gdz7Wps6dr8V6/pVHFMfFr4yLVP4a5/WiPKrnyiYhKfYW+tsb40+cvbup0ZE0RE3bFUe5esz5VUT3/AHxzE/KZU7nXJfH5RMzdp1o+aOrx7PHw1SjCZhZxMaUzpPZLJQEdZoAAAAAAAAAAAAAAAAAAAAAAADBOpvSnaO/bNVepYUYupcfc1DFiKL0Tx297txXHpV+6YRS6p9GN3bFquZdVj9K6PT3jOxaZmKI/vKPGj696e/inQ/JiJiYmImJ7TEpTkfK7H5TpRE8+38s+k7vy7mvxeWWcTt00q7Y9VZwmX1T9n3bO6KruobfmjQNUrmaqvh0c496fxUc/dn1p/wBJRZ35sXc+yM+MTcWmXMaK5mLV+mffs3fy1x2n6eMfOIXFkvKfAZvGlqrSv5Z6/Dt8PHRF8Xl97DTrVGsdsMaASJggAAAAAAAAAAAAAAAAAAPe2Xs/ce8dTjT9vaXfzLkTHxK4ji3aifnXXPamPr+7l53r1uzRNy5VEUx1zOyHammquebTGsvBbE6S9Kd3b1z8fNwcL7Jpdu7TVXnZUTRbqiJ7xR25rntPh285hvvpX7Ou39A+FqO7a7eu6lT96Mfifslqfyz3uT+bt3/V+beNq3RatU2rVFNFuiIppppjiKYjwiI+UK0z32hW6Imzl8c6fmnq8I38Z0julvsHklU6VX507n0AqFJgAAAAAAAAAAAHR3D+wNR/yt3+CVbayfWqIr0fNonnirHuRPH5ZVsLa9mXwYnjT+pG+UHXb8fQAWmjoAAAAAAAAAAAAAAAAAAAAAAAAAAlF7FG2abem6zu6/bj4l65GDjVTHeKaYiu5MekzNEf9soup89BdIjROkG28P3PcruYdOTXE+PvXZm5PP8Av4/cgvtBx04fK/dUztuTEeEbZ/KI8W4ySzFeI50/dhnICjEuAAAAAAAAAAAAAAAAAAAAB83blFq1Vdu100W6ImqqqqeIpiPGZn5Q0b1U9orQNA+Lp20qLeuajTPuzkTM/ZLc/miebk/l7fi+TY5blWLzK77rDUTVPlHGeqHjfxNqxTzrk6Nybg1rSdv6Zd1PWtQx8DDtR967er92PpHnPpHeUbOqntKZOR8XTNg4841r9WdTyKOblX+HbntT9auZ9Ilo3em79x7x1OdQ3Dql/Nuxz8OiqeLdqJ+VFEdqY+n73hLbyPkDhcHpdxs+8r7Pux9fHZ3I1jM5uXeja6Mef7OzqWdm6nnXc7Ucu/mZV6r3rl6/cmuuufOZnvLrAsCmmKY0iNjSzOu2QBy4AAAAAAAAAAAAHb0nUs/SNRs6jpeZfw8uxV71u9ZrmmqmfSYdQdaqYqiaao1iXMTMTrCS3Sv2lK6ZtaZv/HmuniKadUxrffnzuW4/f3o/2/NI/RNW0zW9NtalpGfj52Hdjmi9YuRXTPp28J84nvCtpkWxt67l2VqX23b2qXsWapibtnn3rN7j5V0T2n6+MfKYV9nnIDDYrW7gZ93X2fdn6eGzubrB51ct9G90o7d/7rEBpLpX7Q23NxxZ0/c8W9B1Srt8WqrjEuT6VzPNH0q7est2UVU10RXRVFVNUcxMTzEwqXMcrxeW3fdYmiaZ8p4T1SktjEW79POtzq/QGvewAAAAAAAAAAAAAAAAAAAAAA6msaZp+sade07VcKxm4d6n3blm/RFdFUfSXbHamqaZiqmdJgmImNJRo6q+zXTV8bU9gZHuzzNVWl5Nztx5Wrk/8V/7vkjjrek6nompXdN1fAyMHMtTxXZv25oqj17+MeUx2lZKx3fWydtb102cLcOmWcniJi1fiPdvWfWivxj6eE/OJWFkfL/E4XS1jo95R2/ej6+O3vaTGZLbudKz0Z7N37K7xu7qh7O+5dvVXtQ2vVXrumU81fDiI+1W49aY7V/Wnv8AhhpO5RXbuVW7lFVFdMzTVTVHExMeMTC2cuzTCZla97hq4qjzjjHXCNX8PcsVc25Gj5AbB4gAAAAAAAAAAERMzxHeQHZ0zAzdTz7OBp2Jfy8q9V7tqzZomuuufKIjvLbHSvoHundvwtQ1mK9B0iqPei5eo5v3Y/BbniYif7VXHnESlP0+6f7W2Lg/Z9A02i1dqpim9lXPv3735q5+Xz4jiPKELzzlvgct1t2ftLnZHVHGfSNZ7dG1weU3r/Sq6NP83ND9K/ZryMj4Wp79yJxrX60aZj1x8Sf8S5Han6U8z6wkloGi6ToGmW9N0XT8fAxLf6tqzRFMfWfOfWe8vQFP5vn+OzavnYmvZupjZTHh6zrPek+GwVnDRpRG3t3gDTMoAAAAAAAAAAAAAB1dW/ZWX/gV/wAMq11lGrfsrL/wK/4ZVrrZ9mPwYn/T9SN8oOu34+gAtRHQAAAAAAAAAAAAAAAAAAAAAAAAABZPouLThaPhYdFPu02Me3ainyimmI4/8K2FmSqvadVOmGj/AN/6Uj5PxtuTw9QBU6RgAAAAAAAAAAAAAAAAMd3zvXbWytN+3bi1O1i01RPwrUfeu3p8qKI7z9fCPnMPWzYuX64t2qZqqnqiNsutddNEc6qdIZE111R6xbR2HTcxcjInUdWjwwMWqJrpn+8q8KI+vfyiUf8Aqp7Qu49yfF07bNNzQdLqiaZrpqicq9T61R+p9Ke/j96Wk66qq65rrqmqqqeZmZ5mZWZkfs8rr0u5jOkfLHX4zu4R+MNDjM7iOjYjXv8Aoz7qf1a3dv25VZ1DL+x6Xz93T8WZptePaa/nXPh49vKIYAC08Jg7GDtRasURTTG6EduXa7tXOrnWQBkvMAAAAAAAAAAAAAAAAAAAAbF6XdYd3bErtY2Pk/pLSaZj3sDKqmaYp+cW6vG3P07c95iWuhi4zBYfG2ptYiiKqZ3T/NnF6WrtdqrnUTpKeXS/q3tHftuixgZf2LVZp5r0/JmKbnbx9yfCuPp384hsBWfbrrt3KbluuqiumYqpqpniYmPCYlvDpX7RG4Nv/C07ddFzXdOjimm/NURlWY/NP/qfSrv+L5Krzz2eXLet3Lp50fLPX4Tv4Tt75SLB53TV0b8ad6YA8DZO8duby0z9Ibd1O1m2qe1ymOablqfKqie8f8T8uXvq0vWblmubdymaao64nZLf01U1xzqZ1gAebkAAAAAAAAAAAAAAAAAAAAAAa+6n9Ito79ouZGbi/YdVmPu6hixFNyZiOI9+PCuO0R378eEw2CMnCYy/g7sXcPXNNUb4/nk6XbVF2nm1xrCCHVDpBu7YddeRl436Q0qJ7Z+JTNVumOe3xI8aJ8PHt5TLXizC5RRct1W7lFNdFUTTVTVHMTE+MTDSHVX2eNvbh+NqW1arehanVM1TZin+a3Z8vdj/ANOfWnt+H5rUyL2h27mlrMY5s/NHV4xu4xs7oR3GZJNPSsbe5D4e/vbZ249map+j9xaZdw7s8zbrniq3djzoqjtMf+Y+fDwFmWb1u/RFy3VFVM9UxthoKqaqJ5tUaSAPR1AAAAB6+1Ns67urVadM2/pl/PyZ7zTbp7UR51VT2pj1mYSb6V+zhpOlfB1Le16jVc2JiqnCtTMY1ufKqfG5P+lPpLR5xyiwOUU636+lupjbM+G7jOjMwuBvYmehGzt3NBdNumG7t+5EfofAm1gxVxcz8nmixR5xE8c1T6UxM+fHilZ0s6I7S2R8LNu2o1nWKeJ+2ZVuPdt1R87dHeKfrPM+rZmLj2MXGt42LYt2LFqmKbdu3RFNNER4RER2iHKp7POWeOzTW3RPu7fZHXPGd/DZCT4PKrOH6U9Krt+gAh7ZgAAAAAAAAAAAAAAAAAOprNUUaRmV1TxFOPXMz/2yrYWIdTc6nTOnO48+qePg6XkVU+tXw6vdj/XhXet32ZW5iziK90zTH4RP1RrP6ulRHEAWgjwAAAAAAAAAAAAAAAAAAAAAAAAAAsyVmrMlU+07/F/3/QkfJ/8AueHqAKoSMAAAAAAAAAAAAB+TMREzMxER3mZB+upq+p6dpGn3dQ1XNx8LEtRzXev3Ioop/fLUXVP2gtsbYi7p+3fh6/qsRMc2q/5tan8VcfrTHlT9OYRa37vrdG99QnL3DqdzIpiqZtY9P3bFn0oojtHbtz3mfnMptkfIfG5jpcv/AGdvv654R6z5tTjM3tWOjR0qvJvbqp7SlNMXtM2Dj+9V3pnU8m32j1t258frV/tRx1vVtS1vU72pavnZGdmXp5uXr1c1VT/r8vT5OkLfynIsFlNHNw1Gk75nbM8Z9I2dyM4nGXsTOtyfDcANwxQAAAAAAAAAAAAAAAAAAAAAAAAAAAHf0HWdV0HU7Wp6Nn5GDmWv1btmv3Z+k+cek9pSS6We0pj3otabv7Hixc4imNTxrfNFU+dy3Hen608x+GEXhps3yHA5tRzcTRt3VRsqjx9J1juZWGxl7DTrbnw3LKdMz8HVMG1nabmY+Zi3Y5t3rFyK6K49JjtLsq9un+/907G1CMrQNSrt25q5u4tyZrsXvzUc/wDmOJ8pSn6Vdfdr7s+Dp+tTRoWr1REe7eriMe9V4cUVz4TP9mrjyiZVBnnIjHZbrcs/aW+2OuOMeseST4PNrN/o1dGpuIfkTExExMTE94mH6hTagAAAAAAAAAAAAAAAAAAAAAAAOhr2jaVr2mXdM1nAx87Du/rWr1HvR9Y8p9Y7wjZ1U9mvIx/jansLInItd650zJr+/THjxbrn9b0irv8AimUohucoz/HZTXzsNXs30ztifD1jSWLicHZxMaVx471a2p4GdpeddwdSw8jDyrU8XLN+3NFdM+sT3h1lhHUHp9tXfWDOPr+m0XL0Rxay7URRkWvy18eHpPMeiK3VToJunaPxNQ0iKte0iOZm5Yo/l7Mfjt/OPWnnwnnhcGRctsDmWlu99nc7J6p4T6TpPZqjGMym9Y6VPSpagBtTpX0P3ZvWbWdk2p0XR6piZysmiffuU+du32mr6zxHrPglGOzDDYC1N3E1xTT3+nbPdDX2bNy9Vzbcay1hiY+Rl5NvGxbF3Iv3avdt2rVE1VVz5REd5lv7pX7N2qalNrUt83q9MxOYqjAs1RORcj8dXeLcenerx/Vlvzpt0z2nsLFinRcCK8yqj3budf4rv3PPv/Vj0p4hmaqc89oN6/ray+OZT80/FPCOqPOeCR4PJKKOle2z2bv3eVtbbmh7X0qjS9A02xgYlH9S1T3qnzqqnvVPrMzL1QVvcuV3aprrnWZ65nbLe00xTGkRsAHRyAAAAAAAAAAAAAAAAAAAA1F7WuuxpHSHJwqK/dvarkW8Wnjx92J+JVP04o4/7kKm7/bC3ZRrW/sfb2LdivG0W1NNz3Z7TfucTX6doiiPSfeaQX/yIy+cFlNE1RpVX0p8eryiEMza/wC9xM6dUbP54gCXNYAAAAAAAAAAAAAAAAAAAAAAAAAALMlZqzJVPtO/xf8Af9CR8n/7nh6gCqEjAAAAAAAAAAAceVMxjXZiZiYomYmPo5iNZ0GEdTequ0tg2K7ep5sZOpe7zb0/GmKr1Xl73yoj1q49OUU+qfWfdu+q7mJN+dK0eqZ93Bxa5j34/vK+01/TtHo1vfu3b96u9fuV3btyqaq666pmqqZ8ZmZ8ZfC/sj5G4HKtLlUe8ufNO7hG7jtnvQzGZpexHRjZT2fUAS5rAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGz+lnWzdux5tYVy9OsaPTMROHlVzM26fK3X3mj6d6fT5pW9NOqG09/Y1P6Izfg58U83cDI+5eo8+I8Ko9aZn148EA3Jj3r2Pfov4925ZvW6oqouUVTTVTMeExMeEohnnIzA5prcoj3dztjqnjG/jsnvbPB5rew/RnpU9n0WXCJnSz2j9Y0qq1p29rVerYfMUxm24iMi1HnVHaLkf6T6yk3tPc2g7r0qnU9v6nYz8arjmbc/eonyqpnvTPpMRKns45O47KKvt6OjuqjbTPju4TpKUYXHWcTHQnb2b3sANEywAAAAAAAAAAAAAAAAAAAAAAAGKZPTjY2RumNzX9s4FzVfGbtVEzTNX9qaOfcmr8Uxz6srB7XcRevREXK5q0jSNZmdI7I7IdaaKaNebGmoA8XYAAAAAAAAAAAAAAAAAAAAAAYn1Y3nibE2Pna9ke7Xfpp+HiWZ/92/V2op+nzn0iWSajmYunYGRn52Rbx8XHt1Xb125PFNFFMczMz5RCDnXvqVkdQ91TXjTctaJhTNvAs1cxNUfO7VH9qr/AMRxHnzKeSnJ+vOMZHOj7KnbVPpxn8trX5jjYwtrZ8U9X1a+zsrIzs2/m5d6q9kZFyq7duVTzNddU8zM+szMy4QfQcRERpCEztAHIAAAAAAAAAAAAAAAAAAAAAAAAAALMlZqzJVPtO/xf9/0JHyf/ueHqAKoSMAAAAAAAAAAcWX/AEW9+Sr/AIcriy/6Le/JV/w7U9cE9StIB9Vq5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHq7X3Fre2NVo1TQNTyNPy6Y49+1Vx70c8+7VHhVT2jtMTHZ5Q6XLdF2maK41ieuJ6nNNU0zrHWld0r9pHTdR+Fpu+bFGm5c8U059mmfs9frXT40T6xzH5W/sLKxc7Et5eFk2cnHu0+9bu2a4rorjziY7TCtNmXTnqXu3YeTFWi6hVViTPNzByJmvHr8/u8/dn1pmJVxnns+s39buXzzKvln4Z4b4844N7g87ro6N7bHbvWADVXSvrltLenwcHLuRous1zFEYuTXHuXap+Vu54Vd+3E8VeUS2qqjHZficBdm1iaJpq7/AE3THfCSWb1u9Tzrc6wAMN6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADp6zqen6Npl/U9VzLOHh49Pv3b12r3aaY/wD++njLAOqXWfaOxqbuJN+NV1imJiMHFrifdq/vK+8UfTvPoiX1O6lbn6gZ8XdZyvh4duqZsYNjmmza9eP61X4p5n6R2TDIORuNzSYuXI5lrtnrn/2x69XHqazG5paw+tNO2rs+rLuv3WbL33eq0TRPi4e3bVfMxV2uZlUT2qrj5UxPeKf3z34iNPAu/Lsuw+XWIw+Hp0pjz757ZRK/frv1zXXOsgDOeIAAAAAAAAAAAAAAAAAAAAAAAAAAAAsyVmrMlU+07/F/3/QkfJ/+54eoAqhIwAAAAAAAAABxZf8ARb35Kv8AhyuLL/ot78lX/DtT1wT1K0gH1WrkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAbc6V9eN1bP8AhYGp1Va7pFP3YsX7nF21H4LnEzxH9meY8uPFqMYWPy7C5ha91iaIqp7/AEnrjwetm/cs1c63OkrBenfUTau+8Kb2g6jTXfopib2Jdj3L9r60z4x6xzHqy1Wpp+Zl6fm2s3Ayb2Lk2avet3rNc0V0T5xMd4SE6V+0nm4fwtM35j1ZtiPuxqWPREXqfL36I4iqPWOJ7eFUqnzz2fX8PrdwE8+n5Z+KOG6fKeKSYPOqK+je2T27v2SnHm7c13R9xaXb1PQ9SxtQxLkdrlmvnifKY8aZ84niY+b0ldV0VW6pprjSY3S3kTFUawAOjkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHS1vVtN0TTL2pavnWMHDsxzcvXq4ppj/X5+nzRx6qe0pVVN3TNg4/u096Z1PJt959bdufD61f7W4ynIsbm1fNw1Gsb5nZEcZ9I29zGxOMs4aNbk+G9vbfu+tr7I0+cvcOp28eqqmZtY9P3r970oojvPftz2iPnMIs9VPaB3Nuibun7f+JoGlTMxzar/nN2n8VcfqxPlT9OZaj1bUtQ1fPuZ+qZ2Rm5d2ea71+5NddX75dRb+R8h8Fl2ly/9pc7+qOEes+SMYzN7t/o0dGnzfszMzMzMzM95mX4CbNSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALMlZqzJVPtO/xf8Af9CR8n/7nh6gCqEjAAAAAAAAAAHFl/0W9+Sr/hyuLL/ot78lX/DtT1wT1K0gH1WrkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7ezt2bh2jqlOo7e1S/g3omPfiirmi5H9mume1Uekwk/0r9ozQ9b+Dpu8bdrRdQq7RlU/wBErn1mZmbc/XmPWERRoc55N4HN6ft6dKt1UbJ/fhLMwuPvYaehOzs3LL7N23es0XrNyi5brpiqiuirmmqJ8JiY8YfaBPTLqvu/YV2m1pub9q02aom5p+VM12p8/d+dE+PenjntzE8JW9LOsu0t9xbxLd6dL1irtOBlVRzVP93X4V/TtV6Kezzkdj8q1uRHPt/NG7jG7zjvSjB5pZxHRnZV2T6NkgIi2QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAOp/VvaOwrdVnPy/tuqcfc0/Fqiq5zx29/5UR4ePfyiWThMHfxl2LViiaqp3Q6XLtFqnnVzpDPq6qaKJrrqimmmOZmZ4iIaU6qe0LtzbXxtO2zTb17VKZmma6apjFs1etUfr/Snt4/ehH7qj1h3dvyq5jZGT+jtJqntgYtUxRVH46vGufr28ohrpaeR+zyijS7mM6z8sdXjO/hH4yjuMzuZ6NiNO/6Mi3zvXcu9dS+3bi1O7lVUzPwrMfdtWY8qKI7R9fGfnMsdBZlmxbsURbtUxTTHVEbIaCuuquedVOsgD1dQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABZkrNWZKp9p3+L/AL/oSPk//c8PUAVQkYAAAAAAAAAA4sv+i3vyVf8ADlcWX/Rb35Kv+HanrgnqVpAPqtXIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6tUV3btNu3HvV11RTTHnMg+R3db0nU9E1K7pur4GRg5lqeK7N+3NFUevfxjymO0uk60V010xVTOsS5mJidJAHZwAAAAAAP2JmJiYmYmO8TD8Abo6We0FuXbEWdO3DFevaVREUUzXVEZFmn8Nf9fjyq/1hKbYm+dsb20/7Zt3U7WT7sc3bFX3b1r81E94+vhPymVeLuaPqeo6NqVnUtKzcjCzLM8271i5NFdPynvHnHaY+cITnnIfBZjrcsfZ3O7qnjHrHjq22Dze7Y6NfSp81kwjJ0s9pWaYt6bv/AB5qiIimnU8W33+ty3H/ADR/t+aRuhavpeu6Za1PR8+xnYd2OaL1muKqZ9PSfSe6oM2yLHZTXzcTRpG6Y20zwn0nb3JPhsZZxMa258N7vANOyQAAAAAAAAAAAAAAAAAAAAAAHW1LOwtMwbudqOXYw8WzT71y9fuRRRRHnMz2hzTTNU6RG0mdNsuy8Lem79u7O0ydQ3DqljCtTz8Omqebl2Y+VFEd6p+n72jeqntKY2P8XTNhY8ZN39WdTyKJi3TP93bnvV9auI9JhGzcGtatuDU7up61qGRn5l2fvXb1fvT9I8o9I7QsDI+QOKxml3Gz7ujs+9P08dvc0uMzm3a6NrpT5fu3J1U9orX9f+Lp20qLmh6dVHuzkTMfa7kfmjtbj8vM/i+TRt25Xdu1XbtdVdyuZqqqqnmapnxmZ+cvkW3luVYTLbXusNRFMec8Z65Rq/ibt+rnXJ1AGxeAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAsyVmrMlU+07/F/3/QkfJ/+54eoAqhIwAAAAAAAAABxZf8ARb35Kv8AhyuLL/ot78lX/DtT1wT1K0gH1WrkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdrSf2rif49H8UOq7Wk/tXE/wAej+KHS58MuaeuFg2+tk7a3rps4W4dMs5PETFq/Ee7es+tFfjH08J+cSi51U9nnce3JvahtibmvaXT3+FTTzl249aIjiv609/SExR87ZLymx+UVaWataPlnbHh2eCcYvL7OJjpRt7VZ1VNVNU01RNNUTxMTHeJfidnVHo7tHflFzJv436N1eaZ93PxaYiqZ/vKfC5H17/KJhFLqf0l3dsK5Xfz8T7ZpfvcUahjR71v09+PGifr28plcWR8r8Bm2lGvMufLO/hO/wDPuRfF5Zew23rp7Y9WAAJU1wAAAAAAAAyDZG89ybL1L7ft3VL2HXVMfFt/rWr0R8q6J7VfP1jntMMfHles279E27tMVUz1xO2HamuqiedTOkph9K/aH27uP4Wn7pptaDqc9ou1VfzS7PpVM80T6VdvxS3bRXTcoproqpqoqjmmqJ5iY84Vnti9LusO7tiXLWPj5M6lpNMx72n5VczRFPz+HV425+nMc95iVaZ77PKK9buXTpPyz1eE7uE7O+G/wedzHRv7e/6p2jAOl/VvaW/rdFjAypwtU93mvT8mYpudvGaJ8K4+nfziGfqrxeDv4O7Nq/RNNUbp/nmkVu7Rdp51E6wAMZ3AAAAAAAAAAAAAAAACZiI5ntDCupPU/aWwsar9M58Xc6aebeBj8V36+fCZp5+7HrVMR5c+CKfVLrdu7e03cKzdnRtIq5p+yYtyfeuUz8rlfaavpHFPok+R8k8fm0xXTHNt/NPV4Rv/AC72vxeZWcNsmdauyEgeqnXza20vi4Gj1Ua9q9P3Zt2bn8han8dyOeZj+zTz5TMIr9QuoG6d9Z32jX9Sru2aapqs4lv7liz+WiPn8uZ5n1YqLiyTktgMoiKrdPOr+aevw7PDxmUYxeY3sTsqnSOyABJGAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALMlZqzJVPtO/xf9/0JHyf/ueHqAKoSMAAAAAAAAAAcWX/AEW9+Sr/AIcriy/6Le/JV/w7U9cE9StIB9Vq5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHa0n9q4n+PR/FDqu1pP7VxP8AHo/ih0ufDLmnrhZQA+VVij5uUUXLdVu5RTXRVE01U1RzExPjEw+gGi+qns66Br3xdR2lXb0PUZ5qqsTEzjXp+njbn8vb0+aL+9Nobj2dqk6duLS72Fd/9uuY5t3Y86K47VR9J7fPiVijz9waLpO4NLuaZrWn4+fh3P1rN+iKqeflMeUx8pjvCdZHy6xuA0tYn7S33/FHCd/CfxhqMZk9q90rfRnyVuiR/VT2bMnG+NqewsicizHNdWm5Nf8AKU/Pi3X/AFvSKu/rMo86ngZ2l513B1LDyMPKtTxcs37c0V0z6xPeFvZVneCzW3z8NXr2xvjjH8hGcRhLuGq0uR9HWAbVjAAAAAAAAPq3XXbuU3LddVFdMxVTVTPExMeExLefSr2ite0GbWm7uoua3pscUxkRMRlWafr4XP8Au4n8XyaKGuzLKsJmdr3WKoiqN3bHCeuHvYxN3D1c63OixXZm7tu7w0unUdvapYzbXEe/RTPFy1PlXRPemfrHf5cw91W9t/XNX2/qVGpaJqWTp+XR4XbFyaZ48p849J7Skr0r9pPEy6rWm78x6cO9PFNOo41E/Cn1uUd5p+tPMekQqTPeQOKwet3BfaUdn3o+vht7klwec27vRu9GfL9kjB19OzcPUsGznaflWMvFvU+9avWa4rorjziY7S7Cv6qZpnSetuonXbAA4AAAAAAAAAcWXkY+JjXMnKv2rFi3T71y5drimmiPOZntENA9U/aR0vTYu6bsexRqmX3pqz71Mxj25/DT2m5Pr2jw/Whs8syfGZpc93haNe2d0cZ/k9jwxGKtYennXJ0bs3XuXQtq6VVqe4NTsafi0zxFVye9U+VNMd6p9IiZRk6p+0hq2q/F03ZNmvSsOeaZzbsRORcjzpjwtx/rPrDSu6dx65ujVa9U1/U8jPyqv692rtTHlTTHamPSIiHkrdyPkHhMDpdxf2lfZ92PDf4/gjOMzm7e6Nvox5uXLyMjLybmTlX7uRfu1e9cu3a5qqrnzmZ7zLiBPIiIjSGmAHIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALMlZqzJVPtO/xf9/0JHyf/ueHqAKoSMAAAAAAAAAAcWX/AEW9+Sr/AIcriy/6Le/JV/w7U9cE9StIB9Vq5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHa0n9q4n+PR/FDqu1pP7VxP8AHo/ih0ufDLmnrhZQA+VVigAAADFOoPT7au+sH7Pr+m0XL1McWsu1xRkWvy18eHpPMejKx7YfEXcNci7ZqmmqOqY2S610U1082qNYQt6qdBN1bS+Jn6PTVr2k08zNyxR/L2Y/Hb+cetPMdp54afWZNXdVOiO0t7/FzrNqNG1mvv8AbMaj7tyf7y3zEVfXtV6rOyP2hzGlrMo/3j1j1j8EfxmSfesT4T6T9UHhmvUrpjuzYWTV+mMCbmBNfu2s+x9+zc8uZ8aZnyq4n6sKWlhsVZxVuLtiqKqZ3xtR65brt1c2uNJAHu6AAAAAAAAMs6d9Q91bEzfj6DqNVFiuqJvYl379i79aZ8J/FHE+qVXSvrxtXeHwsDU6qdC1er7sWL9zm1dn8FziI5n+zPE+XKFIjWd8lcBm8TVcp5tfzR1+Pb47eyYZ+EzG9htkTrHZP82LMhCLpb1y3dsqm1g5Nf6b0iiIppxcq5Pv2qY+Vu53mmIjtxPMR8ohJDY/XLp/uiii3VqsaPmVTx9n1Hi1zPpXz7k/68+ioc35HZlltUzzOfR81O38Y64/LvSbDZpYvxprpPZLZo+LVy3et03bVym5RVHNNVM8xMekvtFupsQBwA+a66aKJrrqimmmOZmZ4iGud8dbOn+1aa7dzV6dUzKe32bTpi9VE+tXPuU+sTPPoy8JgcTjK/d4eiap7o1edy9btRrXOjZDVnVTrhtPZPxsDHuRrOs0RMfZcauPctVeVyvwp+kc1ekI+dUOvW7d30XcDTqv0DpVfMTaxrk/Gux5V3O08elMRHny1GsrI/Z5M6Xcyn/SJ/OfSPxaHF5392xHjPpDNOpPUzdm/cqZ1nPmjCir3rWDj80WLfl25+9PrVzP0YWC0cNhbOFtxas0xTTG6NiPXLlVyrnVzrIA93QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWZKzVmSqfad/i/wC/6Ej5P/3PD1AFUJGAAAAAAAAAAOLL/ot78lX/AA5XFl/0W9+Sr/h2p64J6laQD6rVyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO1pP7VxP8ej+KHVdrSf2rif49H8UOlz4Zc09cLKAHyqsUAAAAAAABx5NixlY9zGybNu/Yu0zRct3KYqprpnxiYntMNB9VPZv0nVIvalsi9RpWZP3pwbszONcn5+7Pebc+PnHy4pjukANnlmcYzK7nvMLXNPbG6eMdXr2PDEYW1iKebcjVXJuvbOvbV1SrTNwaZkYGTT4Rcp+7XHnTVHaqPWJmHkLHN07b0PdGl1abr+mY2fjVc8U3aOZon+1TPjTPrHEoy9U/Zv1TTPi6lsi/XqmHEe9Vg3qo+0UflniIrj07T9VuZFy8wmN0tYv7Ovt+7Pju8fxRnGZNdtdK10o80fRy5eNkYeVdxcvHu4+Raqmi5au0TTXRVHjExPeJ9HEnsTExrDTADkAAAAAAAAexoG6Nybfq50TXtS06OeZpx8muimfrTE8T+9m+m9e+qWFRTRO4aMqinwjIw7VU/wCsUxM/6tYDAxOV4LFTrfs01T30xPo9reIu2/gqmPFuOPaQ6k+57vxNJ54/W+x9/wCJ5uo9feqOZTVRTuC3i0z4xYw7VM/6zTMx/q1cMWjk7lVE6xh6P/jD0nHYmdk1z+L2tw7s3PuGf/8Ac3BqeoU88xRfyaqqI+lMzxH7oeKDa27VFqnm26YiOyNjHqqmqdZnUAejqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALMlZqzJVPtO/wAX/f8AQkfJ/wDueHqAKoSMAAAAAAAAAAcWX/Rb35Kv+HK4sv8Aot78lX/DtT1wT1K0gH1WrkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAdrSf2rif49H8UOq7Wk/tXE/x6P4odLnwy5p64WUAPlVYoAAAAAAAAAAADBOrfTram8tEysnV9OpjOx7FddnNscUX6ZppmYiav60elXMIELJNw/sDUf8AK3f4JVtrh9m2Ju3LF+3XVM00zTpE7tdddEYz63TTXRVEbZ118gBZjQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACzJWasyVT7Tv8AF/3/AEJHyf8A7nh6gCqEjAAAAAAAAAAHFl/0W9+Sr/hyuLL/AKLe/JV/w7U9cE9StIB9Vq5AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHa0n9q4n+PR/FDqu1pP7VxP8ej+KHS58MuaeuFlAD5VWKAAAAAAAAAAAA6O4f2BqP8Albv8Eq21km4f2BqP+Vu/wSrbW37Mv6eJ40/qRvP/AIrfj6AC0kdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFmSs1Zkqn2nf4v+/6Ej5P/wBzw9QBVCRgAAAAAAAAADiy/wCi3vyVf8OVxZf9Fvfkq/4dqeuCepWkA+q1cgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADtaT+1cT/AB6P4odV2tJ/auJ/j0fxQ6XPhlzT1wsoAfKqxQAAAAAAAAAAAHR3D+wNR/yt3+CVbayTcP7A1H/K3f4JVtrb9mX9PE8af1I3n/xW/H0AFpI6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALMlZqzJVPtO/xf8Af9CR8n/7nh6gCqEjAAAAAAAAAAHFl/0W9+Sr/hyvm5RFduqieeKomJ4cxOkkqzxu7qp7PO4tufF1Da9V3XtMp7/Cpp/ndqPWmI4rj1p7/hhpO5RXbuVW7lFVFdMzTVTVHExMeMTD6cy7NMJmVr3uGriqPOOMdcK/v4e5Yq5tyNHyA2DxAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHa0n9q4n+PR/FDgs2rl69RZs267lyuqKaKKKeaqpnwiIjxlvXpJ7PO4NYu42sbquXNDwaaqblGP7v86ucTz3pntbj83M+jWZpmuEy6zNzE1xTG7tnhHXLIw+HuX69LcapdAPmVPgAAAAAAAAAAAHR3D+wNR/yt3+CVbayTcP7A1H/K3f4JVtrb9mX9PE8af1I3n/AMVvx9ABaSOgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACzJWasyVT7Tv8X/f9CR8n/wC54eoAqhIwAAAAAAAAAAABrvqh0f2hvu3cyMnFjTtVqiZpz8WiKa6qvl8SPC5H17+Uw2IMrCY3EYK7F3D1zTVG+P55Ol21Rdp5tcawgb1Q6R7u2Fcrv52L9u0qJj3dQxYmq3HPh78eNE+Hj258Jlr9ZhcoouW6rdyimuiqJpqpqjmJifGJho/qp7O239wfF1HaldvQtRnmqqxFMzjXp/L/AO3PrT2/D81qZH7Q7dzS1mMc2fmjq8Y3cY2d0I5jMkqp6Vide5D8e9vXZ+49m6n+j9xaXewrs97dc8VW7sedFcdqo+nh8+HgrLs3rd6iLluqKqZ6pjbDQ1U1UTzao0kAejqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAyPYuydzb11GcLbul3cqaZj4t6fu2rMT86657R9PGeO0S8r1+3Yom5dqimmOuZ2Q7UUVVzzaY1ljjY/S7o5u7fdVvKsY/6M0mrvOflUTFNUf3dPjXP04jt4wkB0s9nvbe2ptahuSq3r2qUzFUU10cY1qfSif159au3pDdVFNNFEUUUxTTTHEREcREKzzz2h0Ua2sujWfmnq8I38Z/CW/weSTPSvz4fVgXTHpNtHYVqi7p+H9s1OI+/qGVEVXeeO/ufKiPHtHfzmWfAqzF4y/jLs3b9c1VTvlIrdqi1TzaI0gAYzuAAAAAAAAAAAA6O4f2BqP+Vu/wSrbWSbh/YGo/5W7/AASrbW37Mv6eJ40/qRvP/it+PoALSR0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWZKzVl9m5F2zRdp/VrpiqP3qp9p0f+l/3/QkfJ/8AueHq+wFUJGAAAAAAAAAAAAAAAA6GvaNpWvaZd0zWcDHzsO7+tavUe9H1jyn1jvCNvVP2a79mbupbByJv2+ZqnTMm5xXTHlbuT2q+lXE/ilKEbnKM+x2U187DV7N9M7aZ8PWNJ72LicHZxMaXI8d6tbU8DO0vOu4OpYeRh5VqeLlm/bmiumfWJ7w6ywnqDsDa2+tPnF1/TaLlyI4tZdqIov2fy18f+J5j0RY6q9At0bT+NqGixXrukUzM+9ZomcizT4810R4xH9qnnzmIXBkfLfA5lpbvfZ3OyeqeE+k+aMYzKb1jpU9KnzadCYmJ4ntImjVAAAAAAAAAAAAAAAAAAAAAAAP2ImZiIiZme0RAPx3NH0zUdY1G1p2lYWRm5d6eLdmxbmuqr90f8tu9K/Z93NuebWobji5oGlVd/duU/wA6ux+Gif1I9av3RKUmw9jbY2Rp32Pb2mWseqqmIu5FUe9evcfOuvxnz48I+UQhOecuMFl2tux9pc7uqOM+keTbYPKLt/pV9GnzaK6V+zVM/C1Lf+Rx396NLxrnj/iXIn/xR/u+SR2i6Vpui6ba03ScHHwcOzHFuzYtxRTH7o+fnPzdwVBm2e43Nq+dia9Y3RGyI4R6zt70nw2DtYaNLceO8AadkgAAAAAAAAAAAAAAAOjuH9gaj/lbv8Eq21kW5KqaNu6lXXPFNOJdmZ8o9yVbq2/Zl/TxPGn9SN5/8Vvx9ABaSOgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACxLpvqNOrdPtv6lTMT9o02xXV6VfDj3o/dPMK7U0PZF16NW6TWtOrr5v6Tk3MeqJnv7lU/Epn6femP+1XftIwk3MBbvx9yrymPrEN5kVzm3qqO2PybiAUslQAAAAAAAAAAAAAAAAAAADV/VPoltLfHxc23ZjR9Yqj+mYtEcXJ87lHaK/r2q9eyKfUvpfu3YOTVOr4PxcCavdtZ+P8Afs1+XM+NM+lUR6c+KfjjyLNnIsV2Mi1bvWblM01266YqpqifGJifGEwyPlnjsr0t1z7y32T1xwndw2x3NZjMqs4jpR0au36q0RLPqn7OGj6rTd1HZN2jScziapwrkzOPdnypnvNuf9Y9IRk3ZtjXtqarVpm4NMv4GTTzxFyPu1x501R2qj1iZhcGT8osDm9P2FfS30zsqjw38Y1hGMVgb2Gnpxs7dzxwG9YYAAAAAAAAAAAAAAAAPb2dtPcO79UjTdu6Xfzr/jXNEcUW4866p7Ux9ZSf6V+znoeh/C1HeF23reoU8VU41PMYtqfWJ73P38R+GWhznlJgMop+3q1q3Uxtn9uMszC4C9iZ6EbO3c0D0x6Ubu39dpu6bh/ZdN97ivUMmJptRx4xT8659I/fMJW9LejO0di028uix+lNXpiJnOyqImaKvO3T4UfXvPq2NZtW7NqizZt0W7dERTRRRTxFMR4RER4Q+1PZ5yxx+a624nmW/ljfxnf5R3JRg8rs4fpTtq7Z9ABEWyAAAAAAAAAAAAAAAAAAAAYp1g1GnSulm5s2aopmnTL9FEzPhXXRNFP/ANqoV8Jie2Pr1Om9MrGi0V8XtXzKaZp87Vv79U/7vh/6odrs9nOEm1ltd6fv1bOEbPz1RPPbnOvxTG6PzAFgtKAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANx+yZu+nbvUiNIyrsUYWt0RjTz4RfiebU/vmaqfrXDTj7s3blm9Res11W7luqKqK6Z4mmY7xMT5sHM8BRmGEuYa51VRpw7J8J2vbD3psXabkbll4wHoXv6zv8A2PYz7lyiNUxeLGo2o7cXIjtXEf2ao7x++Pkz5804zCXcHfrsXo0qpnSf5+Se2rlN2iK6eqQBjO4AAAAAAAAAAAAAAAAAAAA8rdG3dE3PpVel6/puPqGJVPPuXaefdnjj3qZ8aau894mJ7vVHe3crtVRXROkx1THW4qpiqNJ6kUeqvs36lpvxtT2Pfr1LEiJqqwL1X84o9KJ44rj0nifzNA5uLlYOXcxM3GvY2Raq925avUTRXRPlMT3iVljDeo3TTaW/MWada0+mnLiOLedjxFGRR5fe4+9HpVEwsfI/aDesaWswjn0/NHxRx3T5TxaLGZJRX0rOyezcr/G1OqnQ7duyou5+LbnWtHoiapysaifftUx//S33mn6xzHnMNVrXwOYYbH2ou4auKqe713xPdKOXrNyzVzbkaSAMx5AAAAAAAAANudK+g+694fCz9Toq0LSKuKvjZFufjXqZ/wD52/L8VXEd+Y5YWPzHC5fa97ia4pp7/SOufB62bFy9Vzbcay1Vp+Hl6hm2sLAxb+XlXqvdt2bNua6658oiO8pCdK/Ztzcz4Op78vzh2J4qp07Hr5u1R5XK47UfSOZ9Ylvrp3062psTD+DoOnU05FVPu3cy9xXkXfrX8o7fqxxHoy1U+ee0G/iNbWAjmU/NPxTw7POeCSYPJaKOle2z2bv3edtzQtH27pdvS9D07HwMO3+ras08Rz85mfGZ9Z5l6IK6rrquVTXXOszvlvIiKY0gAdHIAAAAAAAAAAAAAAAAAAAADXHtB7/t7D2LfuY16mNYz4qx8CjnvTVMfeu/9kTz9fdj5srBYO7jcRRh7Ma1VTpH87I65ed27TaomurqhGr2o94Ubq6m38bEu/EwNHpnDtTE/dquRPN2qP8Au+76xREtUv2ZmZmZmZme8zL8fS+X4K3gMLbw1vqpjT9/GdqBX7tV65NyrrkAZjyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZj0j35qPT7d1nWMSKr2LXxazcXniL9rnvHpVHjE/KfSZiZ2bU3BpW6NBxdb0XKpycPJo96iqPGmfnTVHyqie0x8lcTP+jfVDWunWsRVYqry9Hv1xOXg1Vfdq8Oa6P7NcRHj8/CfSD8r+SkZtR/1GH2Xqf8AlHZx7J8J7tvlmY/9NPMr+GfJPMeBsXeGgb00SjVtv51GRZniLlueIu2av7NdPjTP/PjHMd3vqPvWbliubdymYqjrieuEupqpriKqZ1gAeTkAAAAAAAAAAAAAAAAAAAAAAaj6p9B9qbw+Ln6ZTToWr1T7037Fvm1dn8dvmI5n+1HE+fPg24M3AZjisvu+9w1c01d2/jHVPi8r1i3ep5tyNYV9dROne6tiZvwde06qjHrqmLOXan37F36VR4T6TxPoxJZXqGHiahhXcLPxrOVjXqfduWb1EV0Vx5TE9pR76qezZhZnxdT2HkU4V+fvTpuRXM2avP3K55mmfSeY7+NMLYyP2g2MRpax8cyr5o+GeO+POOCN4zJa6OlZ2x2b/wB0WB6W49C1jbmqXNM1zTcnT8u3Pe3eo45jzifCqPKY5ifk81YtFdNymK6J1id8NHMTTOkgDu4Aertfbut7n1WjS9A03Iz8qv8AqWqe1MedVU9qY9ZmIdLlyi1TNdc6RHXM9Tmmmap0iNrymZdN+mm7N+5UU6Lp804dNfu3s6/9yxb8/vf1p9KeZb86V+zdpmnfB1PfF+jUsqI96NPszMWLc/L36vGufTtH5ob+w8bGw8W1iYePax8e1TFFu1aoiiiimPCIiO0QrjPPaDZsa2svjn1fNPwxwjf5Rxb3B5JXX0r2yOzf+zWHSzobtPZcWs7LtxresU9/tWTRHuW5/u7feI+s8z6w2qCqMdmGJx92buJrmqrv9N0R3Qkdmzbs0823GkADDeoAAAAAAAAAAAAAAAAAAAAAADG+oO9tvbG0WrVNfzabUTzFmxT3u36o/q0U/P5cz4Rz3mHrYsXMRci1apmqqeqI63Wuumimaqp0iHd3juPSdp7dytd1rIixiY1HM/2q6vlRTHzqme0Qgb1R3tqe/t25Gu6jzbon+TxcaKuace1HhRHn85mfnMz9HodXupet9RdajJzp+y6dYmfseDRVzRaj+1M/1q5+c/6cQwZeXJHkrGUW/f39t6r/AIx2R39s+Ed8RzPMf+pq5lHwx5gCbNSAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9fae5dd2rq9Gq7f1K/gZdPaarc9q45592qme1VPpMTCUPSz2jdE1qq1pu8rNrRc6qYpjLomfstc+vM82/38x5zCI40Wc8nMDm9P29PS3VRsmPrwnVmYXHXsLPQnZ2bll2Pes5Fii/j3bd61cpiqi5RVFVNUT4TEx4w5EB+mfVXd2wr9NOmZs5On8/fwMqZrsz5zTHPNFXrH7+UrOlnWjaO+Yt4cX/0VrFXEThZVcR8Sr+7q8K/p2q9FO55yNx2V63KY59vtjdxjdx2x3pRg80s4jozsq7Po2YAiLZAAAAAAAAAAAAAAAAAAAAAAAAPD3jtLb279Lq07cOl2M21MT7lVVP8AKWpn+tRV40z9EYOqns567ofxdR2fcu63p9PecWr+l249IiOLkfTifRLsb7JuUmPyir7CrWnfTO2P24ww8VgLOJjpxt7d6tC9auWb1dm9brt3KKpprorp4qpmPGJifCX7i2L+VkW8bGs3L9+7VFFu3bpmqquqfCIiO8ynl1N6UbQ37am7qeF9l1KI4oz8WIovfSr5Vx6Vc8fKY5c3TXpftLYWPE6Rgxez5ji5n5MRXfq7cTETx92PSnj15WRPtIwf/S8+Lc+8+Xdx53Z4a929ov8AsV33mnOjm9v7NA9LPZw1jV4talvW9c0jCqiKqcO1MTk3I/FPeLcf61fKYhJzae2NB2ppdOm7f0vHwMaOJqi3T96ufOqqe9U+szL2BW2c8osdm9X29XR3UxsiPDfxnVvsLgbOGjoRt7d4A0TLAAAAAAAAAAAAAAAAAAAAAAAAHFl5GPiY1zJyr9qxYt0+9cuXa4ppojzmZ7RDWXVPrftLZPxcGxdjWdZo5j7JjVx7turyuXO8U/SOavSEU+pPU7du/cmqdZz5t4MVc28DH5osUceE+7z96fWqZny4TDI+RmOzTS5XHu7fbPXPCN/HZDWYzNbOH6MdKrs+rfvVP2kNK0v4um7Is0aplxzTOddiYx7c+dMeNyf9I+qMe6Nw63ufVrmq69qV/Py7njXdq7Ux/ZpiO1MekREPKFw5PyewOUUaYenpb6p2zPju4RpCL4rHXsTPTnZ2bgBvGIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP2JmJiYmYmO8TD8Abl6V+0BufasWdO1739f0qj7sfFr/AJzaj8Nyf1ojyq58omISn2DvvbG+NP8Atm3tSoyJpiJvY9ce5esz5VUT3/fHMT8plXm7Wk6jn6TqFnUdMzL+Hl2KoqtXrNc01Uz6TCE55yHwWY63LH2dztjqnjHrHjq22Dze9Y6NfSp8/wAVlAjF0r9pSu38LTd/2JuU+EapjW/vR/iW6Y7/AFp/2z4pIaJq2ma3ptrUtIz8fOw7sc0XrFyK6Z9O3hPnE94VBm2Q47Ka+biaNI3TG2J4T6TpPck+GxlnExrbnw3u6A07JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB5+4db0nb+l3dT1rUMfAw7Uc1Xb1fEfSPnM+URzMo2dU/aUysibum7Cx5xrX6s6lk0RNyr1t257U/WrmfSJbrKMgx2bV83DUbN9U7KY8fSNZYuJxtnDRrXO3s3t8dQuoO1ti4P2jX9Rpt3q6Zqs4lv79+9+Wny9Z4j1RX6qde91bu+LgaRVXoOkVTx8Oxcn492Px3I+U/2aeI+U8tUajnZupZ13O1DLv5eVeq967evXJrrrnzmZ7y6638j5E4HLdLl37S52z1Rwj1nWeCMYzNr1/o09Gn+bwBNGqAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGQ7H3puXZepfbtu6pexKqpj4trn3rV6I+VdE9qvn38Y57cMeHles279E27tMVUz1xO2HaiuqiedTOkpidK/aG25uP4WnboptaDqdXb4tVXGJcn0rmeaJ9Ku34pbsorpuUU10VU1UVRzTVE8xMecKz2xel/WHd+xK7ePjZX6R0mmY97Ayqpqopp+fw6vG3P07ecSrTPPZ5RXrdy6dJ+Werwndwn8Yb/B53MdG/Gvf9U7Rr/pf1c2jv23RYwcr7DqsxPvaflTFNyePGaJ8K48fDvx4xDYCq8Xg7+DuzaxFE01Run+eaRW7tF2nnUTrAAxncAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABrnqh1j2hsSLmLfyf0lq1Pb7BiVRNdE/3lXhRH179/CWVg8FiMbdi1h6JqqndH82cXndu0WqedXOkNh3rluzaru3blNu3RTNVddU8RTEd5mZ+UNG9VPaK0HQZvabtGi3reo0/dnImf5rbn0mO9z/ALeI9WgOp3Vrd+/bldnUMz7HpfPNGn4szTa8e3v/ADrnw/W7c+EQwFauR+z23b0u5jPOn5Y6vGd/CNnfKO4zO6qujYjTve7vTd24t46pOo7i1O9m3Y5+HTVPFu1E/KimO1MfT97wgWVas27NEW7dMRTHVEbIaGqqquedVOsgD0dQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH1brrt3KbluuqiumYqpqpniYmPCYlvHpZ7RO4NA+Hp27KLmu6dHFNN/3ojJsx9f8A3PpV3/F8mjBr8xyrCZla91iqIqjzjhPXD3sYm7h6udbnRYpsreG3N5aXGo7d1Szm2o7XKI+7ctT5V0T3pn6x3+XL3lbmgazquganb1PRdQyMDMtfq3bNc0zx5T5x5xPaUk+lntKY9+LOmb+x4x7vEUxqeNR9yqfDm5bj9X1mnmPwxCpM85A4rCa3cFPvKOz70fXw29yS4PObd3o3ejPl+ySA62mZ+DqmDaztNzMfMxbsc271i5FdFcekx2l2VfVUzTOkxpLdROu2ABwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOnrGp6do+n3dR1XNx8LEsxzcvX7kUU0/vn/h2ppqrmKaY1mSZiI1l3GO753ttnZWnfbdxapaxYqifhWY+9dvTHyoojvP18I57zDRXVT2lKYi9pmwcfme9M6pk0do9bdufH61f7Ucda1XUtb1K9qWr52RnZl6ebl6/XNVU/vn5eUeELCyPkBicVpdx0+7o7PvT9PHb3NJjM6t2+jZ6U9u7923+qntC7k3L8XTttU3NB0uqJpmumqJybsetcfqfSnv+KWlK6qq65rrqmqqqeZmZ5mZfgtrLsrwmW2vdYaiKY854z1yjV/EXL9XOuTqAM94gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMq6fdQN07Gz4ydA1Ku3amrm7iXZmvHu/mo58fWOJ9Up+lfXza27PhafrVVGg6vVxEU364+z3qvwXJ8J/DVx49plC4RzO+S2AzeJquU82v5o6/Ht8fCYZ2EzG9htlM6x2SsyiYmOY7wIO9K+tu7dj/Cwrl2dY0emf6HlVz71uPK3c7zR9O9Pp3Ss6adT9p7+xqf0PnfDz4o967gX/ALl6jz4jwqj1p5jz4U7nnJPH5RM11Rz7fzR6xu/LvSjCZlZxOyJ0q7J9O1mwCLtgAAAAAAAAAAAAAAAAAAAAAAAAAAAAPyZiImZmIiO8zLBep3VbaWwbNVvU8z7TqXu829Pxpiq7PPhNXyoj1q/dEopdUus27t9VXMWvInStImZiMHFrmIrp/vKvGv6do9EpyPkjj820riOZb+afSN/5d7X4vM7OG2ddXZHqkB1U9oLbO2Iu6ft34ev6rHbm3X/NrU/irj9afSn/AFhFrfm+dz731GczcOp3MimmqZtY9M+7Zs8/Kijwjy57zPzmWNC4sl5MYDKI1tU61/NPX4dnh46ovi8wvYmdKp0jsgASJggAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADkxr97GyLeRjXrlm9bqiqi5bqmmqmY8JiY7xLjHExExpIkB0s9pDV9Lqs6dvazXq2H2pjNtREZFuPOqO0XI/0n58zKTe09zaDurSqNT2/qePn41XHM26vvUT5V0z3pn0mIlXI9Xa249c2vqtGqaBqWRgZVPaarVXEVxzz7tUeFVPpPMIHnnIPB47W7hPs6/+M+G7w/BucHnF2z0bnSjzWOiPfSr2kNN1L4Omb4sUablzMU059mn+b1+tcc80T6xzH5W/sLKxs3FtZeHkWcnHu0xVbu2q4rorjziY7TCo80yfGZXc93iaNOyd08J/kpNh8VaxFPOtzq5gGre4AAAAAAAAAAAAAAAAAAAAODUMzE0/Cu5uflWMTFs0+9cvXrkUUUR5zM9oR76p+0nhYfxdN2Jj05t+OaatRyKJi1TPnbo8a/rPEekw2uV5Ljc1uczDUa9s7o4z/JY+IxdrD063J+reG8d17e2hpdWpbh1Oxg2I7UxVPNdyfKimO9U/SEYeqftG65rXxdO2dbuaLgTzTOXVMTlXI9Jjtb/dzV+KGmNx67rG49Uuaprmo5GfmXO03b1XMxHlEeER6RxDzVu5HyEweA0u4r7Svv8AhjhG/jP4QjOMzi7e6Nvox5vu9duXrtd69cruXK5mquuurmapnxmZnxl8AncRo04AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzLpx1M3bsPJirRNQmrDmrm5g5HNePX5/d5+7PrTMSw0eGJwtnFW5tXqYqpndO13t3KrdXOonSU3ulnXHaW9arWDk1/oTWK5imnEybke5dqn5W7naKvLieJ8oltRWa270r687q2f8LA1SqrXdHoiKYs36+LtqPwXOJntH9WrmPLhV2eezyY1u5bP+kz+U+k/ikODzv7t+PH6x9E1RifTvqHtXfeF8fQdRprv0UxN7Eu/cv2vrTPjH4o5j1ZYrDEYe7hrk2r1M01R1xOyUgorpuU86mdYAHi7AAAAAAAAAAAAAMO6j9Stp7CxZr1vUInMqp961g2OK79zy+7/AFY/FVxHq98Nhr2KuRas0zVVO6NrrcuU26edXOkMxak6qdd9qbP+LgabXGuavTEx8HHrj4Nqr+8ueH7qeZ7d+EfuqnXLdm9Pi4OHcq0TRq+32XHr/lLkf3lztM/SOI84nxapWhkfs86ruZT/AKR6z6R+KPYzO/u2I8fpDLuovUXde/Mz42vajVOPTVzawrPNGPa+lPPefH708z6sRBaGHw1rDW4tWaYppjdGyEfruVXKudVOsgD2dAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHY0/NzNOzbWdgZV7FyrNXvWr1muaK6J84mO8JCdK/aTzMOLOmb8x6s2zH3Y1LHoiLtPl8SiOIq+tPE8R4VSjmNVmuS4LNbfMxNGvZO+OE/yO5kYfF3cPVrbn6LIdu67o+4tMt6noepY2oYlzwuWK4qiJ8pjxpnzieJh6KunZ27dw7Q1SnUdvapfwrsTHv001fyd2I/q10+FUfVJ/pX7Reha58LTt40WtE1Ce0ZUc/ZLk+szMzbn68x+L5KizzkJjMBrdw32lHd8UcY38Y/CEnwecWr3RudGfJvcfFm5bvWqLtq5Tct10xVRXTPMVRPeJifnD7QXqbcAcAAAAADjyb9jFx7mTk3rdixapmu5cuVRTTRTHjMzPaIcxEzOkDkeVujcWibY0uvU9e1LHwMWj+vdq4mqfKmPGqfSImWl+qntH6PpE3dN2VZt6vmx92rMucxjW5/DxxNyf9I9ZRi3ZufXt16pVqW4NUyM/JnmKZuVfdojyppjtTHpEQnmRcg8ZjtLuK+zo/5T4bvH8GnxmcWrPRt9KfJu3qp7SOpah8XTdjWK9NxefdnUL1MTfrj8FPeKI9Z5n8stAZmTk5uVdy8zIu5ORdqmu5du1zXXXVPjMzPeZcItzK8mweV2/d4ajTtnfPGf5HYjOIxV3EVc65OoA2jHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZ50x6r7u2FdptabmfatNmea9Pypmu1P5fnRPfxp45+cTwlF08677G3XRbsZWZGhajVxE42dXFNFUz/Yu/qz+/wB2fRCERfOuSOX5rM11U8yv5qfWOqfz72wwmZ38NsidY7JWY0VU10RXRVFVNUcxMTzEw/VeG1N9bw2rMRoG4c/BtxPPwabnvWpn1t1c0z/o2ZovtM79w6aaNQw9G1KmP1q67FVu5P76Kop/+qvMZ7OcwtTrh66a4/8AjP4Ts828tZ7YqjpxMeaYYjBje1Xk00/znZFm5Vx429SmiP8Azbl+ZXtV5dVM/Ztk2LdXym5qU1x/4tw1X/gbPNdPc/8AKn/9mR/3fCfN5T9EoHxduW7Nqq7duU27dETVVVVPEUx5zKHut+0vv/Npqo0/G0fTKZ8K7diq5XH766pp/wDq1nune+7t0TV+ntw6hnW6p5+FXdmLUT6W44pj90NtgvZzmF2dcRXTRH/yn0jzY13PbNPwRM+SXHUPr5sja9u7j6fk/p/UaeYizh1c2qZ/Fd/V4/L70+iLvUvqju3fuRMatnTYwInm3gY0zRZp79uY/rz61c+nDCBYmS8k8vynSuinnV/NVtnw3R+fe0mKzK/idkzpHZAAkzXgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/Z" alt="Hyfe logo" />
+        </div>
+        <span class="nav-logo-text">Hyfe</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#what-accurate">Accuracy</a></li>
+        <li><a href="#correlation">Correlation</a></li>
+        <li><a href="#hourly">Hourly</a></li>
+        <li><a href="#daily">Daily</a></li>
+        <li><a href="#ground-truth">Ground Truth</a></li>
+        <li><a href="#pharma">Pharma</a></li>
+        <li><a href="https://www.hyfe.com/publication/validation-and-accuracy-of-the-hyfe-cough-monitoring-system-a-multicenter-clinical-study" target="_blank" rel="noopener">Validation Paper&nbsp;↗</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ── Hero ────────────────────────────────────────── -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <div class="hero-eyebrow-line"></div>
+          <span class="tag">Validation &amp; Methodology</span>
+        </div>
+        <h1>Cough Monitoring Accuracy <em>Designed for the Real World</em></h1>
+        <p class="hero-subhead">
+          A deep dive into how Hyfe quantifies agreement with ground truth at the level decisions are actually made: hourly and daily cough rates.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#charts" class="btn-primary">
+            Explore the Data
+            <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+          </a>
+          <a href="https://www.hyfe.com/publication/validation-and-accuracy-of-the-hyfe-cough-monitoring-system-a-multicenter-clinical-study" target="_blank" rel="noopener" class="btn-ghost">
+            Peer Reviewed Validation Paper
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 10L10 2M5 2h5v5"/></svg>
+          </a>
+        </div>
+        <div class="hero-stat-row">
+          <div class="hero-stat">
+            <a href="https://en.wikipedia.org/wiki/Concordance_correlation_coefficient" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:contents">
+              <span class="hero-stat-value" style="text-decoration:none;border-bottom:1px solid rgba(0,217,166,0.35)">CCC</span>
+              <span class="hero-stat-label">Lin's Concordance</span>
+            </a>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">24h</span>
+            <span class="hero-stat-label">Continuous Recording</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">Dual</span>
+            <span class="hero-stat-label">Independent Annotation</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-value">≥0.90</span>
+            <span class="hero-stat-label">Target Concordance</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Chart Anchor (Phase 2) ───────────────────────── -->
+  <div id="charts"></div>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Section 1 — What Does "Accurate" Mean?            -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section id="what-accurate">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">01</div>
+        <div>
+          <h2 class="section-title">What Does "Accurate" Mean?</h2>
+          <div class="section-body">
+            <p>Accuracy depends on what you are measuring. Event-level metrics — sensitivity, precision, false positives per hour — describe detection performance at the level of individual cough events.</p>
+            <p>But clinicians and researchers rely on <em>rates</em>: hourly and daily cough burden. A system can detect events well and still misrepresent the rate that matters.</p>
+            <p>This page focuses on <strong style="color:var(--text-primary)">agreement in rates</strong>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Module 1: Metric Selector Placeholder -->
+      <div class="reveal">
+        <div class="viz-placeholder" id="metric-selector-container">
+          <span class="viz-badge">Phase 2 — Interactive</span>
+          <div class="viz-placeholder-inner">
+            <div class="viz-placeholder-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="6" width="18" height="10" rx="2"/>
+                <circle cx="8" cy="11" r="2" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+
+            <!-- Toggle preview (non-functional, illustrative) -->
+            <div class="toggle-mockup">
+              <button class="toggle-btn">Event-Level Metrics</button>
+              <button class="toggle-btn active">Hourly Agreement</button>
+              <button class="toggle-btn">Daily Agreement</button>
+            </div>
+            <span class="viz-placeholder-title">Metric Selector Module</span>
+            <p class="viz-placeholder-sub">Interactive toggle revealing the appropriate metrics view. Default: Hourly Agreement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Section 2 — Correlation Is Not Enough             -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section id="correlation">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">02</div>
+        <div>
+          <h2 class="section-title">Correlation Is Not Enough</h2>
+        </div>
+      </div>
+
+      <div class="principle-layout">
+        <div class="reveal">
+          <div class="section-body" style="max-width:100%">
+            <p>A sensor can be <em>perfectly correlated</em> with reality, and still be systematically wrong.</p>
+            <p>Pearson's <em>r</em> measures linear association — how tightly values move together. It does not measure agreement with the line of perfect equality (y&nbsp;=&nbsp;x).</p>
+            <p>For measurement systems deployed in clinical contexts, the relevant question is not whether readings co-vary. It is whether they <em>match</em>.</p>
+          </div>
+
+          <div class="principle-callout" style="margin-top:32px">
+            <p class="principle-question">"Do readings match reality, or just move in the same direction?"</p>
+            <div class="principle-compare">
+              <div class="compare-row">
+                <span class="compare-label">Pearson r</span>
+                <span class="compare-desc">Rewards clustering around <em>any</em> line</span>
+                <span class="compare-chip chip-warning">Insufficient</span>
+              </div>
+              <div class="compare-row">
+                <span class="compare-label">Lin's CCC</span>
+                <span class="compare-desc">Rewards clustering around y&nbsp;=&nbsp;x</span>
+                <span class="compare-chip chip-good">Clinically valid</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Module 2: Scatterplot Placeholder -->
+        <div class="reveal">
+          <div class="viz-placeholder" id="correlation-chart-container" style="height:420px">
+            <span class="viz-badge">Phase 2 — Interactive</span>
+            <div class="viz-placeholder-inner">
+              <div class="viz-placeholder-icon">
+                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="5" cy="17" r="1.5"/><circle cx="9" cy="12" r="1.5"/>
+                  <circle cx="13" cy="8" r="1.5"/><circle cx="17" cy="5" r="1.5"/>
+                  <line x1="2" y1="20" x2="20" y2="2"/>
+                </svg>
+              </div>
+              <span class="viz-placeholder-title">Correlation vs Agreement Scatterplot</span>
+              <p class="viz-placeholder-sub">Toggle: Pearson line · Line of perfect agreement (y = x) · Display Pearson r and Lin's CCC live.</p>
+            </div>
+          </div>
+          <div class="info-block" style="margin-top:16px">
+            <p><strong style="color:var(--text-primary)">Pearson</strong> rewards tight clustering around any line.</p>
+            <p><strong style="color:var(--accent)">Lin's CCC</strong> rewards clustering around the <em>correct</em> line.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Section 3 — Hourly Agreement                      -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section id="hourly">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">03</div>
+        <div>
+          <h2 class="section-title">Agreement at the Hourly Level</h2>
+          <div class="section-body">
+            <p>Each data point represents one person-hour of continuous recording. Ground truth is established through independent dual annotation and adjudication — not automated labeling.</p>
+            <p>High concordance indicates both precision <em>and</em> minimal systematic bias: the two properties that matter for clinical deployment.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Metric Cards -->
+      <div class="metric-grid reveal">
+        <div class="metric-card">
+          <div class="metric-card-label">Lin's CCC</div>
+          <div class="metric-card-value accent">—</div>
+          <div class="metric-card-sub">Concordance correlation coefficient</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Pearson r</div>
+          <div class="metric-card-value">—</div>
+          <div class="metric-card-sub">Linear association</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Slope</div>
+          <div class="metric-card-value">—</div>
+          <div class="metric-card-sub">Regression coefficient</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Intercept</div>
+          <div class="metric-card-value">—</div>
+          <div class="metric-card-sub">Systematic offset</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Mean Bias</div>
+          <div class="metric-card-value">—</div>
+          <div class="metric-card-sub">Bland–Altman</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">95% LoA</div>
+          <div class="metric-card-value">—</div>
+          <div class="metric-card-sub">Limits of agreement</div>
+        </div>
+      </div>
+
+      <!-- Hourly Scatterplot Placeholder -->
+      <div class="reveal" style="margin-top:40px">
+        <div class="viz-placeholder" id="hourly-scatter-container" style="min-height:440px">
+          <span class="viz-badge">Phase 2 — Interactive</span>
+          <div class="viz-placeholder-inner">
+            <div class="viz-placeholder-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="18" height="18" rx="2"/>
+                <circle cx="6" cy="16" r="1.5"/><circle cx="10" cy="12" r="1.5"/>
+                <circle cx="14" cy="9" r="1.5"/><circle cx="17" cy="6" r="1.5"/>
+                <line x1="4" y1="18" x2="18" y2="4" stroke-dasharray="2 2"/>
+              </svg>
+            </div>
+            <span class="viz-placeholder-title">Hour-by-Hour Scatterplot</span>
+            <p class="viz-placeholder-sub">Hover individual person-hours · Toggle: regression line, y&nbsp;=&nbsp;x, residuals · Secondary tab: Bland–Altman view</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Section 4 — Daily Agreement                       -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section id="daily">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">04</div>
+        <div>
+          <h2 class="section-title">Agreement at the Daily Level</h2>
+          <div class="section-body">
+            <p>Clinical decisions and trial endpoints often operate at daily aggregation. Each point below represents one person-day.</p>
+            <p>Daily aggregation reduces stochastic noise while preserving signal integrity — and consistency between hourly and daily concordance reinforces credibility.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Daily Metric Cards -->
+      <div class="metric-grid reveal">
+        <div class="metric-card">
+          <div class="metric-card-label">Lin's CCC</div>
+          <div class="metric-card-value accent">—</div>
+          <div class="metric-card-sub">Daily concordance</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Pearson r</div>
+          <div class="metric-card-value">—</div>
+          <div class="metric-card-sub">Linear association</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">Mean Bias</div>
+          <div class="metric-card-value">—</div>
+          <div class="metric-card-sub">Systematic offset</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label">95% LoA</div>
+          <div class="metric-card-value">—</div>
+          <div class="metric-card-sub">Limits of agreement</div>
+        </div>
+      </div>
+
+      <!-- Daily Scatterplot Placeholder -->
+      <div class="reveal" style="margin-top:40px">
+        <div class="viz-placeholder" id="daily-scatter-container" style="min-height:440px">
+          <span class="viz-badge">Phase 2 — Interactive</span>
+          <div class="viz-placeholder-inner">
+            <div class="viz-placeholder-icon">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="2" y="2" width="18" height="18" rx="2"/>
+                <circle cx="6" cy="15" r="2"/><circle cx="11" cy="10" r="2"/>
+                <circle cx="16" cy="6" r="2"/>
+                <line x1="4" y1="18" x2="18" y2="4" stroke-dasharray="2 2"/>
+              </svg>
+            </div>
+            <span class="viz-placeholder-title">Day-by-Day Scatterplot</span>
+            <p class="viz-placeholder-sub">Same interface as hourly · Hover individual person-days · Toggle: regression line, y&nbsp;=&nbsp;x, residuals · Bland–Altman tab</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Section 5 — Event-Level Context                   -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section id="event-level">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">05</div>
+        <div>
+          <h2 class="section-title">Event-Level Context</h2>
+          <div class="section-body">
+            <p>For completeness, event detection metrics are reported here. These describe model behavior at the level of individual cough events rather than cough rates.</p>
+            <p>Event metrics inform model behavior. Rate-level concordance informs clinical utility.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <table class="event-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Value</th>
+              <th>Definition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="metric-name">Sensitivity</td>
+              <td class="mono accent">—</td>
+              <td class="metric-note">Proportion of true coughs detected</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Precision</td>
+              <td class="mono accent">—</td>
+              <td class="metric-note">Proportion of detections that are true coughs</td>
+            </tr>
+            <tr>
+              <td class="metric-name">False Positives / Hour</td>
+              <td class="mono accent">—</td>
+              <td class="metric-note">Non-cough events classified as coughs per hour</td>
+            </tr>
+            <tr>
+              <td class="metric-name">Positive Predictive Value</td>
+              <td class="mono accent">—</td>
+              <td class="metric-note">Equivalent to precision in binary classification</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Section 6 — Ground Truth                         -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section id="ground-truth">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">06</div>
+        <div>
+          <h2 class="section-title">How "Reality" Was Defined</h2>
+          <div class="section-body">
+            <p>Ground truth is not assumed — it is constructed through a rigorous annotation protocol. Human annotation establishes the reference standard, but also defines the ceiling of agreement any automated system can theoretically achieve.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="method-steps reveal">
+        <div class="method-step">
+          <div class="method-step-num">STEP 01</div>
+          <div class="method-step-title">Continuous Recording</div>
+          <div class="method-step-body">24-hour acoustic recordings capturing ambient and subject-generated sound in real-world conditions.</div>
+        </div>
+        <div class="method-step">
+          <div class="method-step-num">STEP 02</div>
+          <div class="method-step-title">Independent Dual Annotation</div>
+          <div class="method-step-body">Two independent human annotators review recordings blind to each other's labels.</div>
+        </div>
+        <div class="method-step">
+          <div class="method-step-num">STEP 03</div>
+          <div class="method-step-title">Adjudication</div>
+          <div class="method-step-body">Discrepancies between annotators are resolved by a third expert reviewer to produce a single adjudicated ground truth.</div>
+        </div>
+        <div class="method-step">
+          <div class="method-step-num">STEP 04</div>
+          <div class="method-step-title">Cough Seconds</div>
+          <div class="method-step-body">Cough seconds serve as the unit of analysis, enabling continuous rate quantification rather than binary event detection.</div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <details>
+          <summary>View Methodology Details</summary>
+          <div class="details-body">
+            <p>The annotation protocol is designed to minimize inter-rater variability and ensure that the reference standard reflects genuine cough burden rather than labeling artifacts.</p>
+            <ul>
+              <li>Annotators operate under standardized labeling guidelines developed from prior clinical audio annotation work.</li>
+              <li>Inter-rater agreement is measured using Cohen's κ prior to adjudication; sessions with low agreement are flagged for re-review.</li>
+              <li>Recordings span a representative range of acoustic environments — home, workplace, and public settings — to ensure that ground truth reflects the real-world distribution Hyfe's system encounters at deployment.</li>
+              <li>Cough seconds, rather than cough counts, are used as the primary unit because they are more robust to the boundary ambiguity inherent in longer cough bouts.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════ -->
+  <!-- Section 7 — Why This Matters for Pharma           -->
+  <!-- ══════════════════════════════════════════════════ -->
+  <section id="pharma">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-number">07</div>
+        <div>
+          <h2 class="section-title">Implications for Drug Development</h2>
+        </div>
+      </div>
+
+      <div class="implications-grid reveal">
+        <div class="implication-card">
+          <div class="implication-icon">⚖️</div>
+          <div class="implication-title">Endpoint Validity</div>
+          <div class="implication-body">Rate-based agreement — not event-level detection — supports the validity of cough rate as a primary or secondary trial endpoint.</div>
+        </div>
+        <div class="implication-card">
+          <div class="implication-icon">🎯</div>
+          <div class="implication-title">Bias Reduction</div>
+          <div class="implication-body">Concordance metrics quantify and bound systematic bias, reducing the risk of confounded treatment effect estimates.</div>
+        </div>
+        <div class="implication-card">
+          <div class="implication-icon">📈</div>
+          <div class="implication-title">Longitudinal Stability</div>
+          <div class="implication-body">Hourly and daily agreement stability across recording sessions supports the use of Hyfe in longitudinal monitoring arms.</div>
+        </div>
+        <div class="implication-card">
+          <div class="implication-icon">🌍</div>
+          <div class="implication-title">Real-World Dataset</div>
+          <div class="implication-body">Acoustic variability from real-world recording environments is reflected in the validation dataset — not controlled studio conditions.</div>
+        </div>
+      </div>
+
+      <div class="info-block reveal" style="margin-top: 48px">
+        <p>Hyfe's validation approach is designed to meet the evidentiary standards expected by regulatory reviewers and pharma endpoints committees. The metrics reported here are those that determine whether a measurement instrument is <em>fit for purpose</em> — not merely whether it functions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          Hyfe&nbsp;&nbsp;/&nbsp;&nbsp;CoughMonitor Suite
+          <br />
+          <span style="margin-top:4px; display:block">Validation Methodology Documentation</span>
+        </div>
+        <p class="footer-note">
+          This page presents validation methodology and statistical framing for Hyfe's cough monitoring technology. Data values displayed as "—" will be populated with empirical results in Phase 2.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── JS: Visualizations ───────────────────────── -->
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── Inject Chart Widget Styles ─────────────────────────────── */
+    const _s = document.createElement('style');
+    _s.textContent = `
+      .chart-widget{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+      .chart-header{padding:20px 24px 0;display:flex;flex-direction:column;gap:10px}
+      .chart-tab-strip{display:inline-flex;background:var(--bg-raised);border:1px solid var(--border-med);border-radius:4px;padding:3px;gap:2px}
+      .chart-tab{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;padding:7px 16px;border-radius:2px;border:none;cursor:pointer;transition:all .2s;background:transparent;color:var(--text-muted)}
+      .chart-tab.active{background:var(--accent);color:#09090f}
+      .chart-toggles{display:flex;gap:8px;flex-wrap:wrap}
+      .chart-toggle{font-family:var(--font-mono);font-size:.67rem;letter-spacing:.07em;padding:5px 12px;border-radius:2px;border:1px solid var(--border-med);cursor:pointer;transition:all .2s;background:transparent;color:var(--text-muted)}
+      .chart-toggle.active{border-color:rgba(0,217,166,.4);background:var(--accent-dim);color:var(--accent)}
+      .chart-stat-badges{display:flex;gap:10px;flex-wrap:wrap;padding:10px 24px 14px}
+      .chart-stat-badge{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;padding:4px 12px;background:var(--bg-raised);border:1px solid var(--border-med);border-radius:2px;color:var(--text-secondary)}
+      .chart-stat-badge b{color:var(--accent);font-weight:500}
+      .chart-canvas-wrap{padding:4px 20px 20px}
+      .ms-widget{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+      .ms-tab-strip{display:flex;gap:2px;padding:16px 20px 0;border-bottom:1px solid var(--border);background:var(--bg-raised)}
+      .ms-tab{font-family:var(--font-mono);font-size:.69rem;letter-spacing:.07em;text-transform:uppercase;padding:10px 18px 12px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+      .ms-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+      .ms-panel{display:none;padding:28px 24px}
+      .ms-panel.active{display:block}
+      .ms-event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+      @media(max-width:640px){.ms-event-grid{grid-template-columns:1fr}}
+      .ms-event-card{background:var(--bg-raised);border:1px solid var(--border);border-radius:6px;padding:20px 18px;position:relative;overflow:hidden}
+      .ms-event-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);opacity:.4}
+      .ms-event-type{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+      .ms-stat-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+      .ms-stat-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
+      .ms-stat-val{font-family:var(--font-serif);font-size:1.35rem;color:var(--text-primary);line-height:1}
+      .ms-stat-val.a{color:var(--accent)}
+      .ms-agr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+      .ms-note{margin-top:18px;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.06em;color:var(--text-muted)}
+    `;
+    document.head.appendChild(_s);
+
+    /* ── Data ──────────────────────────────────────────────────── */
+    const SUB = [
+      {id:'S-OH-10', human:302,  hyfe:305,  hours:24.0},
+      {id:'S-OH-11', human:152,  hyfe:206,  hours:24.0},
+      {id:'S-OH-6',  human:974,  hyfe:1078, hours:23.9},
+      {id:'S-OH-7',  human:141,  hyfe:178,  hours:23.0},
+      {id:'S-OH-9',  human:139,  hyfe:213,  hours:24.0},
+      {id:'S-SM-10', human:97,   hyfe:125,  hours:23.9},
+      {id:'S-SM-11', human:181,  hyfe:142,  hours:24.0},
+      {id:'S-SM-3',  human:108,  hyfe:149,  hours:24.1},
+      {id:'S-SM-4',  human:56,   hyfe:104,  hours:24.0},
+      {id:'S-SM-5',  human:190,  hyfe:239,  hours:23.0},
+      {id:'S-SM-7',  human:63,   hyfe:108,  hours:24.0},
+      {id:'S-SM-9',  human:251,  hyfe:288,  hours:21.0},
+      {id:'S-UN-11', human:301,  hyfe:274,  hours:23.5},
+      {id:'S-UN-13', human:173,  hyfe:201,  hours:23.9},
+      {id:'S-UN-14', human:464,  hyfe:454,  hours:24.0},
+      {id:'S-UN-15', human:608,  hyfe:487,  hours:24.0},
+      {id:'S-UN-16', human:270,  hyfe:349,  hours:23.9},
+      {id:'S-UN-17', human:933,  hyfe:981,  hours:25.6},
+      {id:'S-UN-18', human:79,   hyfe:131,  hours:24.0},
+      {id:'S-UN-20', human:101,  hyfe:131,  hours:23.9},
+      {id:'S-UN-21', human:178,  hyfe:170,  hours:23.9},
+      {id:'S-UN-22', human:213,  hyfe:339,  hours:23.5},
+      {id:'S-UN-9',  human:686,  hyfe:885,  hours:22.9},
+    ];
+    const IDS = SUB.map(s => s.id);
+    const hD  = SUB.map(s => s.human);
+    const yD  = SUB.map(s => s.hyfe);
+    const hR  = SUB.map(s => parseFloat((s.human / s.hours).toFixed(2)));
+    const yR  = SUB.map(s => parseFloat((s.hyfe  / s.hours).toFixed(2)));
+
+    /* ── Stat helpers ──────────────────────────────────────────── */
+    function mean(a){ return a.reduce((s,v)=>s+v,0)/a.length; }
+    function std(a){ const m=mean(a); return Math.sqrt(a.reduce((s,v)=>s+(v-m)**2,0)/(a.length-1)); }
+    function pearson(x,y){
+      const mx=mean(x),my=mean(y),n=x.length;
+      let num=0,dx2=0,dy2=0;
+      for(let i=0;i<n;i++){const dx=x[i]-mx,dy=y[i]-my;num+=dx*dy;dx2+=dx*dx;dy2+=dy*dy;}
+      return num/Math.sqrt(dx2*dy2);
+    }
+    function ccc(x,y){
+      const r=pearson(x,y),mx=mean(x),my=mean(y),sx=std(x),sy=std(y);
+      return (2*r*sx*sy)/(sx*sx+sy*sy+(mx-my)**2);
+    }
+    function reg(x,y){
+      const mx=mean(x),my=mean(y),n=x.length;
+      let num=0,den=0;
+      for(let i=0;i<n;i++){num+=(x[i]-mx)*(y[i]-my);den+=(x[i]-mx)**2;}
+      const slope=num/den;
+      return {slope, intercept:my-slope*mx};
+    }
+    function ba(x,y){
+      const d=x.map((v,i)=>y[i]-v),b=mean(d),s=std(d);
+      return {bias:b,sd:s,upper:b+1.96*s,lower:b-1.96*s};
+    }
+    const f3=v=>v.toFixed(3);
+    const f1=v=>v.toFixed(1);
+    const fsi=v=>(v>=0?'+':'')+Math.round(v);
+
+    /* Pre-compute */
+    const sD={r:pearson(hD,yD),ccc:ccc(hD,yD),reg:reg(hD,yD),ba:ba(hD,yD)};
+    const sR={r:pearson(hR,yR),ccc:ccc(hR,yR),reg:reg(hR,yR),ba:ba(hR,yR)};
+
+    /* ── Chart.js defaults ─────────────────────────────────────── */
+    Chart.defaults.color            = '#8f8fa8';
+    Chart.defaults.borderColor      = 'rgba(255,255,255,0.07)';
+    Chart.defaults.font.family      = "'DM Mono','Courier New',monospace";
+    Chart.defaults.font.size        = 11;
+    const AC  = '#00d9a6';
+    const GR  = 'rgba(255,255,255,0.07)';
+    const RC  = 'rgba(143,143,168,0.45)';
+    const TIP = {
+      backgroundColor:'#131326',
+      borderColor:'rgba(255,255,255,0.13)',
+      borderWidth:1,
+      titleColor:AC,
+      bodyColor:'#8f8fa8',
+      padding:12,
+      cornerRadius:4,
+    };
+
+    /* ── Viz 1: Metric Selector ────────────────────────────────── */
+    (function(){
+      const el=document.getElementById('metric-selector-container');
+      if(!el)return;
+      const hLoA=`${fsi(sR.ba.lower)} / ${fsi(sR.ba.upper)}`;
+      const dLoA=`${fsi(sD.ba.lower)} / ${fsi(sD.ba.upper)}`;
+      el.classList.remove('viz-placeholder');
+      el.removeAttribute('style');
+      el.innerHTML=`
+        <div class="ms-widget">
+          <div class="ms-tab-strip">
+            <button class="ms-tab" data-tab="event">Event-Level Metrics</button>
+            <button class="ms-tab active" data-tab="hourly">Hourly Agreement</button>
+            <button class="ms-tab" data-tab="daily">Daily Agreement</button>
+          </div>
+          <div class="ms-panel" data-panel="event">
+            <div class="ms-event-grid">
+              <div class="ms-event-card">
+                <div class="ms-event-type">Coughs</div>
+                <div class="ms-stat-row"><span class="ms-stat-label">Sensitivity</span><span class="ms-stat-val a">80.8%</span></div>
+                <div class="ms-stat-row"><span class="ms-stat-label">FP / Hour</span><span class="ms-stat-val">3.96</span></div>
+              </div>
+              <div class="ms-event-card">
+                <div class="ms-event-type">Cough-Seconds</div>
+                <div class="ms-stat-row"><span class="ms-stat-label">Sensitivity</span><span class="ms-stat-val a">82.6%</span></div>
+                <div class="ms-stat-row"><span class="ms-stat-label">FP / Hour</span><span class="ms-stat-val">3.03</span></div>
+              </div>
+              <div class="ms-event-card">
+                <div class="ms-event-type">Cough-Epochs</div>
+                <div class="ms-stat-row"><span class="ms-stat-label">Sensitivity</span><span class="ms-stat-val a">89.0%</span></div>
+                <div class="ms-stat-row"><span class="ms-stat-label">FP / Hour</span><span class="ms-stat-val">2.08</span></div>
+              </div>
+            </div>
+            <p class="ms-note">Event metrics inform model behaviour. Rate-level concordance informs clinical utility.</p>
+          </div>
+          <div class="ms-panel active" data-panel="hourly">
+            <div class="ms-agr-grid">
+              <div class="metric-card"><div class="metric-card-label">Lin's CCC</div><div class="metric-card-value accent">${f3(sR.ccc)}</div><div class="metric-card-sub">Hourly rate concordance</div></div>
+              <div class="metric-card"><div class="metric-card-label">Pearson r</div><div class="metric-card-value">${f3(sR.r)}</div><div class="metric-card-sub">Linear association</div></div>
+              <div class="metric-card"><div class="metric-card-label">Mean Bias</div><div class="metric-card-value">${fsi(sR.ba.bias)}<span style="font-size:.85rem;color:var(--text-muted)"> /hr</span></div><div class="metric-card-sub">Hyfe vs. observer</div></div>
+              <div class="metric-card"><div class="metric-card-label">95% LoA</div><div class="metric-card-value" style="font-size:1.3rem">${hLoA}</div><div class="metric-card-sub">Limits of agreement</div></div>
+            </div>
+            <p class="ms-note">n = 23 participants &nbsp;·&nbsp; 24-hr continuous recording &nbsp;·&nbsp; Cough rate in coughs / hour</p>
+          </div>
+          <div class="ms-panel" data-panel="daily">
+            <div class="ms-agr-grid">
+              <div class="metric-card"><div class="metric-card-label">Lin's CCC</div><div class="metric-card-value accent">${f3(sD.ccc)}</div><div class="metric-card-sub">Daily count concordance</div></div>
+              <div class="metric-card"><div class="metric-card-label">Pearson r</div><div class="metric-card-value">${f3(sD.r)}</div><div class="metric-card-sub">Linear association</div></div>
+              <div class="metric-card"><div class="metric-card-label">Mean Bias</div><div class="metric-card-value">${fsi(sD.ba.bias)}<span style="font-size:.85rem;color:var(--text-muted)"> coughs</span></div><div class="metric-card-sub">Hyfe vs. observer</div></div>
+              <div class="metric-card"><div class="metric-card-label">95% LoA</div><div class="metric-card-value" style="font-size:1.3rem">${dLoA}</div><div class="metric-card-sub">Limits of agreement</div></div>
+            </div>
+            <p class="ms-note">n = 23 participants &nbsp;·&nbsp; Daily total cough count &nbsp;·&nbsp; Raw event counts</p>
+          </div>
+        </div>`;
+      el.querySelectorAll('.ms-tab').forEach(t=>{
+        t.addEventListener('click',()=>{
+          el.querySelectorAll('.ms-tab').forEach(x=>x.classList.remove('active'));
+          el.querySelectorAll('.ms-panel').forEach(x=>x.classList.remove('active'));
+          t.classList.add('active');
+          el.querySelector(`[data-panel="${t.dataset.tab}"]`).classList.add('active');
+        });
+      });
+    })();
+
+    /* ── Viz 2: Correlation Scatterplot ────────────────────────── */
+    (function(){
+      const el=document.getElementById('correlation-chart-container');
+      if(!el)return;
+      const MX=1150;
+      const r=sD.reg;
+      el.classList.remove('viz-placeholder');
+      el.style.cssText='';
+      el.innerHTML=`
+        <div class="chart-widget">
+          <div class="chart-header">
+            <div class="chart-toggles">
+              <button class="chart-toggle active" id="cv-id">Identity (y&nbsp;=&nbsp;x)</button>
+              <button class="chart-toggle" id="cv-reg">Pearson Line</button>
+            </div>
+          </div>
+          <div class="chart-stat-badges">
+            <div class="chart-stat-badge">Pearson r = <b>${f3(sD.r)}</b></div>
+            <div class="chart-stat-badge">Lin's CCC = <b>${f3(sD.ccc)}</b></div>
+            <div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">n = 23 participants &nbsp;·&nbsp; daily cough counts</div>
+          </div>
+          <div class="chart-canvas-wrap" style="height:360px">
+            <canvas id="cv-canvas"></canvas>
+          </div>
+        </div>`;
+      const ctx=document.getElementById('cv-canvas').getContext('2d');
+      const chart=new Chart(ctx,{
+        type:'scatter',
+        data:{datasets:[
+          {label:'Participants',
+           data:hD.map((v,i)=>({x:v,y:yD[i],lbl:IDS[i]})),
+           backgroundColor:'rgba(0,217,166,.75)',borderColor:AC,
+           pointRadius:6,pointHoverRadius:9,order:3},
+          {type:'line',label:'Identity',
+           data:[{x:0,y:0},{x:MX,y:MX}],
+           borderColor:AC,borderWidth:1.5,pointRadius:0,fill:false,tension:0,order:1},
+          {type:'line',label:'Regression',
+           data:[{x:0,y:r.intercept},{x:MX,y:r.slope*MX+r.intercept}],
+           borderColor:RC,borderWidth:1.5,borderDash:[5,4],
+           pointRadius:0,fill:false,tension:0,hidden:true,order:2},
+        ]},
+        options:{
+          responsive:true,maintainAspectRatio:false,animation:{duration:400},
+          plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label(c){const d=c.raw;return d.lbl?[d.lbl,`Observer: ${d.x} coughs`,`Hyfe: ${d.y} coughs`]:null;}}}},
+          scales:{
+            x:{type:'linear',min:0,max:MX,grid:{color:GR},ticks:{maxTicksLimit:8},
+               title:{display:true,text:'Human Observer (coughs / day)',color:'#55556a',padding:{top:8}}},
+            y:{type:'linear',min:0,max:MX,grid:{color:GR},ticks:{maxTicksLimit:8},
+               title:{display:true,text:'Hyfe (coughs / day)',color:'#55556a',padding:{bottom:8}}},
+          }
+        }
+      });
+      document.getElementById('cv-id').addEventListener('click',function(){
+        this.classList.toggle('active');
+        chart.data.datasets[1].hidden=!this.classList.contains('active');
+        chart.update();
+      });
+      document.getElementById('cv-reg').addEventListener('click',function(){
+        this.classList.toggle('active');
+        chart.data.datasets[2].hidden=!this.classList.contains('active');
+        chart.update();
+      });
+    })();
+
+    /* ── Scatter / Bland-Altman builder (Viz 3 & 4) ───────────── */
+    function buildSBAChart(cid, xs, ys, labels, stats, unit, note){
+      const el=document.getElementById(cid);
+      if(!el)return;
+      const r=stats.reg, b=stats.ba;
+      let view='scatter', showId=true, showReg=false, showRes=false;
+      let ci=null;
+
+      el.classList.remove('viz-placeholder');
+      el.style.cssText='';
+      el.innerHTML=`
+        <div class="chart-widget">
+          <div class="chart-header">
+            <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+              <div class="chart-tab-strip">
+                <button class="chart-tab active" data-v="scatter">Scatter</button>
+                <button class="chart-tab" data-v="ba">Bland–Altman</button>
+              </div>
+              <div class="chart-toggles sc-only">
+                <button class="chart-toggle active" data-t="id">y&nbsp;=&nbsp;x</button>
+                <button class="chart-toggle" data-t="reg">Regression</button>
+                <button class="chart-toggle" data-t="res">Residuals</button>
+              </div>
+            </div>
+          </div>
+          <div class="chart-stat-badges" id="${cid}-bdg"></div>
+          <div class="chart-canvas-wrap" style="height:340px">
+            <canvas id="${cid}-cvs"></canvas>
+          </div>
+        </div>`;
+
+      const residPlugin={
+        id:'resid-'+cid,
+        afterDraw(chart){
+          if(!showRes||view!=='scatter')return;
+          const ctx=chart.ctx,meta=chart.getDatasetMeta(0);
+          ctx.save();ctx.strokeStyle='rgba(255,255,255,.2)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
+          meta.data.forEach((pt,i)=>{
+            const yReg=r.slope*xs[i]+r.intercept;
+            const pyPt=chart.scales.y.getPixelForValue(ys[i]);
+            const pyRg=chart.scales.y.getPixelForValue(yReg);
+            ctx.beginPath();ctx.moveTo(pt.x,pyPt);ctx.lineTo(pt.x,pyRg);ctx.stroke();
+          });
+          ctx.restore();
+        }
+      };
+
+      function badges(){
+        const bd=document.getElementById(cid+'-bdg');
+        if(!bd)return;
+        if(view==='scatter'){
+          bd.innerHTML=`<div class="chart-stat-badge">Lin's CCC = <b>${f3(stats.ccc)}</b></div><div class="chart-stat-badge">Pearson r = <b>${f3(stats.r)}</b></div><div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">${note}</div>`;
+        } else {
+          bd.innerHTML=`<div class="chart-stat-badge">Bias = <b>${fsi(b.bias)} ${unit}</b></div><div class="chart-stat-badge">95% LoA = <b>${fsi(b.lower)} to ${fsi(b.upper)} ${unit}</b></div><div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">Bland–Altman &nbsp;·&nbsp; ${note}</div>`;
+        }
+      }
+
+      function render(){
+        const cvs=document.getElementById(cid+'-cvs');
+        if(!cvs)return;
+        const isS=view==='scatter';
+        const scOnly=el.querySelector('.sc-only');
+        if(scOnly)scOnly.style.display=isS?'flex':'none';
+        if(ci){ci.destroy();ci=null;}
+        badges();
+
+        let datasets;
+        if(isS){
+          const MX=Math.max(...xs,...ys)*1.12;
+          datasets=[
+            {label:'Participants',data:xs.map((v,i)=>({x:v,y:ys[i],lbl:labels[i]})),
+             backgroundColor:'rgba(0,217,166,.75)',borderColor:AC,pointRadius:6,pointHoverRadius:9,order:3},
+            {type:'line',label:'Identity',data:[{x:0,y:0},{x:MX,y:MX}],
+             borderColor:AC,borderWidth:1.5,pointRadius:0,fill:false,tension:0,hidden:!showId,order:1},
+            {type:'line',label:'Regression',data:[{x:0,y:r.intercept},{x:MX,y:r.slope*MX+r.intercept}],
+             borderColor:RC,borderWidth:1.5,borderDash:[5,4],pointRadius:0,fill:false,tension:0,hidden:!showReg,order:2},
+          ];
+          ci=new Chart(cvs,{
+            type:'scatter',data:{datasets},
+            options:{responsive:true,maintainAspectRatio:false,animation:{duration:300},
+              plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label(c){const d=c.raw;return d.lbl?[d.lbl,`Observer: ${f1(d.x)} ${unit}`,`Hyfe: ${f1(d.y)} ${unit}`]:null;}}}},
+              scales:{
+                x:{type:'linear',min:0,grid:{color:GR},ticks:{maxTicksLimit:7},title:{display:true,text:`Human Observer (${unit})`,color:'#55556a',padding:{top:8}}},
+                y:{type:'linear',min:0,grid:{color:GR},ticks:{maxTicksLimit:7},title:{display:true,text:`Hyfe (${unit})`,color:'#55556a',padding:{bottom:8}}},
+              }
+            },plugins:[residPlugin]
+          });
+        } else {
+          const means=xs.map((v,i)=>(v+ys[i])/2);
+          const diffs=xs.map((v,i)=>ys[i]-v);
+          const MXm=Math.max(...means)*1.12;
+          const pad=Math.max(Math.abs(b.upper),Math.abs(b.lower))*1.4;
+          datasets=[
+            {label:'Participants',data:means.map((v,i)=>({x:v,y:diffs[i],lbl:labels[i]})),
+             backgroundColor:'rgba(0,217,166,.75)',borderColor:AC,pointRadius:6,pointHoverRadius:9,order:3},
+            {type:'line',label:'Bias',data:[{x:0,y:b.bias},{x:MXm,y:b.bias}],
+             borderColor:AC,borderWidth:1.5,pointRadius:0,fill:false,tension:0,order:1},
+            {type:'line',label:'Upper LoA',data:[{x:0,y:b.upper},{x:MXm,y:b.upper}],
+             borderColor:'rgba(0,217,166,.35)',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false,tension:0,order:2},
+            {type:'line',label:'Lower LoA',data:[{x:0,y:b.lower},{x:MXm,y:b.lower}],
+             borderColor:'rgba(0,217,166,.35)',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false,tension:0,order:2},
+          ];
+          ci=new Chart(cvs,{
+            type:'scatter',data:{datasets},
+            options:{responsive:true,maintainAspectRatio:false,animation:{duration:300},
+              plugins:{legend:{display:false},tooltip:{...TIP,callbacks:{label(c){const d=c.raw;return d.lbl?[d.lbl,`Mean: ${f1(d.x)} ${unit}`,`Diff: ${d.y>=0?'+':''}${f1(d.y)} ${unit}`]:null;}}}},
+              scales:{
+                x:{type:'linear',min:0,grid:{color:GR},ticks:{maxTicksLimit:7},title:{display:true,text:`Mean of Pair (${unit})`,color:'#55556a',padding:{top:8}}},
+                y:{type:'linear',grid:{color:GR},ticks:{maxTicksLimit:7},title:{display:true,text:`Difference: Hyfe − Observer (${unit})`,color:'#55556a',padding:{bottom:8}}},
+              }
+            }
+          });
+        }
+      }
+
+      el.querySelectorAll('.chart-tab').forEach(t=>{
+        t.addEventListener('click',()=>{
+          el.querySelectorAll('.chart-tab').forEach(x=>x.classList.remove('active'));
+          t.classList.add('active');view=t.dataset.v;render();
+        });
+      });
+      el.querySelectorAll('[data-t]').forEach(btn=>{
+        btn.addEventListener('click',()=>{
+          const t=btn.dataset.t;btn.classList.toggle('active');
+          if(t==='id'){showId=btn.classList.contains('active');if(ci){ci.data.datasets[1].hidden=!showId;ci.update();}}
+          else if(t==='reg'){showReg=btn.classList.contains('active');if(ci){ci.data.datasets[2].hidden=!showReg;ci.update();}}
+          else if(t==='res'){showRes=btn.classList.contains('active');if(ci)ci.update();}
+        });
+      });
+      render();
+    }
+
+    buildSBAChart('hourly-scatter-container', hR, yR, IDS, sR, 'coughs/hr',  'n = 23 participants · 24-hr continuous · Hourly rate');
+    buildSBAChart('daily-scatter-container',  hD, yD, IDS, sD, 'coughs',     'n = 23 participants · 24-hr continuous · Daily total');
+
+    /* ── Populate Section 3 metric cards ───────────────────────── */
+    function fillCard(sec,label,val){
+      sec.querySelectorAll('.metric-card').forEach(card=>{
+        const l=card.querySelector('.metric-card-label');
+        if(l&&l.textContent.trim()===label){
+          const v=card.querySelector('.metric-card-value');if(v)v.textContent=val;
+        }
+      });
+    }
+    const s3=document.getElementById('hourly');
+    if(s3){
+      fillCard(s3,"Lin's CCC", f3(sR.ccc));
+      fillCard(s3,'Pearson r',  f3(sR.r));
+      fillCard(s3,'Slope',      f3(sR.reg.slope));
+      fillCard(s3,'Intercept',  f1(sR.reg.intercept));
+      fillCard(s3,'Mean Bias',  fsi(sR.ba.bias)+' /hr');
+      fillCard(s3,'95% LoA',    fsi(sR.ba.lower)+'–'+fsi(sR.ba.upper));
+    }
+    const s4=document.getElementById('daily');
+    if(s4){
+      fillCard(s4,"Lin's CCC", f3(sD.ccc));
+      fillCard(s4,'Pearson r',  f3(sD.r));
+      fillCard(s4,'Mean Bias',  fsi(sD.ba.bias)+' coughs');
+      fillCard(s4,'95% LoA',    fsi(sD.ba.lower)+'–'+fsi(sD.ba.upper));
+    }
+
+    /* ── Populate Section 5 event table ───────────────────────── */
+    const evtCells=document.querySelectorAll('#event-level .event-table .mono.accent');
+    ['80.8%','71.4%','3.96 / hr','71.4%'].forEach((v,i)=>{if(evtCells[i])evtCells[i].textContent=v;});
+
+    /* ── Update footer note ────────────────────────────────────── */
+    const fn=document.querySelector('.footer-note');
+    if(fn)fn.textContent='This page presents validation methodology and statistical results for Hyfe\'s cough monitoring technology. Data reflects FDA performance analysis across 23 participants, each with 24 hours of continuous real-world recording.';
+
+  })();
+  </script>
+
+  <!-- ── JS: Scroll Reveal ─────────────────────────── -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Stagger children within grids
+    document.querySelectorAll('.metric-grid, .method-steps, .implications-grid').forEach(grid => {
+      [...grid.children].forEach((child, i) => {
+        child.style.transitionDelay = `${i * 80}ms`;
+      });
+    });
+  </script>
+
+</body>
+</html>
