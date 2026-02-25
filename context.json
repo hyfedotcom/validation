@@ -1,0 +1,158 @@
+{
+  "_meta": {
+    "purpose": "High-level agent summary and canonical facts for validation.hyfe.com. Intended for LLM context injection, RAG pipelines, and automated QA agents.",
+    "source_page": "https://validation.hyfe.com/",
+    "last_updated": "2025-02-25",
+    "generated_from": "index.html — content and embedded study data (const SUB, n=23)"
+  },
+
+  "summary": "This page presents the clinical validation methodology and performance results for the Hyfe AI cough monitoring system. Hyfe uses continuous acoustic recording to automatically detect and count coughs, and this validation demonstrates the agreement between Hyfe's automated counts and human-annotated ground truth across 23 participants in a multicenter study. The primary statistical framework uses Lin's Concordance Correlation Coefficient (CCC) rather than Pearson r alone, because CCC jointly measures both precision and accuracy — capturing systematic bias that a correlation coefficient would miss. Validation covers three levels: event-level detection (sensitivity, false positives per hour), hourly cough rate agreement (CCC, Bland-Altman), and daily total cough count agreement (CCC, Bland-Altman). The dataset reflects real-world acoustic conditions across home, workplace, and public settings, with dual independent annotation and expert adjudication as the reference standard. Results are intended to support regulatory and pharma endpoints committee review for use of Hyfe as a clinical trial endpoint instrument.",
+
+  "primary_claims": [
+    "Daily cough count CCC = 0.965 (Hyfe vs. human annotator, n=23, 24-hr recordings)",
+    "Daily Pearson r = 0.976 (linear association; CCC is the clinically appropriate metric)",
+    "Hourly cough rate CCC ≈ 0.962 (daily totals normalized to coughs/hour per participant)",
+    "Daily mean bias = +38 coughs/day (Hyfe over-counts relative to human ground truth on average)",
+    "Daily 95% Limits of Agreement: −82 to +159 coughs/day (Bland-Altman)",
+    "Event-level: Cough detection sensitivity = 80.8%, false positives = 3.96 / hr",
+    "Event-level: Cough-second detection sensitivity = 82.6%, false positives = 3.03 / hr",
+    "Event-level: Cough-epoch detection sensitivity = 89.0%, false positives = 2.08 / hr",
+    "Ground truth established via dual independent human annotation + expert adjudication (not automated labeling)",
+    "Inter-rater agreement measured with Cohen's κ; low-agreement sessions flagged for re-review",
+    "23 participants across three study sites (site codes: S-OH, S-SM, S-UN); each with ~24 hours of continuous recording",
+    "Recordings span real-world environments: home, workplace, and public settings",
+    "The validation dataset does not represent controlled studio conditions",
+    "Validation paper: multicenter clinical study published at hyfe.com/publication"
+  ],
+
+  "statistics": {
+    "note": "All values computed at runtime from raw per-participant data embedded in index.html (const SUB). Source of truth is the JavaScript computation, not pre-computed constants.",
+    "n_participants": 23,
+    "recording_duration_per_participant": "~24 hours continuous",
+    "daily_agreement": {
+      "ccc": 0.965,
+      "pearson_r": 0.976,
+      "mean_bias_coughs_per_day": 38,
+      "bland_altman_loa_lower": -82,
+      "bland_altman_loa_upper": 159,
+      "units": "total coughs per 24-hr session"
+    },
+    "hourly_agreement": {
+      "ccc": 0.962,
+      "units": "coughs per hour (daily totals divided by recording hours)"
+    },
+    "event_level": {
+      "coughs":        { "sensitivity_pct": 80.8, "fp_per_hour": 3.96 },
+      "cough_seconds": { "sensitivity_pct": 82.6, "fp_per_hour": 3.03 },
+      "cough_epochs":  { "sensitivity_pct": 89.0, "fp_per_hour": 2.08 }
+    }
+  },
+
+  "definitions": {
+    "CCC": {
+      "full_name": "Lin's Concordance Correlation Coefficient",
+      "formula": "2·r·σx·σy / (σx² + σy² + (μx − μy)²)",
+      "range": "−1 to +1; 1 = perfect agreement",
+      "interpretation": "Measures both precision (how tightly points cluster around the best-fit line) and accuracy (how close that line is to the 45-degree identity line). Penalizes systematic bias that Pearson r ignores. The clinically appropriate metric for comparing two measurement methods.",
+      "reference": "https://en.wikipedia.org/wiki/Concordance_correlation_coefficient"
+    },
+    "pearson_r": {
+      "full_name": "Pearson Correlation Coefficient",
+      "interpretation": "Measures linear association only. A high r does not imply agreement — two instruments can be perfectly correlated but systematically offset. Insufficient alone for method-comparison studies.",
+      "range": "−1 to +1"
+    },
+    "bland_altman_analysis": {
+      "definition": "A method-comparison technique plotting the mean of two measurements (x-axis) against their difference (y-axis). Reveals systematic bias and whether agreement is consistent across the range of values.",
+      "bias": "Mean of (Hyfe − Human) across all subjects. Positive = Hyfe over-counts.",
+      "limits_of_agreement": "Bias ± 1.96 × SD of differences. Contains ~95% of individual differences under normality assumptions."
+    },
+    "sensitivity": {
+      "definition": "Proportion of true cough events correctly detected by Hyfe out of all true cough events annotated by the human reference. Sensitivity = TP / (TP + FN).",
+      "context": "Reported at the event level (individual cough, cough-second, cough-epoch granularities)."
+    },
+    "false_positives_per_hour": {
+      "abbreviation": "FP/hr",
+      "definition": "Number of detections by Hyfe that do not correspond to a human-annotated cough event, averaged per hour of recording. Lower is better.",
+      "context": "Reported alongside sensitivity to characterize the precision/recall trade-off at event level."
+    },
+    "cough_seconds": {
+      "definition": "A unit of cough burden measured as the total duration (in seconds) of cough audio, rather than discrete cough counts. More robust to boundary ambiguity in longer cough bouts. Used as primary event unit in this validation.",
+      "why_preferred": "Discrete cough counts are sensitive to how annotators segment continuous coughing; cough-seconds reduces this labeling artifact."
+    },
+    "cough_epochs": {
+      "definition": "Fixed-length time windows (frames) classified as containing a cough or not. Provides a coarser but boundary-insensitive unit of cough detection.",
+      "note": "Yields highest sensitivity (89.0%) and lowest FP/hr (2.08) among the three event-level granularities."
+    },
+    "target_concordance": {
+      "value": "≥ 0.90 CCC",
+      "interpretation": "The pre-specified minimum acceptable concordance threshold for Hyfe to be considered fit-for-purpose as a clinical trial endpoint instrument."
+    }
+  },
+
+  "methodology": {
+    "ground_truth_construction": "24-hour acoustic recordings reviewed by two independent human annotators, blind to each other. Discrepancies adjudicated by a third expert reviewer to produce a single ground truth label.",
+    "annotation_protocol": "Standardized labeling guidelines based on prior clinical audio annotation work. Inter-rater agreement measured with Cohen's κ; sessions with low agreement flagged for re-review.",
+    "recording_environments": ["home", "workplace", "public settings"],
+    "study_design": "Multicenter observational validation study. Site prefixes: S-OH (Ohio), S-SM, S-UN. Each participant recorded for approximately 24 continuous hours.",
+    "comparison_metric_rationale": "Rate-based agreement (coughs/hr, coughs/day) is the operationally relevant metric for clinical trial endpoints — not event-level detection performance — because trials measure treatment effects on cough burden, not individual cough events."
+  },
+
+  "intended_audience": "Pharmaceutical clinical development teams, biostatisticians, regulatory affairs professionals, and endpoints committee reviewers evaluating Hyfe as a digital endpoint instrument for respiratory clinical trials. Secondarily: life sciences executives assessing fit-for-purpose evidence for AI-powered cough monitoring.",
+
+  "section_structure": [
+    { "number": "01", "title": "What Does \"Accurate\" Mean?" },
+    { "number": "02", "title": "Correlation Is Not Enough" },
+    { "number": "03", "title": "Agreement at the Hourly Level" },
+    { "number": "04", "title": "Agreement at the Daily Level" },
+    { "number": "05", "title": "Event-Level Context" },
+    { "number": "06", "title": "How \"Reality\" Was Defined" },
+    { "number": "07", "title": "Implications for Drug Development" }
+  ],
+
+  "implications_for_drug_development": [
+    {
+      "title": "Endpoint Validity",
+      "body": "Rate-based agreement — not event-level detection — supports the validity of cough rate as a primary or secondary trial endpoint."
+    },
+    {
+      "title": "Bias Reduction",
+      "body": "Concordance metrics quantify and bound systematic bias, reducing the risk of confounded treatment effect estimates."
+    },
+    {
+      "title": "Longitudinal Stability",
+      "body": "Hourly and daily agreement stability across recording sessions supports the use of Hyfe in longitudinal monitoring arms."
+    },
+    {
+      "title": "Real-World Dataset",
+      "body": "Acoustic variability from real-world recording environments is reflected in the validation dataset — not controlled studio conditions."
+    }
+  ],
+
+  "sources": [
+    {
+      "label": "Validation paper",
+      "url": "https://www.hyfe.com/publication/validation-and-accuracy-of-the-hyfe-cough-monitoring-system-a-multicenter-clinical-study",
+      "description": "Peer-reviewed multicenter clinical study: Validation and Accuracy of the Hyfe Cough Monitoring System"
+    },
+    {
+      "label": "This page",
+      "url": "https://validation.hyfe.com/",
+      "description": "Interactive data explorer presenting methodology and results from the validation study"
+    },
+    {
+      "label": "Lin's CCC — Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Concordance_correlation_coefficient",
+      "description": "Reference definition and formula for Lin's Concordance Correlation Coefficient"
+    },
+    {
+      "label": "Hyfe AI",
+      "url": "https://www.hyfe.com",
+      "description": "Hyfe product and company information"
+    },
+    {
+      "label": "Hyfe LinkedIn",
+      "url": "https://www.linkedin.com/company/hyfe",
+      "description": "Hyfe AI company LinkedIn profile"
+    }
+  ]
+}

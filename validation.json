@@ -1,0 +1,351 @@
+{
+  "_schema": {
+    "version": "1.0",
+    "description": "Structured metric definitions and values for the Hyfe cough monitoring system validation study. Data sourced from validation.hyfe.com and the embedded participant dataset (n=23). Statistics computed from raw per-participant counts using Lin's CCC, Pearson r, and Bland-Altman methods.",
+    "source_page": "https://validation.hyfe.com/",
+    "source_file": "index.html (const SUB — 23 participant records)",
+    "last_updated": "2025-02-25",
+    "stat_computation": "All agreement statistics computed at runtime in browser from raw daily cough counts and recording hours. Formulas: standard Pearson r, Lin's CCC = 2·r·σx·σy/(σx²+σy²+(μx−μy)²), Bland-Altman bias = mean(Hyfe−Human), LoA = bias ± 1.96·SD."
+  },
+
+  "population": {
+    "n": 23,
+    "unit": "participants",
+    "study_design": "Multicenter observational validation study",
+    "site_codes": ["S-OH", "S-SM", "S-UN"],
+    "recording_duration_hours": "~24 per participant (range: 21.0–25.6)",
+    "recording_environments": ["home", "workplace", "public settings"],
+    "ground_truth_method": "Dual independent human annotation + expert adjudication. Two annotators label recordings blind to each other. Discrepancies resolved by a third expert reviewer.",
+    "inter_rater_agreement": "Cohen's κ measured prior to adjudication; sessions with low κ flagged for re-review.",
+    "annotation_unit": "Cough-seconds (primary), cough counts, cough epochs"
+  },
+
+  "metrics": [
+
+    {
+      "id": "daily_ccc",
+      "level": "daily_agreement",
+      "name": "Daily Cough Count — Lin's Concordance Correlation Coefficient",
+      "abbreviation": "CCC",
+      "definition": "Measures both precision (correlation) and accuracy (proximity to identity line) between Hyfe automated daily cough counts and human-annotated ground truth. Penalizes systematic bias that Pearson r ignores. Formula: 2·r·σx·σy / (σx² + σy² + (μx − μy)²).",
+      "value": 0.965,
+      "unit": "dimensionless",
+      "scale": "[-1, 1]; 1 = perfect agreement",
+      "pre_specified_threshold": "≥0.90",
+      "threshold_met": true,
+      "population": { "$ref": "#/population" },
+      "methodology": {
+        "x_variable": "Human annotator daily cough count (true_coughs)",
+        "y_variable": "Hyfe automated daily cough count (predicted_coughs)",
+        "aggregation": "24-hour session totals per participant",
+        "n_data_points": 23
+      },
+      "confidence_interval": {
+        "level": "95%",
+        "method": "Fisher z-transformation applied to underlying Pearson r component; CCC CI is approximate",
+        "note": "Precise CCC CI requires bootstrapping. Pearson r 95% CI: [0.943, 0.990] provides a bounding reference."
+      }
+    },
+
+    {
+      "id": "daily_pearson_r",
+      "level": "daily_agreement",
+      "name": "Daily Cough Count — Pearson Correlation Coefficient",
+      "abbreviation": "r",
+      "definition": "Linear association between Hyfe and human daily cough counts. Measures precision only — does not capture systematic bias or scale differences. Reported alongside CCC to illustrate that high r is insufficient evidence of clinical agreement.",
+      "value": 0.976,
+      "unit": "dimensionless",
+      "scale": "[-1, 1]",
+      "population": { "$ref": "#/population" },
+      "methodology": {
+        "x_variable": "Human daily cough count",
+        "y_variable": "Hyfe daily cough count",
+        "aggregation": "24-hour totals per participant",
+        "n_data_points": 23
+      },
+      "confidence_interval": {
+        "level": "95%",
+        "method": "Fisher z-transformation: z = 0.5·ln((1+r)/(1−r)), SE(z) = 1/√(n−3)",
+        "lower": 0.943,
+        "upper": 0.990
+      }
+    },
+
+    {
+      "id": "daily_regression_slope",
+      "level": "daily_agreement",
+      "name": "Daily Agreement — Ordinary Least-Squares Regression Slope",
+      "definition": "Slope of the regression line (Hyfe ~ Human). A slope of 1.0 on the identity line indicates proportional agreement. Slope > 1 indicates Hyfe counts increase faster than human counts across participants.",
+      "value": 1.032,
+      "unit": "dimensionless (coughs / cough)",
+      "population": { "$ref": "#/population" },
+      "methodology": {
+        "x_variable": "Human daily cough count",
+        "y_variable": "Hyfe daily cough count",
+        "method": "Ordinary least squares: slope = Σ(xi−x̄)(yi−ȳ) / Σ(xi−x̄)²"
+      }
+    },
+
+    {
+      "id": "daily_regression_intercept",
+      "level": "daily_agreement",
+      "name": "Daily Agreement — Regression Intercept",
+      "definition": "Y-intercept of the OLS regression line. Non-zero intercept indicates a fixed offset component in addition to any proportional bias captured by slope.",
+      "value": 28.9,
+      "unit": "coughs/day",
+      "population": { "$ref": "#/population" },
+      "methodology": {
+        "method": "OLS: intercept = ȳ − slope·x̄"
+      }
+    },
+
+    {
+      "id": "daily_ba_bias",
+      "level": "daily_agreement",
+      "name": "Daily Cough Count — Bland-Altman Mean Bias",
+      "definition": "Mean of (Hyfe − Human) across all participants. Positive value indicates systematic over-counting by Hyfe relative to human annotators. Computed as part of Bland-Altman method-comparison analysis.",
+      "value": 38,
+      "unit": "coughs/day",
+      "direction": "Hyfe over-counts on average",
+      "population": { "$ref": "#/population" },
+      "methodology": {
+        "method": "Bland-Altman: bias = mean(Hyfe_i − Human_i)",
+        "n_data_points": 23
+      },
+      "confidence_interval": {
+        "level": "95%",
+        "method": "Parametric: bias ± 1.96 · (SD / √n)",
+        "lower": 13,
+        "upper": 63,
+        "unit": "coughs/day"
+      }
+    },
+
+    {
+      "id": "daily_ba_loa",
+      "level": "daily_agreement",
+      "name": "Daily Cough Count — Bland-Altman 95% Limits of Agreement",
+      "definition": "The range within which 95% of individual differences (Hyfe − Human) are expected to fall, assuming approximate normality. Characterizes individual-level agreement beyond the mean bias.",
+      "value": { "lower": -82, "upper": 159 },
+      "unit": "coughs/day",
+      "population": { "$ref": "#/population" },
+      "methodology": {
+        "method": "LoA = bias ± 1.96 · SD(Hyfe_i − Human_i)",
+        "sd_of_differences": 61.5,
+        "n_data_points": 23
+      }
+    },
+
+    {
+      "id": "hourly_ccc",
+      "level": "hourly_agreement",
+      "name": "Hourly Cough Rate — Lin's Concordance Correlation Coefficient",
+      "abbreviation": "CCC",
+      "definition": "CCC between Hyfe and human cough rates expressed in coughs per hour. Derived by dividing each participant's total counts by their actual recording duration. Reflects the agreement that matters for time-windowed trial endpoints.",
+      "value": 0.963,
+      "unit": "dimensionless",
+      "scale": "[-1, 1]; 1 = perfect agreement",
+      "pre_specified_threshold": "≥0.90",
+      "threshold_met": true,
+      "population": { "$ref": "#/population" },
+      "methodology": {
+        "x_variable": "Human coughs per hour (daily total ÷ recording hours)",
+        "y_variable": "Hyfe coughs per hour (daily total ÷ recording hours)",
+        "aggregation": "Per-participant rate normalized by actual recording duration",
+        "n_data_points": 23
+      },
+      "confidence_interval": {
+        "level": "95%",
+        "note": "Pearson r 95% CI for hourly data: [0.940, 0.989]. CCC CI is approximate."
+      }
+    },
+
+    {
+      "id": "hourly_pearson_r",
+      "level": "hourly_agreement",
+      "name": "Hourly Cough Rate — Pearson Correlation Coefficient",
+      "abbreviation": "r",
+      "definition": "Linear association between Hyfe and human cough rates (coughs/hr). High value confirms strong linear relationship; CCC additionally captures systematic offset.",
+      "value": 0.975,
+      "unit": "dimensionless",
+      "population": { "$ref": "#/population" },
+      "confidence_interval": {
+        "level": "95%",
+        "method": "Fisher z-transformation",
+        "lower": 0.940,
+        "upper": 0.989
+      }
+    },
+
+    {
+      "id": "hourly_regression_slope",
+      "level": "hourly_agreement",
+      "name": "Hourly Cough Rate — Regression Slope",
+      "definition": "OLS slope for Hyfe ~ Human cough rate. Value close to 1 indicates proportional agreement across the range of cough rates.",
+      "value": 1.037,
+      "unit": "dimensionless ((coughs/hr) / (coughs/hr))",
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "hourly_regression_intercept",
+      "level": "hourly_agreement",
+      "name": "Hourly Cough Rate — Regression Intercept",
+      "definition": "Fixed offset in the regression line for hourly rate data.",
+      "value": 1.18,
+      "unit": "coughs/hr",
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "hourly_ba_bias",
+      "level": "hourly_agreement",
+      "name": "Hourly Cough Rate — Bland-Altman Mean Bias",
+      "definition": "Mean of (Hyfe rate − Human rate) across all participants. Positive value indicates Hyfe records more coughs per hour on average.",
+      "value": 1.62,
+      "unit": "coughs/hr",
+      "direction": "Hyfe over-counts on average",
+      "population": { "$ref": "#/population" },
+      "confidence_interval": {
+        "level": "95%",
+        "method": "Parametric: bias ± 1.96 · (SD / √n)",
+        "lower": 0.55,
+        "upper": 2.69,
+        "unit": "coughs/hr"
+      }
+    },
+
+    {
+      "id": "hourly_ba_loa",
+      "level": "hourly_agreement",
+      "name": "Hourly Cough Rate — Bland-Altman 95% Limits of Agreement",
+      "definition": "Range within which 95% of individual per-participant hourly rate differences (Hyfe − Human) are expected to fall.",
+      "value": { "lower": -3.5, "upper": 6.8 },
+      "unit": "coughs/hr",
+      "population": { "$ref": "#/population" },
+      "methodology": {
+        "sd_of_differences": 2.62,
+        "n_data_points": 23
+      }
+    },
+
+    {
+      "id": "event_coughs_sensitivity",
+      "level": "event_detection",
+      "event_type": "coughs",
+      "name": "Event-Level Cough Detection — Sensitivity",
+      "definition": "Proportion of individual cough events correctly detected by Hyfe out of all cough events annotated by human reviewers. Sensitivity = TP / (TP + FN).",
+      "value": 0.808,
+      "value_display": "80.8%",
+      "unit": "proportion",
+      "population": { "$ref": "#/population" },
+      "confidence_interval": {
+        "note": "Event-level CI requires total TP/FN counts from the source dataset; not available in index.html."
+      }
+    },
+
+    {
+      "id": "event_coughs_precision",
+      "level": "event_detection",
+      "event_type": "coughs",
+      "name": "Event-Level Cough Detection — Precision (Positive Predictive Value)",
+      "definition": "Proportion of Hyfe detections that correspond to a true human-annotated cough event. Precision = TP / (TP + FP). Also reported as PPV.",
+      "value": 0.714,
+      "value_display": "71.4%",
+      "unit": "proportion",
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "event_coughs_fp_per_hour",
+      "level": "event_detection",
+      "event_type": "coughs",
+      "name": "Event-Level Cough Detection — False Positives per Hour",
+      "abbreviation": "FP/hr",
+      "definition": "Number of Hyfe detections per hour of recording that do not correspond to a human-annotated cough. Lower values indicate fewer spurious detections.",
+      "value": 3.96,
+      "unit": "events/hr",
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "event_cough_seconds_sensitivity",
+      "level": "event_detection",
+      "event_type": "cough_seconds",
+      "name": "Cough-Second Detection — Sensitivity",
+      "definition": "Sensitivity at the cough-second granularity. A cough-second is a 1-second unit of continuous cough audio. More robust to segmentation ambiguity in prolonged coughing than discrete event counts.",
+      "value": 0.826,
+      "value_display": "82.6%",
+      "unit": "proportion",
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "event_cough_seconds_fp_per_hour",
+      "level": "event_detection",
+      "event_type": "cough_seconds",
+      "name": "Cough-Second Detection — False Positives per Hour",
+      "value": 3.03,
+      "unit": "events/hr",
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "event_cough_epochs_sensitivity",
+      "level": "event_detection",
+      "event_type": "cough_epochs",
+      "name": "Cough-Epoch Detection — Sensitivity",
+      "definition": "Sensitivity at the cough-epoch granularity. A cough epoch is a fixed-length time window (52ms frame) classified as containing a cough. Boundary-insensitive; yields highest sensitivity among the three event-level granularities.",
+      "value": 0.890,
+      "value_display": "89.0%",
+      "unit": "proportion",
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "event_cough_epochs_fp_per_hour",
+      "level": "event_detection",
+      "event_type": "cough_epochs",
+      "name": "Cough-Epoch Detection — False Positives per Hour",
+      "definition": "Lowest FP/hr among the three event-level granularities, reflecting the favourable precision-recall operating point of epoch-level detection.",
+      "value": 2.08,
+      "unit": "events/hr",
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "target_concordance",
+      "level": "study_design",
+      "name": "Pre-Specified Target Concordance",
+      "definition": "Minimum CCC value pre-specified as the threshold for Hyfe to be considered fit-for-purpose as a clinical trial endpoint instrument. Applied to both hourly and daily agreement analyses.",
+      "value": 0.90,
+      "value_display": "≥0.90",
+      "unit": "CCC",
+      "threshold_met_daily": true,
+      "threshold_met_hourly": true
+    },
+
+    {
+      "id": "recording_duration",
+      "level": "study_design",
+      "name": "Recording Duration per Participant",
+      "definition": "Each participant wore the Hyfe device for approximately 24 continuous hours, capturing ambient and subject-generated sound in their natural environment.",
+      "value": 24,
+      "unit": "hours (continuous)",
+      "actual_range": { "min_hours": 21.0, "max_hours": 25.6 },
+      "population": { "$ref": "#/population" }
+    },
+
+    {
+      "id": "annotation_scheme",
+      "level": "study_design",
+      "name": "Ground Truth Annotation Scheme",
+      "definition": "Double-blind independent dual annotation with expert adjudication. Two annotators review each recording independently using standardized guidelines. Inter-rater agreement quantified with Cohen's κ. Sessions below acceptable κ threshold flagged for re-review and re-adjudication.",
+      "value": "Dual annotation + adjudication",
+      "metrics_produced": ["true_coughs", "cough_seconds", "cough_epochs"],
+      "inter_rater_metric": "Cohen's κ",
+      "population": { "$ref": "#/population" }
+    }
+
+  ]
+}
