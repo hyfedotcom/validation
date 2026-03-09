@@ -59,7 +59,7 @@ gtag('config', 'G-0SSN9HFHP6');
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 
   <!-- Structured Data -->
@@ -136,19 +136,19 @@ gtag('config', 'G-0SSN9HFHP6');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:          #FFFDF4;
-      --bg-card:     #F7F5ED;
-      --bg-raised:   #EEEAE0;
-      --border:      rgba(0,0,0,0.08);
-      --border-med:  rgba(0,0,0,0.14);
+      --bg:          #09090f;
+      --bg-card:     #0f0f1a;
+      --bg-raised:   #161625;
+      --border:      rgba(255,255,255,0.07);
+      --border-med:  rgba(255,255,255,0.12);
       --accent:      #FFCE1D;
-      --accent-dim:  rgba(255,206,29,0.15);
-      --accent-glow: rgba(255,206,29,0.45);
-      --text-primary:   #111111;
-      --text-secondary: #555555;
-      --text-muted:     #888888;
+      --accent-dim:  rgba(255,206,29,0.12);
+      --accent-glow: rgba(255,206,29,0.4);
+      --text-primary:   #f0eff8;
+      --text-secondary: #8f8fa8;
+      --text-muted:     #55556a;
       --font-serif: 'Poppins', sans-serif;
-      --font-mono:  'JetBrains Mono', 'Courier New', monospace;
+      --font-mono:  'Poppins', sans-serif;
       --font-sans:  'Poppins', sans-serif;
       --max-w: 1100px;
       --section-gap: 120px;
@@ -192,7 +192,7 @@ gtag('config', 'G-0SSN9HFHP6');
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #8a6d00;
+      color: var(--accent);
       background: var(--accent-dim);
       border: 1px solid rgba(255,174,0,0.35);
       padding: 4px 14px;
@@ -204,7 +204,7 @@ gtag('config', 'G-0SSN9HFHP6');
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(255,253,244,0.92);
+      background: rgba(9,9,15,0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -356,8 +356,8 @@ gtag('config', 'G-0SSN9HFHP6');
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #111111;
-      color: #ffffff;
+      background: var(--accent);
+      color: #09090f;
       font-family: var(--font-sans);
       font-size: 0.85rem;
       font-weight: 600;
@@ -372,7 +372,7 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .btn-primary:hover {
-      background: #333333;
+      background: #ffe566;
       transform: translateY(-1px);
     }
 
@@ -479,7 +479,7 @@ gtag('config', 'G-0SSN9HFHP6');
 
     .section-title {
       font-family: var(--font-serif);
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-size: clamp(1.4rem, 2.4vw, 1.9rem);
       font-weight: 400;
       line-height: 1.2;
       letter-spacing: -0.01em;
@@ -598,7 +598,7 @@ gtag('config', 'G-0SSN9HFHP6');
 
     .toggle-btn.active {
       background: var(--accent);
-      color: #111111;
+      color: #09090f;
     }
 
     .toggle-btn:not(.active) {
@@ -743,7 +743,7 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .chip-warning { background: rgba(255,180,0,0.1); color: #f5c842; border: 1px solid rgba(255,180,0,0.2); }
-    .chip-good    { background: var(--accent-dim); color: #8a6d00; border: 1px solid rgba(255,206,29,0.35); }
+    .chip-good    { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(255,206,29,0.35); }
 
     /* ─── Section 5 – Event Table ──────────────────────── */
     .event-table {
@@ -805,7 +805,7 @@ gtag('config', 'G-0SSN9HFHP6');
       font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.05em;
-      color: #8a6d00;
+      color: var(--accent);
       margin-bottom: 12px;
     }
 
@@ -837,7 +837,7 @@ gtag('config', 'G-0SSN9HFHP6');
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: #8a6d00;
+      color: var(--accent);
       cursor: pointer;
       list-style: none;
       display: flex;
@@ -1061,11 +1061,11 @@ gtag('config', 'G-0SSN9HFHP6');
 
     /* ─── Techy: Glow on key stat values ───────────────── */
     .hero-stat-value {
-      text-shadow: 0 0 24px rgba(200,155,0,0.35);
+      text-shadow: 0 0 28px rgba(255,206,29,0.5);
     }
 
     .accent-glow {
-      text-shadow: 0 0 18px rgba(200,155,0,0.3);
+      text-shadow: 0 0 18px rgba(255,206,29,0.4);
     }
 
     /* ─── Techy: Typewriter cursor ─────────────────────── */
@@ -1073,7 +1073,7 @@ gtag('config', 'G-0SSN9HFHP6');
       display: inline-block;
       width: 2px;
       height: 0.8em;
-      background: #8a6d00;
+      background: var(--accent);
       margin-left: 1px;
       vertical-align: middle;
       animation: tw-blink 0.9s step-end infinite;
@@ -1084,12 +1084,6 @@ gtag('config', 'G-0SSN9HFHP6');
       50%       { opacity: 0; }
     }
 
-    /* ─── Techy: Mono font on all stat/data numbers ─────── */
-    .hero-stat-value,
-    .metric-card-value,
-    .ms-stat-val {
-      font-family: var(--font-mono) !important;
-    }
 
     /* ─── Techy: Event table progress bars ─────────────── */
     .bar-cell {
@@ -1529,7 +1523,7 @@ gtag('config', 'G-0SSN9HFHP6');
             </tr>
             <tr>
               <td class="metric-name">False Positives / Hour</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="3.96" data-bar-max="10">—</span><div class="bar-track"><div class="bar-fill" style="background:rgba(200,155,0,0.4)"></div></div></div></td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="3.96" data-bar-max="10">—</span><div class="bar-track"><div class="bar-fill" style="background:rgba(255,150,50,0.55)"></div></div></div></td>
               <td class="metric-note">Non-cough events classified as coughs per hour</td>
             </tr>
             <tr>
@@ -1666,7 +1660,7 @@ gtag('config', 'G-0SSN9HFHP6');
       .chart-tab.active{background:var(--accent);color:#111111}
       .chart-toggles{display:flex;gap:8px;flex-wrap:wrap}
       .chart-toggle{font-family:var(--font-sans);font-size:.67rem;font-weight:500;letter-spacing:.02em;padding:5px 14px;border-radius:20px;border:1px solid var(--border-med);cursor:pointer;transition:all .2s;background:transparent;color:var(--text-muted)}
-      .chart-toggle.active{border-color:rgba(255,206,29,.5);background:var(--accent-dim);color:#8a6d00}
+      .chart-toggle.active{border-color:rgba(255,206,29,.5);background:var(--accent-dim);color:var(--accent)}
       .chart-stat-badges{display:flex;gap:10px;flex-wrap:wrap;padding:10px 24px 14px}
       .chart-stat-badge{font-family:var(--font-sans);font-size:.7rem;font-weight:500;letter-spacing:.01em;padding:4px 14px;background:var(--bg-raised);border:1px solid var(--border-med);border-radius:20px;color:var(--text-secondary)}
       .chart-stat-badge b{color:var(--accent);font-weight:500}
@@ -1681,7 +1675,7 @@ gtag('config', 'G-0SSN9HFHP6');
       @media(max-width:640px){.ms-event-grid{grid-template-columns:1fr}}
       .ms-event-card{background:var(--bg-raised);border:1px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden}
       .ms-event-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);opacity:.4}
-      .ms-event-type{font-family:var(--font-sans);font-size:.63rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#8a6d00;margin-bottom:14px}
+      .ms-event-type{font-family:var(--font-sans);font-size:.63rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
       .ms-stat-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
       .ms-stat-label{font-family:var(--font-sans);font-size:.62rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted)}
       .ms-stat-val{font-family:var(--font-sans);font-size:1.35rem;font-weight:700;color:var(--text-primary);line-height:1}
@@ -1756,19 +1750,19 @@ gtag('config', 'G-0SSN9HFHP6');
     const sR={r:pearson(hR,yR),ccc:ccc(hR,yR),reg:reg(hR,yR),ba:ba(hR,yR)};
 
     /* ── Chart.js defaults ─────────────────────────────────────── */
-    Chart.defaults.color            = '#888888';
-    Chart.defaults.borderColor      = 'rgba(0,0,0,0.08)';
+    Chart.defaults.color            = '#55566a';
+    Chart.defaults.borderColor      = 'rgba(255,255,255,0.07)';
     Chart.defaults.font.family      = "'Poppins',sans-serif";
     Chart.defaults.font.size        = 11;
     const AC  = '#FFCE1D';
-    const GR  = 'rgba(0,0,0,0.08)';
-    const RC  = 'rgba(100,100,100,0.35)';
+    const GR  = 'rgba(255,255,255,0.07)';
+    const RC  = 'rgba(200,200,200,0.25)';
     const TIP = {
-      backgroundColor:'#F7F5ED',
-      borderColor:'rgba(0,0,0,0.14)',
+      backgroundColor:'#0f0f1a',
+      borderColor:'rgba(255,255,255,0.12)',
       borderWidth:1,
-      titleColor:'#111111',
-      bodyColor:'#555555',
+      titleColor:'#f0eff8',
+      bodyColor:'#8f8fa8',
       padding:12,
       cornerRadius:8,
     };
@@ -2121,7 +2115,7 @@ gtag('config', 'G-0SSN9HFHP6');
             const dy = particles[i].y - particles[j].y;
             const d  = Math.sqrt(dx * dx + dy * dy);
             if (d < 130) {
-              ctx.strokeStyle = `rgba(170,130,0,${(1 - d / 130) * 0.13})`;
+              ctx.strokeStyle = `rgba(255,206,29,${(1 - d / 130) * 0.2})`;
               ctx.lineWidth = 1;
               ctx.beginPath();
               ctx.moveTo(particles[i].x, particles[i].y);
@@ -2138,7 +2132,7 @@ gtag('config', 'G-0SSN9HFHP6');
           const pulse = Math.sin(p.phase) * 0.5 + 0.5;
           ctx.beginPath();
           ctx.arc(p.x, p.y, p.r + pulse * 0.6, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(170,130,0,${0.18 + pulse * 0.22})`;
+          ctx.fillStyle = `rgba(255,206,29,${0.28 + pulse * 0.35})`;
           ctx.fill();
 
           p.x += p.vx;
