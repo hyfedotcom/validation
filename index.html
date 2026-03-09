@@ -994,11 +994,12 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     /* ─── Techy: Hero Canvas ───────────────────────────── */
-    #hero-canvas {
-      position: absolute;
+    #bg-canvas {
+      position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.5;
+      opacity: 0.38;
+      z-index: 0;
     }
 
     /* ─── Techy: Data Ticker ───────────────────────────── */
@@ -1143,6 +1144,8 @@ gtag('config', 'G-0SSN9HFHP6');
 </head>
 <body>
 
+  <canvas id="bg-canvas"></canvas>
+
   <!-- ── Navigation ──────────────────────────────────── -->
   <nav>
     <div class="nav-inner">
@@ -1198,7 +1201,6 @@ gtag('config', 'G-0SSN9HFHP6');
 
   <!-- ── Hero ────────────────────────────────────────── -->
   <div class="hero">
-    <canvas id="hero-canvas"></canvas>
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="container">
@@ -2080,30 +2082,34 @@ gtag('config', 'G-0SSN9HFHP6');
 
     /* ── 2. Hero Canvas: floating particle network ───────── */
     (function() {
-      const canvas = document.getElementById('hero-canvas');
+      const canvas = document.getElementById('bg-canvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
       let W, H, particles;
 
+      function particleCount() {
+        return Math.min(90, Math.max(40, Math.floor((W * H) / 16000)));
+      }
+
       function resize() {
-        W = canvas.width  = canvas.offsetWidth;
-        H = canvas.height = canvas.offsetHeight;
+        W = canvas.width  = window.innerWidth;
+        H = canvas.height = window.innerHeight;
       }
 
       function mkParticle() {
         return {
           x:     Math.random() * W,
           y:     Math.random() * H,
-          vx:    (Math.random() - 0.5) * 0.35,
-          vy:    (Math.random() - 0.5) * 0.35,
-          r:     Math.random() * 1.8 + 0.8,
+          vx:    (Math.random() - 0.5) * 0.28,
+          vy:    (Math.random() - 0.5) * 0.28,
+          r:     Math.random() * 1.6 + 0.7,
           phase: Math.random() * Math.PI * 2,
         };
       }
 
       resize();
-      particles = Array.from({ length: 60 }, mkParticle);
-      window.addEventListener('resize', () => { resize(); particles = Array.from({ length: 60 }, mkParticle); });
+      particles = Array.from({ length: particleCount() }, mkParticle);
+      window.addEventListener('resize', () => { resize(); particles = Array.from({ length: particleCount() }, mkParticle); });
 
       function draw() {
         ctx.clearRect(0, 0, W, H);
