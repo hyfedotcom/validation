@@ -59,7 +59,7 @@ gtag('config', 'G-0SSN9HFHP6');
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 
   <!-- Structured Data -->
@@ -136,20 +136,20 @@ gtag('config', 'G-0SSN9HFHP6');
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:          #09090f;
-      --bg-card:     #0f0f1a;
-      --bg-raised:   #131326;
-      --border:      rgba(255,255,255,0.07);
-      --border-med:  rgba(255,255,255,0.13);
-      --accent:      #00d9a6;
-      --accent-dim:  rgba(0,217,166,0.15);
-      --accent-glow: rgba(0,217,166,0.3);
-      --text-primary:   #f0eff8;
-      --text-secondary: #8f8fa8;
-      --text-muted:     #55556a;
-      --font-serif: 'Instrument Serif', Georgia, serif;
-      --font-mono:  'DM Mono', 'Courier New', monospace;
-      --font-sans:  'Syne', sans-serif;
+      --bg:          #FFFDF4;
+      --bg-card:     #F7F5ED;
+      --bg-raised:   #EEEAE0;
+      --border:      rgba(0,0,0,0.08);
+      --border-med:  rgba(0,0,0,0.14);
+      --accent:      #FFCE1D;
+      --accent-dim:  rgba(255,206,29,0.15);
+      --accent-glow: rgba(255,206,29,0.45);
+      --text-primary:   #111111;
+      --text-secondary: #555555;
+      --text-muted:     #888888;
+      --font-serif: 'Poppins', sans-serif;
+      --font-mono:  'Poppins', sans-serif;
+      --font-sans:  'Poppins', sans-serif;
       --max-w: 1100px;
       --section-gap: 120px;
     }
@@ -187,15 +187,16 @@ gtag('config', 'G-0SSN9HFHP6');
 
     .tag {
       display: inline-block;
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.68rem;
-      letter-spacing: 0.12em;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #8a6d00;
       background: var(--accent-dim);
-      border: 1px solid rgba(0,217,166,0.25);
-      padding: 4px 12px;
-      border-radius: 2px;
+      border: 1px solid rgba(255,174,0,0.35);
+      padding: 4px 14px;
+      border-radius: 20px;
     }
 
     /* ─── Navigation ───────────────────────────────────── */
@@ -203,7 +204,7 @@ gtag('config', 'G-0SSN9HFHP6');
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(9,9,15,0.85);
+      background: rgba(255,253,244,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -255,10 +256,11 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .nav-links a {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
       color: var(--text-secondary);
       text-decoration: none;
       transition: color 0.2s;
@@ -277,8 +279,8 @@ gtag('config', 'G-0SSN9HFHP6');
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(0,217,166,0.06) 0%, transparent 70%),
-        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(0,100,200,0.04) 0%, transparent 70%);
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,206,29,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(255,174,0,0.05) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -354,23 +356,23 @@ gtag('config', 'G-0SSN9HFHP6');
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--accent);
-      color: #09090f;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      background: #111111;
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: none;
       text-decoration: none;
       padding: 14px 28px;
-      border-radius: 3px;
+      border-radius: 20px;
       border: none;
       cursor: pointer;
       transition: box-shadow 0.25s, transform 0.2s;
     }
 
     .btn-primary:hover {
-      box-shadow: 0 0 28px var(--accent-glow);
+      background: #333333;
       transform: translateY(-1px);
     }
 
@@ -386,11 +388,11 @@ gtag('config', 'G-0SSN9HFHP6');
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 400;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-family: var(--font-sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      text-transform: none;
       color: var(--text-secondary);
       text-decoration: none;
       padding: 14px 0;
@@ -432,9 +434,10 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .hero-stat-label {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.68rem;
-      letter-spacing: 0.1em;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--text-muted);
     }
@@ -454,9 +457,10 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .section-number {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.7rem;
-      letter-spacing: 0.14em;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--text-muted);
       padding-top: 6px;
@@ -495,7 +499,7 @@ gtag('config', 'G-0SSN9HFHP6');
     .viz-placeholder {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 16px;
       overflow: hidden;
       position: relative;
     }
@@ -542,15 +546,16 @@ gtag('config', 'G-0SSN9HFHP6');
       position: absolute;
       top: 16px;
       right: 16px;
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.65rem;
-      letter-spacing: 0.1em;
+      font-weight: 500;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--text-muted);
       background: var(--bg-raised);
       border: 1px solid var(--border);
-      padding: 4px 10px;
-      border-radius: 2px;
+      padding: 4px 12px;
+      border-radius: 20px;
     }
 
     /* Animated pulse border for placeholders */
@@ -574,7 +579,7 @@ gtag('config', 'G-0SSN9HFHP6');
       display: inline-flex;
       background: var(--bg-raised);
       border: 1px solid var(--border-med);
-      border-radius: 4px;
+      border-radius: 20px;
       padding: 4px;
       gap: 2px;
       margin-bottom: 8px;
@@ -585,7 +590,7 @@ gtag('config', 'G-0SSN9HFHP6');
       font-size: 0.7rem;
       letter-spacing: 0.06em;
       padding: 8px 16px;
-      border-radius: 2px;
+      border-radius: 20px;
       border: none;
       cursor: default;
       transition: all 0.2s;
@@ -593,7 +598,7 @@ gtag('config', 'G-0SSN9HFHP6');
 
     .toggle-btn.active {
       background: var(--accent);
-      color: #09090f;
+      color: #111111;
     }
 
     .toggle-btn:not(.active) {
@@ -612,7 +617,7 @@ gtag('config', 'G-0SSN9HFHP6');
     .metric-card {
       background: var(--bg-raised);
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 16px;
       padding: 20px 20px 18px;
       position: relative;
       overflow: hidden;
@@ -628,9 +633,10 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .metric-card-label {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.65rem;
-      letter-spacing: 0.12em;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--text-muted);
       margin-bottom: 10px;
@@ -653,8 +659,8 @@ gtag('config', 'G-0SSN9HFHP6');
     .info-block {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 0 6px 6px 0;
+      border-left: 4px solid var(--accent);
+      border-radius: 0 12px 12px 0;
       padding: 24px 28px;
       margin-top: 32px;
     }
@@ -686,7 +692,7 @@ gtag('config', 'G-0SSN9HFHP6');
     .principle-callout {
       background: var(--bg-card);
       border: 1px solid var(--border-med);
-      border-radius: 8px;
+      border-radius: 16px;
       padding: 36px 32px;
     }
 
@@ -727,16 +733,17 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .compare-chip {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.68rem;
-      padding: 3px 8px;
-      border-radius: 2px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
       margin-left: auto;
       white-space: nowrap;
     }
 
     .chip-warning { background: rgba(255,180,0,0.1); color: #f5c842; border: 1px solid rgba(255,180,0,0.2); }
-    .chip-good    { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,217,166,0.2); }
+    .chip-good    { background: var(--accent-dim); color: #8a6d00; border: 1px solid rgba(255,206,29,0.35); }
 
     /* ─── Section 5 – Event Table ──────────────────────── */
     .event-table {
@@ -747,9 +754,10 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .event-table th {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.68rem;
-      letter-spacing: 0.1em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--text-muted);
       text-align: left;
@@ -787,16 +795,17 @@ gtag('config', 'G-0SSN9HFHP6');
     .method-step {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 16px;
       padding: 24px 22px;
       position: relative;
     }
 
     .method-step-num {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.65rem;
-      letter-spacing: 0.1em;
-      color: var(--accent);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #8a6d00;
       margin-bottom: 12px;
     }
 
@@ -817,17 +826,18 @@ gtag('config', 'G-0SSN9HFHP6');
     details {
       margin-top: 32px;
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: 12px;
       overflow: hidden;
     }
 
     summary {
       padding: 18px 24px;
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.78rem;
-      letter-spacing: 0.08em;
+      font-weight: 600;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: #8a6d00;
       cursor: pointer;
       list-style: none;
       display: flex;
@@ -884,7 +894,7 @@ gtag('config', 'G-0SSN9HFHP6');
     .implication-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 8px;
+      border-radius: 16px;
       padding: 28px 24px;
       position: relative;
       overflow: hidden;
@@ -892,7 +902,7 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .implication-card:hover {
-      border-color: rgba(0,217,166,0.3);
+      border-color: rgba(255,206,29,0.5);
       transform: translateY(-2px);
     }
 
@@ -941,9 +951,10 @@ gtag('config', 'G-0SSN9HFHP6');
     }
 
     .footer-brand {
-      font-family: var(--font-mono);
+      font-family: var(--font-sans);
       font-size: 0.75rem;
-      letter-spacing: 0.08em;
+      font-weight: 500;
+      letter-spacing: 0.02em;
       color: var(--text-muted);
     }
 
@@ -1033,7 +1044,7 @@ gtag('config', 'G-0SSN9HFHP6');
         <div class="hero-stat-row">
           <div class="hero-stat">
             <a href="https://en.wikipedia.org/wiki/Concordance_correlation_coefficient" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;display:contents">
-              <span class="hero-stat-value" style="text-decoration:none;border-bottom:1px solid rgba(0,217,166,0.35)">CCC</span>
+              <span class="hero-stat-value" style="text-decoration:none;border-bottom:2px solid rgba(255,206,29,0.7)">CCC</span>
               <span class="hero-stat-label">Lin's Concordance</span>
             </a>
           </div>
@@ -1462,35 +1473,35 @@ gtag('config', 'G-0SSN9HFHP6');
     /* ── Inject Chart Widget Styles ─────────────────────────────── */
     const _s = document.createElement('style');
     _s.textContent = `
-      .chart-widget{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
+      .chart-widget{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
       .chart-header{padding:20px 24px 0;display:flex;flex-direction:column;gap:10px}
-      .chart-tab-strip{display:inline-flex;background:var(--bg-raised);border:1px solid var(--border-med);border-radius:4px;padding:3px;gap:2px}
-      .chart-tab{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.06em;padding:7px 16px;border-radius:2px;border:none;cursor:pointer;transition:all .2s;background:transparent;color:var(--text-muted)}
-      .chart-tab.active{background:var(--accent);color:#09090f}
+      .chart-tab-strip{display:inline-flex;background:var(--bg-raised);border:1px solid var(--border-med);border-radius:20px;padding:3px;gap:2px}
+      .chart-tab{font-family:var(--font-sans);font-size:.7rem;font-weight:500;letter-spacing:.02em;padding:7px 16px;border-radius:20px;border:none;cursor:pointer;transition:all .2s;background:transparent;color:var(--text-muted)}
+      .chart-tab.active{background:var(--accent);color:#111111}
       .chart-toggles{display:flex;gap:8px;flex-wrap:wrap}
-      .chart-toggle{font-family:var(--font-mono);font-size:.67rem;letter-spacing:.07em;padding:5px 12px;border-radius:2px;border:1px solid var(--border-med);cursor:pointer;transition:all .2s;background:transparent;color:var(--text-muted)}
-      .chart-toggle.active{border-color:rgba(0,217,166,.4);background:var(--accent-dim);color:var(--accent)}
+      .chart-toggle{font-family:var(--font-sans);font-size:.67rem;font-weight:500;letter-spacing:.02em;padding:5px 14px;border-radius:20px;border:1px solid var(--border-med);cursor:pointer;transition:all .2s;background:transparent;color:var(--text-muted)}
+      .chart-toggle.active{border-color:rgba(255,206,29,.5);background:var(--accent-dim);color:#8a6d00}
       .chart-stat-badges{display:flex;gap:10px;flex-wrap:wrap;padding:10px 24px 14px}
-      .chart-stat-badge{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.05em;padding:4px 12px;background:var(--bg-raised);border:1px solid var(--border-med);border-radius:2px;color:var(--text-secondary)}
+      .chart-stat-badge{font-family:var(--font-sans);font-size:.7rem;font-weight:500;letter-spacing:.01em;padding:4px 14px;background:var(--bg-raised);border:1px solid var(--border-med);border-radius:20px;color:var(--text-secondary)}
       .chart-stat-badge b{color:var(--accent);font-weight:500}
       .chart-canvas-wrap{padding:4px 20px 20px}
-      .ms-widget{background:var(--bg-card);border:1px solid var(--border);border-radius:8px;overflow:hidden}
-      .ms-tab-strip{display:flex;gap:2px;padding:16px 20px 0;border-bottom:1px solid var(--border);background:var(--bg-raised)}
-      .ms-tab{font-family:var(--font-mono);font-size:.69rem;letter-spacing:.07em;text-transform:uppercase;padding:10px 18px 12px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+      .ms-widget{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+      .ms-tab-strip{display:flex;gap:2px;padding:16px 20px 0;border-bottom:1px solid var(--border);background:var(--bg-card)}
+      .ms-tab{font-family:var(--font-sans);font-size:.69rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:10px 18px 12px;border:none;background:transparent;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
       .ms-tab.active{color:var(--accent);border-bottom-color:var(--accent)}
       .ms-panel{display:none;padding:28px 24px}
       .ms-panel.active{display:block}
       .ms-event-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
       @media(max-width:640px){.ms-event-grid{grid-template-columns:1fr}}
-      .ms-event-card{background:var(--bg-raised);border:1px solid var(--border);border-radius:6px;padding:20px 18px;position:relative;overflow:hidden}
+      .ms-event-card{background:var(--bg-raised);border:1px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden}
       .ms-event-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);opacity:.4}
-      .ms-event-type{font-family:var(--font-mono);font-size:.63rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+      .ms-event-type{font-family:var(--font-sans);font-size:.63rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#8a6d00;margin-bottom:14px}
       .ms-stat-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
-      .ms-stat-label{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)}
-      .ms-stat-val{font-family:var(--font-serif);font-size:1.35rem;color:var(--text-primary);line-height:1}
+      .ms-stat-label{font-family:var(--font-sans);font-size:.62rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--text-muted)}
+      .ms-stat-val{font-family:var(--font-sans);font-size:1.35rem;font-weight:700;color:var(--text-primary);line-height:1}
       .ms-stat-val.a{color:var(--accent)}
       .ms-agr-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
-      .ms-note{margin-top:18px;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.06em;color:var(--text-muted)}
+      .ms-note{margin-top:18px;font-family:var(--font-sans);font-size:.65rem;font-weight:400;letter-spacing:.02em;color:var(--text-muted)}
     `;
     document.head.appendChild(_s);
 
@@ -1559,21 +1570,21 @@ gtag('config', 'G-0SSN9HFHP6');
     const sR={r:pearson(hR,yR),ccc:ccc(hR,yR),reg:reg(hR,yR),ba:ba(hR,yR)};
 
     /* ── Chart.js defaults ─────────────────────────────────────── */
-    Chart.defaults.color            = '#8f8fa8';
-    Chart.defaults.borderColor      = 'rgba(255,255,255,0.07)';
-    Chart.defaults.font.family      = "'DM Mono','Courier New',monospace";
+    Chart.defaults.color            = '#888888';
+    Chart.defaults.borderColor      = 'rgba(0,0,0,0.08)';
+    Chart.defaults.font.family      = "'Poppins',sans-serif";
     Chart.defaults.font.size        = 11;
-    const AC  = '#00d9a6';
-    const GR  = 'rgba(255,255,255,0.07)';
-    const RC  = 'rgba(143,143,168,0.45)';
+    const AC  = '#FFCE1D';
+    const GR  = 'rgba(0,0,0,0.08)';
+    const RC  = 'rgba(100,100,100,0.35)';
     const TIP = {
-      backgroundColor:'#131326',
-      borderColor:'rgba(255,255,255,0.13)',
+      backgroundColor:'#F7F5ED',
+      borderColor:'rgba(0,0,0,0.14)',
       borderWidth:1,
-      titleColor:AC,
-      bodyColor:'#8f8fa8',
+      titleColor:'#111111',
+      bodyColor:'#555555',
       padding:12,
-      cornerRadius:4,
+      cornerRadius:8,
     };
 
     /* ── Viz 1: Metric Selector ────────────────────────────────── */
@@ -1671,7 +1682,7 @@ gtag('config', 'G-0SSN9HFHP6');
         data:{datasets:[
           {label:'Participants',
            data:hD.map((v,i)=>({x:v,y:yD[i],lbl:IDS[i]})),
-           backgroundColor:'rgba(0,217,166,.75)',borderColor:AC,
+           backgroundColor:'rgba(255,206,29,.85)',borderColor:'#c9a000',
            pointRadius:6,pointHoverRadius:9,order:3},
           {type:'line',label:'Identity',
            data:[{x:0,y:0},{x:MX,y:MX}],
@@ -1775,7 +1786,7 @@ gtag('config', 'G-0SSN9HFHP6');
           const MX=Math.max(...xs,...ys)*1.12;
           datasets=[
             {label:'Participants',data:xs.map((v,i)=>({x:v,y:ys[i],lbl:labels[i]})),
-             backgroundColor:'rgba(0,217,166,.75)',borderColor:AC,pointRadius:6,pointHoverRadius:9,order:3},
+             backgroundColor:'rgba(255,206,29,.85)',borderColor:'#c9a000',pointRadius:6,pointHoverRadius:9,order:3},
             {type:'line',label:'Identity',data:[{x:0,y:0},{x:MX,y:MX}],
              borderColor:AC,borderWidth:1.5,pointRadius:0,fill:false,tension:0,hidden:!showId,order:1},
             {type:'line',label:'Regression',data:[{x:0,y:r.intercept},{x:MX,y:r.slope*MX+r.intercept}],
@@ -1798,13 +1809,13 @@ gtag('config', 'G-0SSN9HFHP6');
           const pad=Math.max(Math.abs(b.upper),Math.abs(b.lower))*1.4;
           datasets=[
             {label:'Participants',data:means.map((v,i)=>({x:v,y:diffs[i],lbl:labels[i]})),
-             backgroundColor:'rgba(0,217,166,.75)',borderColor:AC,pointRadius:6,pointHoverRadius:9,order:3},
+             backgroundColor:'rgba(255,206,29,.85)',borderColor:'#c9a000',pointRadius:6,pointHoverRadius:9,order:3},
             {type:'line',label:'Bias',data:[{x:0,y:b.bias},{x:MXm,y:b.bias}],
              borderColor:AC,borderWidth:1.5,pointRadius:0,fill:false,tension:0,order:1},
             {type:'line',label:'Upper LoA',data:[{x:0,y:b.upper},{x:MXm,y:b.upper}],
-             borderColor:'rgba(0,217,166,.35)',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false,tension:0,order:2},
+             borderColor:'rgba(255,174,0,.5)',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false,tension:0,order:2},
             {type:'line',label:'Lower LoA',data:[{x:0,y:b.lower},{x:MXm,y:b.lower}],
-             borderColor:'rgba(0,217,166,.35)',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false,tension:0,order:2},
+             borderColor:'rgba(255,174,0,.5)',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false,tension:0,order:2},
           ];
           ci=new Chart(cvs,{
             type:'scatter',data:{datasets},
