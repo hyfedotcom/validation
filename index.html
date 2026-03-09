@@ -59,7 +59,7 @@ gtag('config', 'G-0SSN9HFHP6');
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 
   <!-- Structured Data -->
@@ -148,7 +148,7 @@ gtag('config', 'G-0SSN9HFHP6');
       --text-secondary: #555555;
       --text-muted:     #888888;
       --font-serif: 'Poppins', sans-serif;
-      --font-mono:  'Poppins', sans-serif;
+      --font-mono:  'JetBrains Mono', 'Courier New', monospace;
       --font-sans:  'Poppins', sans-serif;
       --max-w: 1100px;
       --section-gap: 120px;
@@ -992,6 +992,159 @@ gtag('config', 'G-0SSN9HFHP6');
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .footer-note { text-align: left; }
     }
+
+    /* ─── Techy: Hero Canvas ───────────────────────────── */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* ─── Techy: Data Ticker ───────────────────────────── */
+    .data-ticker {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 90;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      height: 34px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .ticker-track {
+      display: flex;
+      animation: ticker-scroll 40s linear infinite;
+      white-space: nowrap;
+    }
+
+    .ticker-track:hover { animation-play-state: paused; }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 28px;
+      font-family: var(--font-mono);
+      font-size: 0.67rem;
+      color: var(--text-muted);
+    }
+
+    .ticker-key {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .ticker-val {
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .ticker-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin: 0 4px;
+    }
+
+    @keyframes ticker-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* Add bottom padding to body so ticker doesn't cover content */
+    body { padding-bottom: 34px; }
+
+    /* ─── Techy: Glow on key stat values ───────────────── */
+    .hero-stat-value {
+      text-shadow: 0 0 24px rgba(200,155,0,0.35);
+    }
+
+    .accent-glow {
+      text-shadow: 0 0 18px rgba(200,155,0,0.3);
+    }
+
+    /* ─── Techy: Typewriter cursor ─────────────────────── */
+    .tw-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 0.8em;
+      background: #8a6d00;
+      margin-left: 1px;
+      vertical-align: middle;
+      animation: tw-blink 0.9s step-end infinite;
+    }
+
+    @keyframes tw-blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* ─── Techy: Mono font on all stat/data numbers ─────── */
+    .hero-stat-value,
+    .metric-card-value,
+    .ms-stat-val {
+      font-family: var(--font-mono) !important;
+    }
+
+    /* ─── Techy: Event table progress bars ─────────────── */
+    .bar-cell {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bar-track {
+      flex: 1;
+      height: 5px;
+      background: var(--bg-raised);
+      border-radius: 3px;
+      overflow: hidden;
+      max-width: 90px;
+    }
+
+    .bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      width: 0%;
+      transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ─── Techy: Pulsing accent line in section numbers ─── */
+    .section-number::before {
+      animation: accent-pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes accent-pulse {
+      0%, 100% { opacity: 1; width: 24px; }
+      50%       { opacity: 0.4; width: 40px; }
+    }
+
+    /* ─── Techy: Scanline shimmer on metric cards ───────── */
+    .metric-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::after {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to bottom, transparent, rgba(255,206,29,0.04), transparent);
+      animation: shimmer 5s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0%   { top: -100%; }
+      100% { top: 200%; }
+    }
   </style>
 </head>
 <body>
@@ -1017,8 +1170,41 @@ gtag('config', 'G-0SSN9HFHP6');
     </div>
   </nav>
 
+  <!-- ── Data Ticker ──────────────────────────────────── -->
+  <div class="data-ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker-track">
+      <span class="ticker-item"><span class="ticker-key">Daily CCC</span><span class="ticker-val">0.965</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Hourly CCC</span><span class="ticker-val">0.963</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Pearson r</span><span class="ticker-val">0.976</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Sensitivity</span><span class="ticker-val">80.8%</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">FP / hr</span><span class="ticker-val">3.96</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Cough-Epoch Sensitivity</span><span class="ticker-val">89.0%</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Mean Bias</span><span class="ticker-val">+38 coughs/day</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">95% LoA</span><span class="ticker-val">−82 to +159</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Participants</span><span class="ticker-val">n = 23</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Recording</span><span class="ticker-val">24h continuous</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Target CCC</span><span class="ticker-val">≥ 0.90</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Study Design</span><span class="ticker-val">Multicenter</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Annotation</span><span class="ticker-val">Dual-blind + adjudication</span></span>
+      <span class="ticker-dot"></span>
+    </div>
+  </div>
+
   <!-- ── Hero ────────────────────────────────────────── -->
   <div class="hero">
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
     <div class="container">
@@ -1057,7 +1243,7 @@ gtag('config', 'G-0SSN9HFHP6');
             <span class="hero-stat-label">Independent Annotation</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-value">≥0.90</span>
+            <span class="hero-stat-value" data-count-to="0.90" data-count-dec="2" data-count-suffix="">0.90</span>
             <span class="hero-stat-label">Target Concordance</span>
           </div>
         </div>
@@ -1333,22 +1519,22 @@ gtag('config', 'G-0SSN9HFHP6');
           <tbody>
             <tr>
               <td class="metric-name">Sensitivity</td>
-              <td class="mono accent">—</td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="80.8" data-bar-max="100">—</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
               <td class="metric-note">Proportion of true coughs detected</td>
             </tr>
             <tr>
               <td class="metric-name">Precision</td>
-              <td class="mono accent">—</td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="71.4" data-bar-max="100">—</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
               <td class="metric-note">Proportion of detections that are true coughs</td>
             </tr>
             <tr>
               <td class="metric-name">False Positives / Hour</td>
-              <td class="mono accent">—</td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="3.96" data-bar-max="10">—</span><div class="bar-track"><div class="bar-fill" style="background:rgba(200,155,0,0.4)"></div></div></div></td>
               <td class="metric-note">Non-cough events classified as coughs per hour</td>
             </tr>
             <tr>
               <td class="metric-name">Positive Predictive Value</td>
-              <td class="mono accent">—</td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="71.4" data-bar-max="100">—</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
               <td class="metric-note">Equivalent to precision in binary classification</td>
             </tr>
           </tbody>
@@ -1885,6 +2071,155 @@ gtag('config', 'G-0SSN9HFHP6');
     if(fn)fn.textContent='This page presents validation methodology and statistical results for Hyfe\'s cough monitoring technology. Data reflects FDA performance analysis across 23 participants, each with 24 hours of continuous real-world recording.';
 
   })();
+  </script>
+
+  <!-- ── JS: Techy Enhancements ───────────────────────── -->
+  <script>
+    /* ── 1. Ticker: clone for seamless loop ─────────────── */
+    (function() {
+      const track = document.getElementById('ticker-track');
+      if (!track) return;
+      const clone = track.cloneNode(true);
+      clone.setAttribute('aria-hidden', 'true');
+      track.parentNode.appendChild(clone);
+    })();
+
+    /* ── 2. Hero Canvas: floating particle network ───────── */
+    (function() {
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let W, H, particles;
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+
+      function mkParticle() {
+        return {
+          x:     Math.random() * W,
+          y:     Math.random() * H,
+          vx:    (Math.random() - 0.5) * 0.35,
+          vy:    (Math.random() - 0.5) * 0.35,
+          r:     Math.random() * 1.8 + 0.8,
+          phase: Math.random() * Math.PI * 2,
+        };
+      }
+
+      resize();
+      particles = Array.from({ length: 60 }, mkParticle);
+      window.addEventListener('resize', () => { resize(); particles = Array.from({ length: 60 }, mkParticle); });
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+
+        // Connections
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const d  = Math.sqrt(dx * dx + dy * dy);
+            if (d < 130) {
+              ctx.strokeStyle = `rgba(170,130,0,${(1 - d / 130) * 0.13})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.stroke();
+            }
+          }
+        }
+
+        // Dots
+        const t = Date.now() * 0.001;
+        particles.forEach(p => {
+          p.phase += 0.018;
+          const pulse = Math.sin(p.phase) * 0.5 + 0.5;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r + pulse * 0.6, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(170,130,0,${0.18 + pulse * 0.22})`;
+          ctx.fill();
+
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0 || p.x > W) p.vx *= -1;
+          if (p.y < 0 || p.y > H) p.vy *= -1;
+        });
+
+        requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    /* ── 3. Typewriter on hero eyebrow tag ───────────────── */
+    (function() {
+      const tag = document.querySelector('.hero-eyebrow .tag');
+      if (!tag) return;
+      const text = tag.textContent.trim();
+      tag.textContent = '';
+      const cursor = document.createElement('span');
+      cursor.className = 'tw-cursor';
+      tag.appendChild(cursor);
+
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          tag.insertBefore(document.createTextNode(text[i]), cursor);
+          i++;
+          setTimeout(type, 45 + Math.random() * 35);
+        } else {
+          setTimeout(() => {
+            cursor.style.animation = 'none';
+            cursor.style.opacity = '0';
+          }, 2000);
+        }
+      }
+      setTimeout(type, 700);
+    })();
+
+    /* ── 4. Count-up animation on scroll ─────────────────── */
+    function countUp(el, target, decimals, suffix, duration) {
+      const start = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - p, 3);
+        const v = ease * target;
+        el.textContent = (decimals > 0 ? v.toFixed(decimals) : Math.round(v)) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    }
+
+    const countObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const to       = parseFloat(el.dataset.countTo);
+        const decimals = parseInt(el.dataset.countDec  || '0', 10);
+        const suffix   = el.dataset.countSuffix || '';
+        if (isNaN(to)) return;
+        countUp(el, to, decimals, suffix, 1600);
+        countObs.unobserve(el);
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll('[data-count-to]').forEach(el => countObs.observe(el));
+
+    /* ── 5. Progress bars: animate on scroll ─────────────── */
+    const barObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.querySelectorAll('[data-bar]').forEach(cell => {
+          const pct = (parseFloat(cell.dataset.bar) / parseFloat(cell.dataset.barMax)) * 100;
+          const fill = cell.closest('.bar-cell').querySelector('.bar-fill');
+          if (fill) setTimeout(() => { fill.style.width = pct + '%'; }, 300);
+        });
+        barObs.unobserve(entry.target);
+      });
+    }, { threshold: 0.3 });
+
+    const eventTable = document.querySelector('#event-level .event-table');
+    if (eventTable) barObs.observe(eventTable);
   </script>
 
   <!-- ── JS: Scroll Reveal ─────────────────────────── -->
