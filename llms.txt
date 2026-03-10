@@ -1,0 +1,31 @@
+# Hyfe AI — Validation Study
+
+> This page presents the clinical validation methodology and performance results for the Hyfe AI cough monitoring system. Hyfe uses continuous acoustic recording to automatically detect and count coughs, and this validation demonstrates agreement between Hyfe's automated counts and human-annotated ground truth across 23 participants in a multicenter study.
+
+## About
+
+- **Site:** https://validation.hyfe.com/
+- **Publisher:** Hyfe AI — https://www.hyfe.com
+- **Intended audience:** Pharmaceutical clinical development teams, biostatisticians, regulatory affairs professionals, and endpoints committee reviewers evaluating Hyfe as a digital endpoint instrument for respiratory clinical trials.
+
+## Key Results
+
+- Daily cough count CCC = **0.965** (Hyfe vs. human annotator, n=23, 24-hr recordings)
+- Daily Pearson r = 0.976
+- Hourly cough rate CCC ≈ 0.962
+- Daily mean bias = +38 coughs/day (Hyfe over-counts relative to human ground truth)
+- Daily 95% Limits of Agreement: −82 to +159 coughs/day (Bland-Altman)
+- Event-level sensitivity: 80.8% (coughs), 82.6% (cough-seconds), 89.0% (cough-epochs)
+- Event-level false positives: 3.96/hr, 3.03/hr, 2.08/hr respectively
+- Pre-specified concordance target: ≥ 0.90 CCC — **met at all levels**
+
+## Machine-Readable Artifacts
+
+- [Agent context & canonical facts (JSON)](https://validation.hyfe.com/context.json) — high-level summary, primary claims, definitions, methodology, sources
+- [Validation metrics schema (JSON)](https://validation.hyfe.com/validation.json) — structured metric definitions and computed values
+
+## Key Pages
+
+- [Validation study interactive explorer](https://validation.hyfe.com/) — methodology walkthrough and live charts
+- [Peer-reviewed publication](https://www.hyfe.com/publication/validation-and-accuracy-of-the-hyfe-cough-monitoring-system-a-multicenter-clinical-study) — multicenter clinical study paper
+- [Hyfe AI product & company](https://www.hyfe.com)
