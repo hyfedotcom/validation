@@ -80,7 +80,7 @@ gtag('config', 'G-0SSN9HFHP6');
         "publisher": { "@id": "https://www.hyfe.com/#organization" }
       },
       {
-        "@type": "WebPage",
+        "@type": ["WebPage", "LandingPage"],
         "@id": "https://validation.hyfe.com/#webpage",
         "url": "https://validation.hyfe.com/",
         "name": "Real-World Cough Monitoring Accuracy for Clinical Trials | Hyfe AI",
@@ -116,7 +116,47 @@ gtag('config', 'G-0SSN9HFHP6');
         },
         "sameAs": [
           "https://www.hyfe.com",
-          "https://www.linkedin.com/company/hyfe"
+          "https://www.linkedin.com/company/hyfe",
+          "https://www.crunchbase.com/organization/hyfe",
+          "https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpmn/denovo.cfm?id=DEN250045",
+          "https://pubmed.ncbi.nlm.nih.gov/?term=hyfe+cough"
+        ]
+      },
+      {
+        "@type": "Dataset",
+        "@id": "https://validation.hyfe.com/#dataset",
+        "name": "Hyfe Cough Monitoring System — Multicenter Clinical Validation Dataset",
+        "description": "Validation dataset from a multicenter observational study (n=23) comparing Hyfe AI automated cough counts to human-annotated ground truth across ~24 hours of continuous real-world recording per participant. Includes event-level detection metrics, hourly cough rate agreement (CCC=0.963), and daily cough count agreement (CCC=0.965).",
+        "creator": { "@id": "https://www.hyfe.com/#organization" },
+        "publisher": { "@id": "https://www.hyfe.com/#organization" },
+        "datePublished": "2024-01-01",
+        "dateModified": "2025-02-25",
+        "license": "https://www.hyfe.com",
+        "url": "https://validation.hyfe.com/",
+        "distribution": [
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": "https://validation.hyfe.com/validation.json"
+          },
+          {
+            "@type": "DataDownload",
+            "encodingFormat": "application/json",
+            "contentUrl": "https://validation.hyfe.com/context.json"
+          }
+        ],
+        "variableMeasured": [
+          "Lin's Concordance Correlation Coefficient (CCC)",
+          "Pearson r",
+          "Bland-Altman bias",
+          "Limits of Agreement",
+          "Cough detection sensitivity",
+          "False positives per hour"
+        ],
+        "measurementTechnique": "Dual independent human annotation with expert adjudication; automated AI cough detection via continuous acoustic monitoring",
+        "about": [
+          { "@type": "MedicalCondition", "name": "Chronic Cough" },
+          { "@type": "MedicalDevice", "name": "Hyfe Cough Monitoring System" }
         ]
       },
       {
@@ -1252,6 +1292,7 @@ gtag('config', 'G-0SSN9HFHP6');
     </div>
   </div>
 
+  <main>
   <!-- ── Chart Anchor (Phase 2) ───────────────────────── -->
   <div id="charts"></div>
 
@@ -1327,7 +1368,7 @@ gtag('config', 'G-0SSN9HFHP6');
                 <span class="compare-chip chip-warning">Insufficient</span>
               </div>
               <div class="compare-row">
-                <span class="compare-label">Lin's CCC</span>
+                <span class="compare-label"><abbr title="Lin's Concordance Correlation Coefficient">Lin's CCC</abbr></span>
                 <span class="compare-desc">Rewards clustering around y&nbsp;=&nbsp;x</span>
                 <span class="compare-chip chip-good">Clinically valid</span>
               </div>
@@ -1380,32 +1421,32 @@ gtag('config', 'G-0SSN9HFHP6');
       <div class="metric-grid reveal">
         <div class="metric-card">
           <div class="metric-card-label">Lin's CCC</div>
-          <div class="metric-card-value accent">—</div>
+          <div class="metric-card-value accent">0.963</div>
           <div class="metric-card-sub">Concordance correlation coefficient</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Pearson r</div>
-          <div class="metric-card-value">—</div>
+          <div class="metric-card-value">0.975</div>
           <div class="metric-card-sub">Linear association</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Slope</div>
-          <div class="metric-card-value">—</div>
+          <div class="metric-card-value">1.038</div>
           <div class="metric-card-sub">Regression coefficient</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Intercept</div>
-          <div class="metric-card-value">—</div>
+          <div class="metric-card-value">1.2</div>
           <div class="metric-card-sub">Systematic offset</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Mean Bias</div>
-          <div class="metric-card-value">—</div>
+          <div class="metric-card-value">+2 /hr</div>
           <div class="metric-card-sub">Bland–Altman</div>
         </div>
         <div class="metric-card">
-          <div class="metric-card-label">95% LoA</div>
-          <div class="metric-card-value">—</div>
+          <div class="metric-card-label">95% <abbr title="Limits of Agreement">LoA</abbr></div>
+          <div class="metric-card-value">-4–+7</div>
           <div class="metric-card-sub">Limits of agreement</div>
         </div>
       </div>
@@ -1451,22 +1492,22 @@ gtag('config', 'G-0SSN9HFHP6');
       <div class="metric-grid reveal">
         <div class="metric-card">
           <div class="metric-card-label">Lin's CCC</div>
-          <div class="metric-card-value accent">—</div>
+          <div class="metric-card-value accent">0.965</div>
           <div class="metric-card-sub">Daily concordance</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Pearson r</div>
-          <div class="metric-card-value">—</div>
+          <div class="metric-card-value">0.976</div>
           <div class="metric-card-sub">Linear association</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Mean Bias</div>
-          <div class="metric-card-value">—</div>
+          <div class="metric-card-value">+38 coughs</div>
           <div class="metric-card-sub">Systematic offset</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">95% LoA</div>
-          <div class="metric-card-value">—</div>
+          <div class="metric-card-value">-82–+159</div>
           <div class="metric-card-sub">Limits of agreement</div>
         </div>
       </div>
@@ -1520,22 +1561,22 @@ gtag('config', 'G-0SSN9HFHP6');
           <tbody>
             <tr>
               <td class="metric-name">Sensitivity</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="80.8" data-bar-max="100">—</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="80.8" data-bar-max="100">80.8%</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
               <td class="metric-note">Proportion of true coughs detected</td>
             </tr>
             <tr>
               <td class="metric-name">Precision</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="71.4" data-bar-max="100">—</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="71.4" data-bar-max="100">71.4%</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
               <td class="metric-note">Proportion of detections that are true coughs</td>
             </tr>
             <tr>
               <td class="metric-name">False Positives / Hour</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="3.96" data-bar-max="10">—</span><div class="bar-track"><div class="bar-fill" style="background:rgba(255,150,50,0.55)"></div></div></div></td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="3.96" data-bar-max="10">3.96 / hr</span><div class="bar-track"><div class="bar-fill" style="background:rgba(255,150,50,0.55)"></div></div></div></td>
               <td class="metric-note">Non-cough events classified as coughs per hour</td>
             </tr>
             <tr>
               <td class="metric-name">Positive Predictive Value</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="71.4" data-bar-max="100">—</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="71.4" data-bar-max="100">71.4%</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
               <td class="metric-note">Equivalent to precision in binary classification</td>
             </tr>
           </tbody>
@@ -1635,6 +1676,8 @@ gtag('config', 'G-0SSN9HFHP6');
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ── Footer ────────────────────────────────────── -->
   <footer>

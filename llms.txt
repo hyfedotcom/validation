@@ -19,6 +19,10 @@
 - Event-level false positives: 3.96/hr, 3.03/hr, 2.08/hr respectively
 - Pre-specified concordance target: ≥ 0.90 CCC — **met at all levels**
 
+## Full Content for RAG Systems
+
+- [llms-full.txt](https://validation.hyfe.com/llms-full.txt) — complete prose content of all 7 page sections in clean markdown, with all statistics and definitions
+
 ## Machine-Readable Artifacts
 
 - [Agent context & canonical facts (JSON)](https://validation.hyfe.com/context.json) — high-level summary, primary claims, definitions, methodology, sources

@@ -1,0 +1,193 @@
+# Hyfe AI — Clinical Validation Study: Full Content
+
+> Full prose content of validation.hyfe.com for use by retrieval-augmented generation (RAG) systems, AI research agents, and language model indexing pipelines.
+
+**Source:** https://validation.hyfe.com/
+**Publisher:** Hyfe AI — https://www.hyfe.com
+**Last updated:** 2025-02-25
+**Machine-readable summary:** https://validation.hyfe.com/context.json
+**Structured metrics:** https://validation.hyfe.com/validation.json
+
+---
+
+## About This Page
+
+This page presents the clinical validation methodology and performance results for the Hyfe AI cough monitoring system. Hyfe uses continuous acoustic recording to automatically detect and count coughs. This validation demonstrates the agreement between Hyfe's automated counts and human-annotated ground truth across 23 participants in a multicenter study.
+
+The primary statistical framework uses Lin's Concordance Correlation Coefficient (CCC) rather than Pearson r alone, because CCC jointly measures both precision and accuracy — capturing systematic bias that a correlation coefficient would miss.
+
+**Intended audience:** Pharmaceutical clinical development teams, biostatisticians, regulatory affairs professionals, and endpoints committee reviewers evaluating Hyfe as a digital endpoint instrument for respiratory clinical trials.
+
+---
+
+## Section 01 — What Does "Accurate" Mean?
+
+Accuracy depends on what you are measuring. Event-level metrics — sensitivity, precision, false positives per hour — describe detection performance at the level of individual cough events.
+
+But clinicians and researchers rely on rates: hourly and daily cough burden. A system can detect events well and still misrepresent the rate that matters.
+
+This page focuses on agreement in rates.
+
+---
+
+## Section 02 — Correlation Is Not Enough
+
+A sensor can be perfectly correlated with reality, and still be systematically wrong.
+
+Pearson's r measures linear association — how tightly values move together. It does not measure agreement with the line of perfect equality (y = x).
+
+For measurement systems deployed in clinical contexts, the relevant question is not whether readings co-vary. It is whether they match.
+
+- **Pearson r:** Rewards clustering around any line. Insufficient alone for method-comparison studies.
+- **Lin's CCC:** Rewards clustering around y = x — the line of perfect agreement. Penalizes systematic bias that Pearson r ignores. The clinically appropriate metric for comparing two measurement methods.
+
+Lin's CCC formula: 2·r·σx·σy / (σx² + σy² + (μx − μy)²). Range: −1 to +1. A CCC of 1 = perfect agreement.
+
+---
+
+## Section 03 — Agreement at the Hourly Level
+
+Each data point represents one person-hour of continuous recording. Ground truth is established through independent dual annotation and adjudication — not automated labeling.
+
+High concordance indicates both precision and minimal systematic bias: the two properties that matter for clinical deployment.
+
+### Hourly Agreement Results
+
+| Metric | Value |
+|---|---|
+| Lin's CCC (hourly rate concordance) | 0.963 |
+| Pearson r (linear association) | 0.975 |
+| Regression slope | 1.038 |
+| Regression intercept | 1.2 |
+| Mean Bias (Hyfe vs. observer) | +2 coughs/hr |
+| 95% Limits of Agreement | −4 to +7 coughs/hr |
+
+n = 23 participants · 24-hr continuous recording · Cough rate in coughs per hour.
+
+---
+
+## Section 04 — Agreement at the Daily Level
+
+Clinical decisions and trial endpoints often operate at daily aggregation. Each data point represents one person-day.
+
+Daily aggregation reduces stochastic noise while preserving signal integrity — and consistency between hourly and daily concordance reinforces credibility.
+
+### Daily Agreement Results
+
+| Metric | Value |
+|---|---|
+| Lin's CCC (daily count concordance) | 0.965 |
+| Pearson r (linear association) | 0.976 |
+| Mean Bias (Hyfe vs. observer) | +38 coughs/day |
+| 95% Limits of Agreement | −82 to +159 coughs/day |
+
+n = 23 participants · Daily total cough count · Raw event counts.
+
+**Pre-specified concordance target:** ≥ 0.90 CCC. Hyfe meets this target at both hourly (0.963) and daily (0.965) levels.
+
+---
+
+## Section 05 — Event-Level Context
+
+For completeness, event detection metrics are reported here. These describe model behavior at the level of individual cough events rather than cough rates.
+
+Event metrics inform model behavior. Rate-level concordance informs clinical utility.
+
+### Event-Level Detection Results
+
+| Metric | Coughs | Cough-Seconds | Cough-Epochs |
+|---|---|---|---|
+| Sensitivity | 80.8% | 82.6% | 89.0% |
+| False Positives / Hour | 3.96 | 3.03 | 2.08 |
+
+Additional event-level metrics (cough granularity):
+
+| Metric | Value |
+|---|---|
+| Sensitivity | 80.8% |
+| Precision | 71.4% |
+| False Positives / Hour | 3.96 |
+| Positive Predictive Value | 71.4% |
+
+**Why cough-seconds?** Discrete cough counts are sensitive to how annotators segment continuous coughing. Cough-seconds — measuring total duration of cough audio in seconds — reduces this labeling artifact and is more robust to boundary ambiguity in longer cough bouts.
+
+**Why cough-epochs?** Fixed-length time windows classified as containing a cough or not. Yields the highest sensitivity (89.0%) and lowest FP/hr (2.08) among the three event-level granularities.
+
+---
+
+## Section 06 — How "Reality" Was Defined (Ground Truth Construction)
+
+Ground truth is not assumed — it is constructed through a rigorous annotation protocol. Human annotation establishes the reference standard, but also defines the ceiling of agreement any automated system can theoretically achieve.
+
+### Annotation Protocol
+
+1. **Continuous Recording:** 24-hour acoustic recordings capturing ambient and subject-generated sound in real-world conditions (home, workplace, and public settings).
+2. **Independent Dual Annotation:** Two independent human annotators review recordings blind to each other's labels, using standardized labeling guidelines.
+3. **Adjudication:** Discrepancies between annotators are resolved by a third expert reviewer to produce a single adjudicated ground truth. Sessions with low inter-rater agreement (measured with Cohen's κ) are flagged for re-review.
+4. **Cough Seconds as Primary Unit:** Cough seconds serve as the unit of analysis, enabling continuous rate quantification rather than binary event detection.
+
+### Study Design
+
+- **Participants:** n = 23
+- **Sites:** 3 study sites (S-OH / Ohio, S-SM, S-UN)
+- **Recording duration:** ~24 hours continuous per participant
+- **Environments:** Home, workplace, and public settings (real-world, not controlled studio)
+- **Design:** Multicenter observational validation study
+
+---
+
+## Section 07 — Implications for Drug Development
+
+Rate-based agreement — not event-level detection — supports the validity of cough rate as a primary or secondary trial endpoint.
+
+### Clinical Utility Implications
+
+**Endpoint Validity:** Rate-based agreement (CCC of 0.965 at the daily level) supports the validity of cough rate as a primary or secondary trial endpoint. This is the operationally relevant metric for clinical trials measuring treatment effects on cough burden.
+
+**Bias Reduction:** Concordance metrics quantify and bound systematic bias (mean bias = +38 coughs/day; 95% LoA: −82 to +159), reducing the risk of confounded treatment effect estimates.
+
+**Longitudinal Stability:** Hourly and daily agreement stability across recording sessions supports the use of Hyfe in longitudinal monitoring arms.
+
+**Real-World Dataset:** Acoustic variability from real-world recording environments — not controlled studio conditions — is reflected in the validation dataset.
+
+---
+
+## Key Statistics Summary
+
+- **Daily cough count CCC = 0.965** (Hyfe vs. human annotator, n=23, 24-hr recordings)
+- **Daily Pearson r = 0.976**
+- **Hourly cough rate CCC = 0.963**
+- **Daily mean bias = +38 coughs/day** (Hyfe over-counts relative to human ground truth)
+- **Daily 95% Limits of Agreement: −82 to +159 coughs/day** (Bland-Altman)
+- **Event-level sensitivity:** 80.8% (coughs), 82.6% (cough-seconds), 89.0% (cough-epochs)
+- **Event-level false positives:** 3.96/hr, 3.03/hr, 2.08/hr respectively
+- **Pre-specified concordance target: ≥ 0.90 CCC — met at all levels**
+- Ground truth: dual independent human annotation + expert adjudication (not automated labeling)
+- 23 participants across 3 study sites; each with ~24 hours of continuous recording
+- Real-world environments: home, workplace, and public settings
+
+---
+
+## Definitions
+
+**Lin's Concordance Correlation Coefficient (CCC):** Measures both precision (how tightly points cluster around the best-fit line) and accuracy (how close that line is to the 45-degree identity line). Penalizes systematic bias that Pearson r ignores. Formula: 2·r·σx·σy / (σx² + σy² + (μx − μy)²). Range: −1 to +1. Reference: https://en.wikipedia.org/wiki/Concordance_correlation_coefficient
+
+**Pearson r:** Measures linear association only. A high r does not imply agreement — two instruments can be perfectly correlated but systematically offset. Insufficient alone for method-comparison studies.
+
+**Bland-Altman Analysis:** A method-comparison technique plotting the mean of two measurements (x-axis) against their difference (y-axis). Reveals systematic bias and whether agreement is consistent across the range of values. Limits of Agreement = Bias ± 1.96 × SD of differences (contains ~95% of individual differences under normality assumptions).
+
+**Sensitivity:** Proportion of true cough events correctly detected by Hyfe out of all true cough events annotated by the human reference. Sensitivity = TP / (TP + FN).
+
+**False Positives per Hour (FP/hr):** Number of detections by Hyfe that do not correspond to a human-annotated cough event, averaged per hour of recording. Lower is better.
+
+**Target Concordance:** ≥ 0.90 CCC — the pre-specified minimum acceptable concordance threshold for Hyfe to be considered fit-for-purpose as a clinical trial endpoint instrument.
+
+---
+
+## Sources
+
+- [Peer-reviewed validation paper](https://www.hyfe.com/publication/validation-and-accuracy-of-the-hyfe-cough-monitoring-system-a-multicenter-clinical-study) — Validation and Accuracy of the Hyfe Cough Monitoring System: A Multicenter Clinical Study
+- [This page — interactive data explorer](https://validation.hyfe.com/)
+- [Lin's CCC — Wikipedia](https://en.wikipedia.org/wiki/Concordance_correlation_coefficient)
+- [Hyfe AI](https://www.hyfe.com)
+- [Hyfe LinkedIn](https://www.linkedin.com/company/hyfe)

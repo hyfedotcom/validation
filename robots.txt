@@ -38,5 +38,8 @@ Allow: /
 User-agent: YouBot
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
 # Machine-readable artifacts for agents and LLMs
 Sitemap: https://validation.hyfe.com/sitemap.xml
