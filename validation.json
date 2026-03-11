@@ -137,6 +137,58 @@
     },
 
     {
+      "id": "lccc_hourly_coughs",
+      "level": "hourly_agreement",
+      "name": "Hourly Coughs — Lin's Concordance Correlation Coefficient (LCCC)",
+      "abbreviation": "LCCC",
+      "definition": "Lin's CCC between Hyfe and human hourly cough counts, hour by hour across all participants.",
+      "value": 0.9748,
+      "unit": "dimensionless",
+      "scale": "[-1, 1]; 1 = perfect agreement",
+      "pre_specified_threshold": "≥0.90",
+      "threshold_met": true
+    },
+
+    {
+      "id": "lccc_hourly_cough_seconds",
+      "level": "hourly_agreement",
+      "name": "Hourly Cough-Seconds — Lin's Concordance Correlation Coefficient (LCCC)",
+      "abbreviation": "LCCC",
+      "definition": "Lin's CCC between Hyfe and human hourly cough-second counts.",
+      "value": 0.9683,
+      "unit": "dimensionless",
+      "scale": "[-1, 1]; 1 = perfect agreement",
+      "pre_specified_threshold": "≥0.90",
+      "threshold_met": true
+    },
+
+    {
+      "id": "lccc_daily_coughs",
+      "level": "daily_agreement",
+      "name": "Daily Coughs — Lin's Concordance Correlation Coefficient (LCCC)",
+      "abbreviation": "LCCC",
+      "definition": "Lin's CCC between Hyfe and human daily total cough counts.",
+      "value": 0.971,
+      "unit": "dimensionless",
+      "scale": "[-1, 1]; 1 = perfect agreement",
+      "pre_specified_threshold": "≥0.90",
+      "threshold_met": true
+    },
+
+    {
+      "id": "lccc_daily_cough_seconds",
+      "level": "daily_agreement",
+      "name": "Daily Cough-Seconds — Lin's Concordance Correlation Coefficient (LCCC)",
+      "abbreviation": "LCCC",
+      "definition": "Lin's CCC between Hyfe and human daily cough-second counts.",
+      "value": 0.956,
+      "unit": "dimensionless",
+      "scale": "[-1, 1]; 1 = perfect agreement",
+      "pre_specified_threshold": "≥0.90",
+      "threshold_met": true
+    },
+
+    {
       "id": "hourly_ccc",
       "level": "hourly_agreement",
       "name": "Hourly Cough Rate — Lin's Concordance Correlation Coefficient",
@@ -166,14 +218,14 @@
       "name": "Hourly Cough Rate — Pearson Correlation Coefficient",
       "abbreviation": "r",
       "definition": "Linear association between Hyfe and human cough rates (coughs/hr). High value confirms strong linear relationship; CCC additionally captures systematic offset.",
-      "value": 0.975,
+      "value": 0.99,
       "unit": "dimensionless",
       "population": { "$ref": "#/population" },
       "confidence_interval": {
         "level": "95%",
-        "method": "Fisher z-transformation",
-        "lower": 0.940,
-        "upper": 0.989
+        "method": "Clustered bootstrap",
+        "lower": 0.962,
+        "upper": 0.996
       }
     },
 
@@ -182,9 +234,14 @@
       "level": "hourly_agreement",
       "name": "Hourly Cough Rate — Regression Slope",
       "definition": "OLS slope for Hyfe ~ Human cough rate. Value close to 1 indicates proportional agreement across the range of cough rates.",
-      "value": 1.037,
+      "value": 0.94,
       "unit": "dimensionless ((coughs/hr) / (coughs/hr))",
-      "population": { "$ref": "#/population" }
+      "population": { "$ref": "#/population" },
+      "confidence_interval": {
+        "level": "95%",
+        "lower": 0.91,
+        "upper": 0.97
+      }
     },
 
     {
@@ -192,9 +249,14 @@
       "level": "hourly_agreement",
       "name": "Hourly Cough Rate — Regression Intercept",
       "definition": "Fixed offset in the regression line for hourly rate data.",
-      "value": 1.18,
+      "value": 0.74,
       "unit": "coughs/hr",
-      "population": { "$ref": "#/population" }
+      "population": { "$ref": "#/population" },
+      "confidence_interval": {
+        "level": "95%",
+        "lower": 0.50,
+        "upper": 0.99
+      }
     },
 
     {
@@ -202,15 +264,15 @@
       "level": "hourly_agreement",
       "name": "Hourly Cough Rate — Bland-Altman Mean Bias",
       "definition": "Mean of (Hyfe rate − Human rate) across all participants. Positive value indicates Hyfe records more coughs per hour on average.",
-      "value": 1.62,
+      "value": 0.23,
       "unit": "coughs/hr",
       "direction": "Hyfe over-counts on average",
       "population": { "$ref": "#/population" },
       "confidence_interval": {
         "level": "95%",
         "method": "Parametric: bias ± 1.96 · (SD / √n)",
-        "lower": 0.55,
-        "upper": 2.69,
+        "lower": -0.04,
+        "upper": 0.51,
         "unit": "coughs/hr"
       }
     },
@@ -220,64 +282,46 @@
       "level": "hourly_agreement",
       "name": "Hourly Cough Rate — Bland-Altman 95% Limits of Agreement",
       "definition": "Range within which 95% of individual per-participant hourly rate differences (Hyfe − Human) are expected to fall.",
-      "value": { "lower": -3.5, "upper": 6.8 },
+      "value": { "lower": -3.7, "upper": 4.8 },
       "unit": "coughs/hr",
       "population": { "$ref": "#/population" },
       "methodology": {
-        "sd_of_differences": 2.62,
         "n_data_points": 23
       }
-    },
-
-    {
-      "id": "event_coughs_sensitivity",
-      "level": "event_detection",
-      "event_type": "coughs",
-      "name": "Event-Level Cough Detection — Sensitivity",
-      "definition": "Proportion of individual cough events correctly detected by Hyfe out of all cough events annotated by human reviewers. Sensitivity = TP / (TP + FN).",
-      "value": 0.808,
-      "value_display": "80.8%",
-      "unit": "proportion",
-      "population": { "$ref": "#/population" },
-      "confidence_interval": {
-        "note": "Event-level CI requires total TP/FN counts from the source dataset; not available in index.html."
-      }
-    },
-
-    {
-      "id": "event_coughs_precision",
-      "level": "event_detection",
-      "event_type": "coughs",
-      "name": "Event-Level Cough Detection — Precision (Positive Predictive Value)",
-      "definition": "Proportion of Hyfe detections that correspond to a true human-annotated cough event. Precision = TP / (TP + FP). Also reported as PPV.",
-      "value": 0.714,
-      "value_display": "71.4%",
-      "unit": "proportion",
-      "population": { "$ref": "#/population" }
-    },
-
-    {
-      "id": "event_coughs_fp_per_hour",
-      "level": "event_detection",
-      "event_type": "coughs",
-      "name": "Event-Level Cough Detection — False Positives per Hour",
-      "abbreviation": "FP/hr",
-      "definition": "Number of Hyfe detections per hour of recording that do not correspond to a human-annotated cough. Lower values indicate fewer spurious detections.",
-      "value": 3.96,
-      "unit": "events/hr",
-      "population": { "$ref": "#/population" }
     },
 
     {
       "id": "event_cough_seconds_sensitivity",
       "level": "event_detection",
       "event_type": "cough_seconds",
-      "name": "Cough-Second Detection — Sensitivity",
-      "definition": "Sensitivity at the cough-second granularity. A cough-second is a 1-second unit of continuous cough audio. More robust to segmentation ambiguity in prolonged coughing than discrete event counts.",
-      "value": 0.826,
-      "value_display": "82.6%",
+      "name": "Cough-Second Detection — Sensitivity (primary event metric)",
+      "definition": "Sensitivity at the cough-second granularity. Analysis unit: any second containing at least one cough. Matching window ±0.5 s. More robust to segmentation ambiguity in prolonged coughing than discrete event counts. This is the primary event-level metric reported on the page.",
+      "value": 0.904,
+      "value_display": "90.4%",
       "unit": "proportion",
-      "population": { "$ref": "#/population" }
+      "population": { "$ref": "#/population" },
+      "confidence_interval": {
+        "level": "95%",
+        "lower_display": "88.3%",
+        "upper_display": "92.2%"
+      }
+    },
+
+    {
+      "id": "event_cough_seconds_ppv",
+      "level": "event_detection",
+      "event_type": "cough_seconds",
+      "name": "Cough-Second Detection — Positive Predictive Value (PPV)",
+      "definition": "Proportion of Hyfe cough-second detections that correspond to a human-annotated cough second. PPV = TP / (TP + FP).",
+      "value": 0.875,
+      "value_display": "87.5%",
+      "unit": "proportion",
+      "population": { "$ref": "#/population" },
+      "confidence_interval": {
+        "level": "95%",
+        "lower_display": "81.9%",
+        "upper_display": "91.6%"
+      }
     },
 
     {
@@ -285,32 +329,15 @@
       "level": "event_detection",
       "event_type": "cough_seconds",
       "name": "Cough-Second Detection — False Positives per Hour",
-      "value": 3.03,
+      "definition": "Number of Hyfe cough-second detections per hour of recording that do not correspond to a human-annotated cough second. Lower values indicate fewer spurious detections.",
+      "value": 1.03,
       "unit": "events/hr",
-      "population": { "$ref": "#/population" }
-    },
-
-    {
-      "id": "event_cough_epochs_sensitivity",
-      "level": "event_detection",
-      "event_type": "cough_epochs",
-      "name": "Cough-Epoch Detection — Sensitivity",
-      "definition": "Sensitivity at the cough-epoch granularity. A cough epoch is a fixed-length time window (52ms frame) classified as containing a cough. Boundary-insensitive; yields highest sensitivity among the three event-level granularities.",
-      "value": 0.890,
-      "value_display": "89.0%",
-      "unit": "proportion",
-      "population": { "$ref": "#/population" }
-    },
-
-    {
-      "id": "event_cough_epochs_fp_per_hour",
-      "level": "event_detection",
-      "event_type": "cough_epochs",
-      "name": "Cough-Epoch Detection — False Positives per Hour",
-      "definition": "Lowest FP/hr among the three event-level granularities, reflecting the favourable precision-recall operating point of epoch-level detection.",
-      "value": 2.08,
-      "unit": "events/hr",
-      "population": { "$ref": "#/population" }
+      "population": { "$ref": "#/population" },
+      "confidence_interval": {
+        "level": "95%",
+        "lower_display": "0.84",
+        "upper_display": "1.24"
+      }
     },
 
     {

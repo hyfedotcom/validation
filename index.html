@@ -126,7 +126,7 @@ gtag('config', 'G-0SSN9HFHP6');
         "@type": "Dataset",
         "@id": "https://validation.hyfe.com/#dataset",
         "name": "Hyfe Cough Monitoring System — Multicenter Clinical Validation Dataset",
-        "description": "Validation dataset from a multicenter observational study (n=23) comparing Hyfe AI automated cough counts to human-annotated ground truth across ~24 hours of continuous real-world recording per participant. Includes event-level detection metrics, hourly cough rate agreement (CCC=0.963), and daily cough count agreement (CCC=0.965).",
+        "description": "Validation dataset from a multicenter observational study (n=23) comparing Hyfe AI automated cough counts to human-annotated ground truth across ~24 hours of continuous real-world recording per participant. Includes event-level detection metrics, hourly cough rate agreement (CCC=0.963, LCCC coughs=0.9748, LCCC cough-seconds=0.9683), and daily cough count agreement (CCC=0.965, LCCC coughs=0.971, LCCC cough-seconds=0.956).",
         "creator": { "@id": "https://www.hyfe.com/#organization" },
         "publisher": { "@id": "https://www.hyfe.com/#organization" },
         "datePublished": "2024-01-01",
@@ -1217,25 +1217,29 @@ gtag('config', 'G-0SSN9HFHP6');
     <div class="ticker-track" id="ticker-track">
       <span class="ticker-item"><span class="ticker-key">Daily CCC</span><span class="ticker-val">0.965</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">Hourly CCC</span><span class="ticker-val">0.963</span></span>
+      <span class="ticker-item"><span class="ticker-key">LCCC Hourly</span><span class="ticker-val">0.9748</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">Pearson r</span><span class="ticker-val">0.976</span></span>
+      <span class="ticker-item"><span class="ticker-key">LCCC Daily</span><span class="ticker-val">0.971</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">Sensitivity</span><span class="ticker-val">80.8%</span></span>
+      <span class="ticker-item"><span class="ticker-key">Sensitivity</span><span class="ticker-val">90.4%</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">FP / hr</span><span class="ticker-val">3.96</span></span>
+      <span class="ticker-item"><span class="ticker-key">FP / hr</span><span class="ticker-val">1.03</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">Cough-Epoch Sensitivity</span><span class="ticker-val">89.0%</span></span>
+      <span class="ticker-item"><span class="ticker-key">PPV</span><span class="ticker-val">87.5%</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">Mean Bias</span><span class="ticker-val">+38 coughs/day</span></span>
+      <span class="ticker-item"><span class="ticker-key">Pearson r</span><span class="ticker-val">0.99</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">95% LoA</span><span class="ticker-val">−82 to +159</span></span>
+      <span class="ticker-item"><span class="ticker-key">Mean Bias</span><span class="ticker-val">0.23 /hr</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">95% LoA</span><span class="ticker-val">−3.7 to +4.8 /hr</span></span>
       <span class="ticker-dot"></span>
       <span class="ticker-item"><span class="ticker-key">Participants</span><span class="ticker-val">n = 23</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">Recording</span><span class="ticker-val">24h continuous</span></span>
+      <span class="ticker-item"><span class="ticker-key">Hours Monitored</span><span class="ticker-val">546 h</span></span>
       <span class="ticker-dot"></span>
-      <span class="ticker-item"><span class="ticker-key">Target CCC</span><span class="ticker-val">≥ 0.90</span></span>
+      <span class="ticker-item"><span class="ticker-key">Cough Events</span><span class="ticker-val">4,454</span></span>
+      <span class="ticker-dot"></span>
+      <span class="ticker-item"><span class="ticker-key">Recording</span><span class="ticker-val">24h continuous</span></span>
       <span class="ticker-dot"></span>
       <span class="ticker-item"><span class="ticker-key">Study Design</span><span class="ticker-val">Multicenter</span></span>
       <span class="ticker-dot"></span>
@@ -1420,34 +1424,50 @@ gtag('config', 'G-0SSN9HFHP6');
       <!-- Metric Cards -->
       <div class="metric-grid reveal">
         <div class="metric-card">
-          <div class="metric-card-label">Lin's CCC</div>
-          <div class="metric-card-value accent">0.963</div>
-          <div class="metric-card-sub">Concordance correlation coefficient</div>
+          <div class="metric-card-label">Pearson r</div>
+          <div class="metric-card-value accent">0.99</div>
+          <div class="metric-card-sub">Linear association (477 person-hours)</div>
         </div>
         <div class="metric-card">
-          <div class="metric-card-label">Pearson r</div>
-          <div class="metric-card-value">0.975</div>
-          <div class="metric-card-sub">Linear association</div>
+          <div class="metric-card-label">95% CI</div>
+          <div class="metric-card-value">0.962–0.996</div>
+          <div class="metric-card-sub">Clustered bootstrap</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Slope</div>
-          <div class="metric-card-value">1.038</div>
-          <div class="metric-card-sub">Regression coefficient</div>
+          <div class="metric-card-value">0.94</div>
+          <div class="metric-card-sub">OLS regression (95% CI 0.91–0.97)</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Intercept</div>
-          <div class="metric-card-value">1.2</div>
-          <div class="metric-card-sub">Systematic offset</div>
+          <div class="metric-card-value">0.74</div>
+          <div class="metric-card-sub">OLS intercept (95% CI 0.50–0.99)</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">Mean Bias</div>
-          <div class="metric-card-value">+2 /hr</div>
-          <div class="metric-card-sub">Bland–Altman</div>
+          <div class="metric-card-value">0.23 /hr</div>
+          <div class="metric-card-sub">Bland–Altman (95% CI −0.04 to 0.51)</div>
         </div>
         <div class="metric-card">
           <div class="metric-card-label">95% <abbr title="Limits of Agreement">LoA</abbr></div>
-          <div class="metric-card-value">-4–+7</div>
-          <div class="metric-card-sub">Limits of agreement</div>
+          <div class="metric-card-value">−3.7 to +4.8</div>
+          <div class="metric-card-sub">coughs/hr</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label"><abbr title="Lin's Concordance Correlation Coefficient">Lin's LCCC</abbr> — Hourly Coughs</div>
+          <div class="metric-card-value accent">0.9748</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label"><abbr title="Lin's Concordance Correlation Coefficient">Lin's LCCC</abbr> — Hourly Cough-Seconds</div>
+          <div class="metric-card-value accent">0.9683</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label"><abbr title="Lin's Concordance Correlation Coefficient">Lin's LCCC</abbr> — Daily Coughs</div>
+          <div class="metric-card-value accent">0.971</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-card-label"><abbr title="Lin's Concordance Correlation Coefficient">Lin's LCCC</abbr> — Daily Cough-Seconds</div>
+          <div class="metric-card-value accent">0.956</div>
         </div>
       </div>
 
@@ -1466,67 +1486,6 @@ gtag('config', 'G-0SSN9HFHP6');
             </div>
             <span class="viz-placeholder-title">Hour-by-Hour Scatterplot</span>
             <p class="viz-placeholder-sub">Hover individual person-hours · Toggle: regression line, y&nbsp;=&nbsp;x, residuals · Secondary tab: Bland–Altman view</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════════════════════════════════ -->
-  <!-- Section 4 — Daily Agreement                       -->
-  <!-- ══════════════════════════════════════════════════ -->
-  <section id="daily">
-    <div class="container">
-      <div class="section-header reveal">
-        <div class="section-number">04</div>
-        <div>
-          <h2 class="section-title">Agreement at the Daily Level</h2>
-          <div class="section-body">
-            <p>Clinical decisions and trial endpoints often operate at daily aggregation. Each point below represents one person-day.</p>
-            <p>Daily aggregation reduces stochastic noise while preserving signal integrity — and consistency between hourly and daily concordance reinforces credibility.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Daily Metric Cards -->
-      <div class="metric-grid reveal">
-        <div class="metric-card">
-          <div class="metric-card-label">Lin's CCC</div>
-          <div class="metric-card-value accent">0.965</div>
-          <div class="metric-card-sub">Daily concordance</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card-label">Pearson r</div>
-          <div class="metric-card-value">0.976</div>
-          <div class="metric-card-sub">Linear association</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card-label">Mean Bias</div>
-          <div class="metric-card-value">+38 coughs</div>
-          <div class="metric-card-sub">Systematic offset</div>
-        </div>
-        <div class="metric-card">
-          <div class="metric-card-label">95% LoA</div>
-          <div class="metric-card-value">-82–+159</div>
-          <div class="metric-card-sub">Limits of agreement</div>
-        </div>
-      </div>
-
-      <!-- Daily Scatterplot Placeholder -->
-      <div class="reveal" style="margin-top:40px">
-        <div class="viz-placeholder" id="daily-scatter-container" style="min-height:440px">
-          <span class="viz-badge">Phase 2 — Interactive</span>
-          <div class="viz-placeholder-inner">
-            <div class="viz-placeholder-icon">
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5">
-                <rect x="2" y="2" width="18" height="18" rx="2"/>
-                <circle cx="6" cy="15" r="2"/><circle cx="11" cy="10" r="2"/>
-                <circle cx="16" cy="6" r="2"/>
-                <line x1="4" y1="18" x2="18" y2="4" stroke-dasharray="2 2"/>
-              </svg>
-            </div>
-            <span class="viz-placeholder-title">Day-by-Day Scatterplot</span>
-            <p class="viz-placeholder-sub">Same interface as hourly · Hover individual person-days · Toggle: regression line, y&nbsp;=&nbsp;x, residuals · Bland–Altman tab</p>
           </div>
         </div>
       </div>
@@ -1561,23 +1520,18 @@ gtag('config', 'G-0SSN9HFHP6');
           <tbody>
             <tr>
               <td class="metric-name">Sensitivity</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="80.8" data-bar-max="100">80.8%</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
-              <td class="metric-note">Proportion of true coughs detected</td>
-            </tr>
-            <tr>
-              <td class="metric-name">Precision</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="71.4" data-bar-max="100">71.4%</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
-              <td class="metric-note">Proportion of detections that are true coughs</td>
-            </tr>
-            <tr>
-              <td class="metric-name">False Positives / Hour</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="3.96" data-bar-max="10">3.96 / hr</span><div class="bar-track"><div class="bar-fill" style="background:rgba(255,150,50,0.55)"></div></div></div></td>
-              <td class="metric-note">Non-cough events classified as coughs per hour</td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="90.4" data-bar-max="100">90.4%</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
+              <td class="metric-note">Proportion of true coughs detected (95% CI 88.3–92.2%)</td>
             </tr>
             <tr>
               <td class="metric-name">Positive Predictive Value</td>
-              <td><div class="bar-cell"><span class="mono accent" data-bar="71.4" data-bar-max="100">71.4%</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
-              <td class="metric-note">Equivalent to precision in binary classification</td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="87.5" data-bar-max="100">87.5%</span><div class="bar-track"><div class="bar-fill"></div></div></div></td>
+              <td class="metric-note">Proportion of detections that are true coughs (95% CI 81.9–91.6%)</td>
+            </tr>
+            <tr>
+              <td class="metric-name">False Positives / Hour</td>
+              <td><div class="bar-cell"><span class="mono accent" data-bar="1.03" data-bar-max="5">1.03 / hr</span><div class="bar-track"><div class="bar-fill" style="background:rgba(255,150,50,0.55)"></div></div></div></td>
+              <td class="metric-note">Non-cough events classified as coughs per hour (95% CI 0.84–1.24)</td>
             </tr>
           </tbody>
         </table>
@@ -1767,37 +1721,25 @@ gtag('config', 'G-0SSN9HFHP6');
     const hR  = SUB.map(s => parseFloat((s.human / s.hours).toFixed(2)));
     const yR  = SUB.map(s => parseFloat((s.hyfe  / s.hours).toFixed(2)));
 
-    /* ── Stat helpers ──────────────────────────────────────────── */
-    function mean(a){ return a.reduce((s,v)=>s+v,0)/a.length; }
-    function std(a){ const m=mean(a); return Math.sqrt(a.reduce((s,v)=>s+(v-m)**2,0)/(a.length-1)); }
-    function pearson(x,y){
-      const mx=mean(x),my=mean(y),n=x.length;
-      let num=0,dx2=0,dy2=0;
-      for(let i=0;i<n;i++){const dx=x[i]-mx,dy=y[i]-my;num+=dx*dy;dx2+=dx*dx;dy2+=dy*dy;}
-      return num/Math.sqrt(dx2*dy2);
-    }
-    function ccc(x,y){
-      const r=pearson(x,y),mx=mean(x),my=mean(y),sx=std(x),sy=std(y);
-      return (2*r*sx*sy)/(sx*sx+sy*sy+(mx-my)**2);
-    }
-    function reg(x,y){
-      const mx=mean(x),my=mean(y),n=x.length;
-      let num=0,den=0;
-      for(let i=0;i<n;i++){num+=(x[i]-mx)*(y[i]-my);den+=(x[i]-mx)**2;}
-      const slope=num/den;
-      return {slope, intercept:my-slope*mx};
-    }
-    function ba(x,y){
-      const d=x.map((v,i)=>y[i]-v),b=mean(d),s=std(d);
-      return {bias:b,sd:s,upper:b+1.96*s,lower:b-1.96*s};
-    }
-    const f3=v=>v.toFixed(3);
+    /* ── Paper-reported statistics (Chaccour et al., Scientific Reports 2025) ── */
+    const PAPER = {
+      sensitivity:  '90.4%',  sensitivityCI: '95% CI 88.3–92.2%',
+      ppv:          '87.5%',  ppvCI:         '95% CI 81.9–91.6%',
+      fpPerHr:      '1.03',   fpCI:          '95% CI 0.84–1.24',
+      pearsonR:     '0.99',   pearsonCI:     '95% CI 0.962–0.996',
+      slope:        '0.94',   slopeCI:       '95% CI 0.91–0.97',
+      intercept:    '0.74',   interceptCI:   '95% CI 0.50–0.99',
+      bias:         '0.23',   biasCI:        '95% CI −0.04 to 0.51',
+      loaLower:     '−3.7',   loaUpper:      '+4.8',
+      loaLowerCI:   '95% CI −5.2 to −3.0',
+      loaUpperCI:   '95% CI 4.0 to 6.0',
+      /* Lin's Concordance Correlation Coefficient */
+      lcccHourly:   '0.9748',
+      lcccHourlyCS: '0.9683',
+      lcccDaily:    '0.971',
+      lcccDailyCS:  '0.956',
+    };
     const f1=v=>v.toFixed(1);
-    const fsi=v=>(v>=0?'+':'')+Math.round(v);
-
-    /* Pre-compute */
-    const sD={r:pearson(hD,yD),ccc:ccc(hD,yD),reg:reg(hD,yD),ba:ba(hD,yD)};
-    const sR={r:pearson(hR,yR),ccc:ccc(hR,yR),reg:reg(hR,yR),ba:ba(hR,yR)};
 
     /* ── Chart.js defaults ─────────────────────────────────────── */
     Chart.defaults.color            = '#55566a';
@@ -1821,8 +1763,6 @@ gtag('config', 'G-0SSN9HFHP6');
     (function(){
       const el=document.getElementById('metric-selector-container');
       if(!el)return;
-      const hLoA=`${fsi(sR.ba.lower)} / ${fsi(sR.ba.upper)}`;
-      const dLoA=`${fsi(sD.ba.lower)} / ${fsi(sD.ba.upper)}`;
       el.classList.remove('viz-placeholder');
       el.removeAttribute('style');
       el.innerHTML=`
@@ -1830,45 +1770,29 @@ gtag('config', 'G-0SSN9HFHP6');
           <div class="ms-tab-strip">
             <button class="ms-tab" data-tab="event">Event-Level Metrics</button>
             <button class="ms-tab active" data-tab="hourly">Hourly Agreement</button>
-            <button class="ms-tab" data-tab="daily">Daily Agreement</button>
           </div>
           <div class="ms-panel" data-panel="event">
-            <div class="ms-event-grid">
+            <div class="ms-event-grid" style="grid-template-columns:1fr">
               <div class="ms-event-card">
-                <div class="ms-event-type">Coughs</div>
-                <div class="ms-stat-row"><span class="ms-stat-label">Sensitivity</span><span class="ms-stat-val a">80.8%</span></div>
-                <div class="ms-stat-row"><span class="ms-stat-label">FP / Hour</span><span class="ms-stat-val">3.96</span></div>
-              </div>
-              <div class="ms-event-card">
-                <div class="ms-event-type">Cough-Seconds</div>
-                <div class="ms-stat-row"><span class="ms-stat-label">Sensitivity</span><span class="ms-stat-val a">82.6%</span></div>
-                <div class="ms-stat-row"><span class="ms-stat-label">FP / Hour</span><span class="ms-stat-val">3.03</span></div>
-              </div>
-              <div class="ms-event-card">
-                <div class="ms-event-type">Cough-Epochs</div>
-                <div class="ms-stat-row"><span class="ms-stat-label">Sensitivity</span><span class="ms-stat-val a">89.0%</span></div>
-                <div class="ms-stat-row"><span class="ms-stat-label">FP / Hour</span><span class="ms-stat-val">2.08</span></div>
+                <div class="ms-event-type">Cough-Seconds (primary unit)</div>
+                <div class="ms-stat-row"><span class="ms-stat-label">Sensitivity</span><span class="ms-stat-val a">90.4%</span></div>
+                <div class="ms-stat-row"><span class="ms-stat-label">PPV</span><span class="ms-stat-val a">87.5%</span></div>
+                <div class="ms-stat-row"><span class="ms-stat-label">FP / Hour</span><span class="ms-stat-val">1.03</span></div>
               </div>
             </div>
-            <p class="ms-note">Event metrics inform model behaviour. Rate-level concordance informs clinical utility.</p>
+            <p class="ms-note">Analysis unit: cough-second (any second containing at least one cough). Matching window: ±0.5 s. Source: Chaccour et al., Scientific Reports 2025.</p>
           </div>
           <div class="ms-panel active" data-panel="hourly">
             <div class="ms-agr-grid">
-              <div class="metric-card"><div class="metric-card-label">Lin's CCC</div><div class="metric-card-value accent">${f3(sR.ccc)}</div><div class="metric-card-sub">Hourly rate concordance</div></div>
-              <div class="metric-card"><div class="metric-card-label">Pearson r</div><div class="metric-card-value">${f3(sR.r)}</div><div class="metric-card-sub">Linear association</div></div>
-              <div class="metric-card"><div class="metric-card-label">Mean Bias</div><div class="metric-card-value">${fsi(sR.ba.bias)}<span style="font-size:.85rem;color:var(--text-muted)"> /hr</span></div><div class="metric-card-sub">Hyfe vs. observer</div></div>
-              <div class="metric-card"><div class="metric-card-label">95% LoA</div><div class="metric-card-value" style="font-size:1.3rem">${hLoA}</div><div class="metric-card-sub">Limits of agreement</div></div>
+              <div class="metric-card"><div class="metric-card-label">Pearson r</div><div class="metric-card-value accent">0.99</div><div class="metric-card-sub">477 person-hours</div></div>
+              <div class="metric-card"><div class="metric-card-label">Slope</div><div class="metric-card-value">0.94</div><div class="metric-card-sub">OLS (95% CI 0.91–0.97)</div></div>
+              <div class="metric-card"><div class="metric-card-label">Intercept</div><div class="metric-card-value">0.74</div><div class="metric-card-sub">OLS (95% CI 0.50–0.99)</div></div>
+              <div class="metric-card"><div class="metric-card-label">Mean Bias</div><div class="metric-card-value">0.23 /hr</div><div class="metric-card-sub">Bland–Altman</div></div>
+              <div class="metric-card"><div class="metric-card-label">95% LoA</div><div class="metric-card-value" style="font-size:1.3rem">−3.7 / +4.8</div><div class="metric-card-sub">coughs/hr</div></div>
+              <div class="metric-card"><div class="metric-card-label">Lin's LCCC — Hourly Coughs</div><div class="metric-card-value accent">0.9748</div></div>
+              <div class="metric-card"><div class="metric-card-label">Lin's LCCC — Hourly Cough-Sec</div><div class="metric-card-value accent">0.9683</div></div>
             </div>
-            <p class="ms-note">n = 23 participants &nbsp;·&nbsp; 24-hr continuous recording &nbsp;·&nbsp; Cough rate in coughs / hour</p>
-          </div>
-          <div class="ms-panel" data-panel="daily">
-            <div class="ms-agr-grid">
-              <div class="metric-card"><div class="metric-card-label">Lin's CCC</div><div class="metric-card-value accent">${f3(sD.ccc)}</div><div class="metric-card-sub">Daily count concordance</div></div>
-              <div class="metric-card"><div class="metric-card-label">Pearson r</div><div class="metric-card-value">${f3(sD.r)}</div><div class="metric-card-sub">Linear association</div></div>
-              <div class="metric-card"><div class="metric-card-label">Mean Bias</div><div class="metric-card-value">${fsi(sD.ba.bias)}<span style="font-size:.85rem;color:var(--text-muted)"> coughs</span></div><div class="metric-card-sub">Hyfe vs. observer</div></div>
-              <div class="metric-card"><div class="metric-card-label">95% LoA</div><div class="metric-card-value" style="font-size:1.3rem">${dLoA}</div><div class="metric-card-sub">Limits of agreement</div></div>
-            </div>
-            <p class="ms-note">n = 23 participants &nbsp;·&nbsp; Daily total cough count &nbsp;·&nbsp; Raw event counts</p>
+            <p class="ms-note">Hour-by-hour comparison across 477 person-hours &nbsp;·&nbsp; 23 participants &nbsp;·&nbsp; Clustered bootstrap CIs. Source: Chaccour et al., Scientific Reports 2025.</p>
           </div>
         </div>`;
       el.querySelectorAll('.ms-tab').forEach(t=>{
@@ -1886,7 +1810,8 @@ gtag('config', 'G-0SSN9HFHP6');
       const el=document.getElementById('correlation-chart-container');
       if(!el)return;
       const MX=1150;
-      const r=sD.reg;
+      /* Regression line uses paper-reported values: slope=0.94, intercept=0.74 (from 477 person-hours analysis) */
+      const r={slope:0.94, intercept:0.74};
       el.classList.remove('viz-placeholder');
       el.style.cssText='';
       el.innerHTML=`
@@ -1898,9 +1823,10 @@ gtag('config', 'G-0SSN9HFHP6');
             </div>
           </div>
           <div class="chart-stat-badges">
-            <div class="chart-stat-badge">Pearson r = <b>${f3(sD.r)}</b></div>
-            <div class="chart-stat-badge">Lin's CCC = <b>${f3(sD.ccc)}</b></div>
-            <div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">n = 23 participants &nbsp;·&nbsp; daily cough counts</div>
+            <div class="chart-stat-badge">Pearson r = <b>0.99</b></div>
+            <div class="chart-stat-badge">Lin's LCCC (daily coughs) = <b>0.971</b></div>
+            <div class="chart-stat-badge">Lin's LCCC (daily cough-sec) = <b>0.956</b></div>
+            <div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">Paper analysis: 477 person-hours &nbsp;·&nbsp; Chart shows per-participant daily totals (n = 23)</div>
           </div>
           <div class="chart-canvas-wrap" style="height:360px">
             <canvas id="cv-canvas"></canvas>
@@ -1945,11 +1871,10 @@ gtag('config', 'G-0SSN9HFHP6');
       });
     })();
 
-    /* ── Scatter / Bland-Altman builder (Viz 3 & 4) ───────────── */
-    function buildSBAChart(cid, xs, ys, labels, stats, unit, note){
+    /* ── Scatter / Bland-Altman builder (Viz 3) ───────────────── */
+    function buildSBAChart(cid, xs, ys, labels, _unused, unit, note){
       const el=document.getElementById(cid);
       if(!el)return;
-      const r=stats.reg, b=stats.ba;
       let view='scatter', showId=true, showReg=false, showRes=false;
       let ci=null;
 
@@ -1983,7 +1908,7 @@ gtag('config', 'G-0SSN9HFHP6');
           const ctx=chart.ctx,meta=chart.getDatasetMeta(0);
           ctx.save();ctx.strokeStyle='rgba(255,255,255,.2)';ctx.lineWidth=1;ctx.setLineDash([3,3]);
           meta.data.forEach((pt,i)=>{
-            const yReg=r.slope*xs[i]+r.intercept;
+            const yReg=paperSlope*xs[i]+paperIntercept;
             const pyPt=chart.scales.y.getPixelForValue(ys[i]);
             const pyRg=chart.scales.y.getPixelForValue(yReg);
             ctx.beginPath();ctx.moveTo(pt.x,pyPt);ctx.lineTo(pt.x,pyRg);ctx.stroke();
@@ -1992,13 +1917,18 @@ gtag('config', 'G-0SSN9HFHP6');
         }
       };
 
+      /* Paper values for chart reference lines and badges */
+      const paperBias=0.23, paperLoaUpper=4.8, paperLoaLower=-3.7;
+      const paperSlope=0.94, paperIntercept=0.74;
+
       function badges(){
         const bd=document.getElementById(cid+'-bdg');
         if(!bd)return;
+        /* All stat values from Chaccour et al., Scientific Reports 2025 (477 person-hours) */
         if(view==='scatter'){
-          bd.innerHTML=`<div class="chart-stat-badge">Lin's CCC = <b>${f3(stats.ccc)}</b></div><div class="chart-stat-badge">Pearson r = <b>${f3(stats.r)}</b></div><div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">${note}</div>`;
+          bd.innerHTML=`<div class="chart-stat-badge">Pearson r = <b>0.99</b></div><div class="chart-stat-badge">Lin's LCCC (coughs) = <b>0.9748</b></div><div class="chart-stat-badge">Lin's LCCC (cough-sec) = <b>0.9683</b></div><div class="chart-stat-badge">Slope = <b>0.94</b> &nbsp;·&nbsp; Intercept = <b>0.74</b></div><div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">${note}</div>`;
         } else {
-          bd.innerHTML=`<div class="chart-stat-badge">Bias = <b>${fsi(b.bias)} ${unit}</b></div><div class="chart-stat-badge">95% LoA = <b>${fsi(b.lower)} to ${fsi(b.upper)} ${unit}</b></div><div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">Bland–Altman &nbsp;·&nbsp; ${note}</div>`;
+          bd.innerHTML=`<div class="chart-stat-badge">Bias = <b>0.23 ${unit}</b></div><div class="chart-stat-badge">95% LoA = <b>−3.7 to +4.8 ${unit}</b></div><div class="chart-stat-badge" style="color:var(--text-muted);font-size:.64rem">Bland–Altman &nbsp;·&nbsp; ${note}</div>`;
         }
       }
 
@@ -2019,7 +1949,7 @@ gtag('config', 'G-0SSN9HFHP6');
              backgroundColor:'rgba(255,206,29,.85)',borderColor:'#c9a000',pointRadius:6,pointHoverRadius:9,order:3},
             {type:'line',label:'Identity',data:[{x:0,y:0},{x:MX,y:MX}],
              borderColor:AC,borderWidth:1.5,pointRadius:0,fill:false,tension:0,hidden:!showId,order:1},
-            {type:'line',label:'Regression',data:[{x:0,y:r.intercept},{x:MX,y:r.slope*MX+r.intercept}],
+            {type:'line',label:'Regression',data:[{x:0,y:paperIntercept},{x:MX,y:paperSlope*MX+paperIntercept}],
              borderColor:RC,borderWidth:1.5,borderDash:[5,4],pointRadius:0,fill:false,tension:0,hidden:!showReg,order:2},
           ];
           ci=new Chart(cvs,{
@@ -2036,15 +1966,14 @@ gtag('config', 'G-0SSN9HFHP6');
           const means=xs.map((v,i)=>(v+ys[i])/2);
           const diffs=xs.map((v,i)=>ys[i]-v);
           const MXm=Math.max(...means)*1.12;
-          const pad=Math.max(Math.abs(b.upper),Math.abs(b.lower))*1.4;
           datasets=[
             {label:'Participants',data:means.map((v,i)=>({x:v,y:diffs[i],lbl:labels[i]})),
              backgroundColor:'rgba(255,206,29,.85)',borderColor:'#c9a000',pointRadius:6,pointHoverRadius:9,order:3},
-            {type:'line',label:'Bias',data:[{x:0,y:b.bias},{x:MXm,y:b.bias}],
+            {type:'line',label:'Bias',data:[{x:0,y:paperBias},{x:MXm,y:paperBias}],
              borderColor:AC,borderWidth:1.5,pointRadius:0,fill:false,tension:0,order:1},
-            {type:'line',label:'Upper LoA',data:[{x:0,y:b.upper},{x:MXm,y:b.upper}],
+            {type:'line',label:'Upper LoA',data:[{x:0,y:paperLoaUpper},{x:MXm,y:paperLoaUpper}],
              borderColor:'rgba(255,174,0,.5)',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false,tension:0,order:2},
-            {type:'line',label:'Lower LoA',data:[{x:0,y:b.lower},{x:MXm,y:b.lower}],
+            {type:'line',label:'Lower LoA',data:[{x:0,y:paperLoaLower},{x:MXm,y:paperLoaLower}],
              borderColor:'rgba(255,174,0,.5)',borderWidth:1,borderDash:[5,4],pointRadius:0,fill:false,tension:0,order:2},
           ];
           ci=new Chart(cvs,{
@@ -2077,42 +2006,7 @@ gtag('config', 'G-0SSN9HFHP6');
       render();
     }
 
-    buildSBAChart('hourly-scatter-container', hR, yR, IDS, sR, 'coughs/hr',  'n = 23 participants · 24-hr continuous · Hourly rate');
-    buildSBAChart('daily-scatter-container',  hD, yD, IDS, sD, 'coughs',     'n = 23 participants · 24-hr continuous · Daily total');
-
-    /* ── Populate Section 3 metric cards ───────────────────────── */
-    function fillCard(sec,label,val){
-      sec.querySelectorAll('.metric-card').forEach(card=>{
-        const l=card.querySelector('.metric-card-label');
-        if(l&&l.textContent.trim()===label){
-          const v=card.querySelector('.metric-card-value');if(v)v.textContent=val;
-        }
-      });
-    }
-    const s3=document.getElementById('hourly');
-    if(s3){
-      fillCard(s3,"Lin's CCC", f3(sR.ccc));
-      fillCard(s3,'Pearson r',  f3(sR.r));
-      fillCard(s3,'Slope',      f3(sR.reg.slope));
-      fillCard(s3,'Intercept',  f1(sR.reg.intercept));
-      fillCard(s3,'Mean Bias',  fsi(sR.ba.bias)+' /hr');
-      fillCard(s3,'95% LoA',    fsi(sR.ba.lower)+'–'+fsi(sR.ba.upper));
-    }
-    const s4=document.getElementById('daily');
-    if(s4){
-      fillCard(s4,"Lin's CCC", f3(sD.ccc));
-      fillCard(s4,'Pearson r',  f3(sD.r));
-      fillCard(s4,'Mean Bias',  fsi(sD.ba.bias)+' coughs');
-      fillCard(s4,'95% LoA',    fsi(sD.ba.lower)+'–'+fsi(sD.ba.upper));
-    }
-
-    /* ── Populate Section 5 event table ───────────────────────── */
-    const evtCells=document.querySelectorAll('#event-level .event-table .mono.accent');
-    ['80.8%','71.4%','3.96 / hr','71.4%'].forEach((v,i)=>{if(evtCells[i])evtCells[i].textContent=v;});
-
-    /* ── Update footer note ────────────────────────────────────── */
-    const fn=document.querySelector('.footer-note');
-    if(fn)fn.textContent='This page presents validation methodology and statistical results for Hyfe\'s cough monitoring technology. Data reflects FDA performance analysis across 23 participants, each with 24 hours of continuous real-world recording.';
+    buildSBAChart('hourly-scatter-container', hR, yR, IDS, null, 'coughs/hr',  'n = 23 participants · per-participant rates · Paper stats from 477 person-hours');
 
   })();
   </script>

@@ -11,12 +11,16 @@
   "primary_claims": [
     "Daily cough count CCC = 0.965 (Hyfe vs. human annotator, n=23, 24-hr recordings)",
     "Daily Pearson r = 0.976 (linear association; CCC is the clinically appropriate metric)",
-    "Hourly cough rate CCC ≈ 0.962 (daily totals normalized to coughs/hour per participant)",
+    "Hourly cough rate CCC = 0.963 (daily totals normalized to coughs/hour per participant)",
+    "Hourly Pearson r = 0.99 (95% CI 0.962–0.996); regression slope = 0.94 (95% CI 0.91–0.97); intercept = 0.74",
+    "Hourly Bland-Altman bias = +0.23 coughs/hr (95% CI −0.04 to 0.51); 95% LoA = −3.7 to +4.8 coughs/hr",
+    "Lin's LCCC (hourly coughs) = 0.9748 — hour-by-hour concordance",
+    "Lin's LCCC (hourly cough-seconds) = 0.9683 — hour-by-hour concordance",
+    "Lin's LCCC (daily coughs) = 0.971 — daily total concordance",
+    "Lin's LCCC (daily cough-seconds) = 0.956 — daily total concordance",
     "Daily mean bias = +38 coughs/day (Hyfe over-counts relative to human ground truth on average)",
     "Daily 95% Limits of Agreement: −82 to +159 coughs/day (Bland-Altman)",
-    "Event-level: Cough detection sensitivity = 80.8%, false positives = 3.96 / hr",
-    "Event-level: Cough-second detection sensitivity = 82.6%, false positives = 3.03 / hr",
-    "Event-level: Cough-epoch detection sensitivity = 89.0%, false positives = 2.08 / hr",
+    "Event-level (cough-seconds, primary unit): sensitivity = 90.4% (95% CI 88.3–92.2%), PPV = 87.5% (95% CI 81.9–91.6%), false positives = 1.03/hr (95% CI 0.84–1.24)",
     "Ground truth established via dual independent human annotation + expert adjudication (not automated labeling)",
     "Inter-rater agreement measured with Cohen's κ; low-agreement sessions flagged for re-review",
     "23 participants across three study sites (site codes: S-OH, S-SM, S-UN); each with ~24 hours of continuous recording",
@@ -31,6 +35,8 @@
     "recording_duration_per_participant": "~24 hours continuous",
     "daily_agreement": {
       "ccc": 0.965,
+      "lccc_coughs": 0.971,
+      "lccc_cough_seconds": 0.956,
       "pearson_r": 0.976,
       "mean_bias_coughs_per_day": 38,
       "bland_altman_loa_lower": -82,
@@ -38,13 +44,33 @@
       "units": "total coughs per 24-hr session"
     },
     "hourly_agreement": {
-      "ccc": 0.962,
-      "units": "coughs per hour (daily totals divided by recording hours)"
+      "ccc": 0.963,
+      "pearson_r": 0.99,
+      "pearson_r_ci": "95% CI 0.962–0.996",
+      "slope": 0.94,
+      "slope_ci": "95% CI 0.91–0.97",
+      "intercept": 0.74,
+      "intercept_ci": "95% CI 0.50–0.99",
+      "bland_altman_bias": 0.23,
+      "bland_altman_bias_unit": "coughs/hr",
+      "bland_altman_bias_ci": "95% CI −0.04 to 0.51",
+      "loa_lower": -3.7,
+      "loa_upper": 4.8,
+      "loa_unit": "coughs/hr",
+      "lccc_coughs": 0.9748,
+      "lccc_cough_seconds": 0.9683,
+      "units": "coughs per hour (477 person-hours across 23 participants)"
     },
     "event_level": {
-      "coughs":        { "sensitivity_pct": 80.8, "fp_per_hour": 3.96 },
-      "cough_seconds": { "sensitivity_pct": 82.6, "fp_per_hour": 3.03 },
-      "cough_epochs":  { "sensitivity_pct": 89.0, "fp_per_hour": 2.08 }
+      "cough_seconds_primary": {
+        "sensitivity_pct": 90.4,
+        "sensitivity_ci": "95% CI 88.3–92.2%",
+        "ppv_pct": 87.5,
+        "ppv_ci": "95% CI 81.9–91.6%",
+        "fp_per_hour": 1.03,
+        "fp_ci": "95% CI 0.84–1.24",
+        "note": "Cough-seconds analysis unit (any second containing ≥1 cough). This is the primary event metric shown on the page."
+      }
     }
   },
 

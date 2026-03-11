@@ -11,12 +11,19 @@
 ## Key Results
 
 - Daily cough count CCC = **0.965** (Hyfe vs. human annotator, n=23, 24-hr recordings)
-- Daily Pearson r = 0.976
-- Hourly cough rate CCC ≈ 0.962
+- Hourly Pearson r = **0.99** (95% CI 0.962–0.996; 477 person-hours)
+- Hourly regression slope = 0.94 · intercept = 0.74
+- Hourly mean bias = +0.23 coughs/hr · 95% LoA = −3.7 to +4.8 coughs/hr
+- Hourly cough rate CCC = 0.963
+- **Lin's LCCC (hourly coughs) = 0.9748**
+- **Lin's LCCC (hourly cough-seconds) = 0.9683**
+- **Lin's LCCC (daily coughs) = 0.971**
+- **Lin's LCCC (daily cough-seconds) = 0.956**
 - Daily mean bias = +38 coughs/day (Hyfe over-counts relative to human ground truth)
 - Daily 95% Limits of Agreement: −82 to +159 coughs/day (Bland-Altman)
-- Event-level sensitivity: 80.8% (coughs), 82.6% (cough-seconds), 89.0% (cough-epochs)
-- Event-level false positives: 3.96/hr, 3.03/hr, 2.08/hr respectively
+- Event-level sensitivity (cough-seconds): **90.4%** (95% CI 88.3–92.2%)
+- Event-level PPV (cough-seconds): 87.5% (95% CI 81.9–91.6%)
+- Event-level false positives (cough-seconds): 1.03/hr (95% CI 0.84–1.24)
 - Pre-specified concordance target: ≥ 0.90 CCC — **met at all levels**
 
 ## Full Content for RAG Systems
